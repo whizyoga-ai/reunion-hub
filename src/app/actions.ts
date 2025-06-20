@@ -17,7 +17,7 @@ export async function handleRegistration(
     const validatedFields = RegistrationFormSchema.safeParse(values);
 
     if (!validatedFields.success) {
-      return { success: false, message: 'Invalid form data.' };
+      return { success: false, message: 'অবৈধ ফর্ম ডেটা।' };
     }
 
     // Simulate saving data
@@ -27,10 +27,10 @@ export async function handleRegistration(
     // For now, we just return a success message.
     await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
 
-    return { success: true, message: 'Thank you for registering! We look forward to seeing you.' };
+    return { success: true, message: 'নিবন্ধন করার জন্য ধন্যবাদ! আপনার সাথে দেখা হওয়ার অপেক্ষায় রইলাম।' };
   } catch (error) {
     console.error('Registration error:', error);
-    return { success: false, message: 'Registration failed. Please try again.' };
+    return { success: false, message: 'নিবন্ধন ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।' };
   }
 }
 
@@ -41,7 +41,7 @@ export async function getIcebreakerSuggestion(
   try {
     const validatedFields = IcebreakerFormSchema.safeParse(values);
     if (!validatedFields.success) {
-      return { success: false, message: 'Invalid input for icebreaker.' };
+      return { success: false, message: 'পরিচিতি পর্বের জন্য অবৈধ ইনপুট।' };
     }
 
     const icebreakerOutput = await generateIcebreakerQuestion(validatedFields.data);
@@ -49,10 +49,10 @@ export async function getIcebreakerSuggestion(
     if (icebreakerOutput && icebreakerOutput.icebreakerQuestion) {
       return { success: true, icebreaker: icebreakerOutput };
     } else {
-      return { success: false, message: 'Could not generate an icebreaker question.' };
+      return { success: false, message: 'একটি প্রশ্ন তৈরি করা যায়নি।' };
     }
   } catch (error) {
     console.error('Icebreaker generation error:', error);
-    return { success: false, message: 'Failed to generate icebreaker. Please try again.' };
+    return { success: false, message: 'প্রশ্ন তৈরি করতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।' };
   }
 }

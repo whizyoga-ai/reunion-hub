@@ -48,20 +48,20 @@ export function IcebreakerTool() {
       if (result.success && result.icebreaker) {
         setIcebreakerQuestion(result.icebreaker.icebreakerQuestion);
         toast({
-          title: 'Icebreaker Generated!',
-          description: 'Here is a fun question to get conversations started.',
+          title: 'প্রশ্ন তৈরি!',
+          description: 'কথাবার্তা শুরু করার জন্য এখানে একটি মজার প্রশ্ন রয়েছে।',
         });
       } else {
         toast({
-          title: 'Generation Failed',
-          description: result.message || 'Could not generate an icebreaker.',
+          title: 'তৈরি করতে ব্যর্থ',
+          description: result.message || 'একটি প্রশ্ন তৈরি করা যায়নি।',
           variant: 'destructive',
         });
       }
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Something went wrong. Please try again.',
+        title: 'ত্রুটি',
+        description: 'কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
         variant: 'destructive',
       });
     } finally {
@@ -77,9 +77,9 @@ export function IcebreakerTool() {
             <div className="mx-auto w-fit mb-4 text-primary">
                 <Sparkles size={40} strokeWidth={1.5} />
             </div>
-            <CardTitle className="text-3xl font-headline sm:text-4xl">Icebreaker Corner</CardTitle>
+            <CardTitle className="text-3xl font-headline sm:text-4xl">পরিচিতি পর্ব</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground font-body">
-              Need a conversation starter? Enter some (dummy or real) details to get a personalized icebreaker!
+              কথাবার্তা শুরু করতে চান? একটি ব্যক্তিগতকৃত প্রশ্ন পেতে কিছু (কাল্পনিক বা আসল) বিবরণ লিখুন!
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8">
@@ -90,9 +90,9 @@ export function IcebreakerTool() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Attendee's Name</FormLabel>
+                      <FormLabel>অংশগ্রহণকারীর নাম</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Alex Smith" {...field} />
+                        <Input placeholder="যেমনঃ আকাশ সেন" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -103,9 +103,9 @@ export function IcebreakerTool() {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Attendee's Phone (Optional)</FormLabel>
+                      <FormLabel>অংশগ্রহণকারীর ফোন (ঐচ্ছিক)</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="e.g. +15551234" {...field} />
+                        <Input type="tel" placeholder="যেমনঃ +৮৮০১২৩৪৫৬৭৮৯০" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,11 +116,11 @@ export function IcebreakerTool() {
                   name="tShirtSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Attendee's T-Shirt Size</FormLabel>
+                      <FormLabel>অংশগ্রহণকারীর টি-শার্ট সাইজ</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select T-shirt size" />
+                            <SelectValue placeholder="টি-শার্ট সাইজ নির্বাচন করুন" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -139,10 +139,10 @@ export function IcebreakerTool() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Generating...
+                      তৈরি হচ্ছে...
                     </>
                   ) : (
-                    'Get Icebreaker Idea'
+                    'আলোচনা শুরু করার প্রশ্ন পান'
                   )}
                 </Button>
               </form>
@@ -153,7 +153,7 @@ export function IcebreakerTool() {
               <Card className="w-full bg-primary/10 p-6 rounded-md">
                 <CardHeader className="p-0 pb-2 flex flex-row items-center gap-2">
                   <Lightbulb className="w-6 h-6 text-primary"/>
-                  <CardTitle className="text-xl font-headline text-primary">Your Icebreaker:</CardTitle>
+                  <CardTitle className="text-xl font-headline text-primary">আপনার জন্য প্রশ্ন:</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <p className="text-lg text-foreground font-body">{icebreakerQuestion}</p>

@@ -45,21 +45,21 @@ export function RegistrationForm() {
       const result = await handleRegistration(values);
       if (result.success) {
         toast({
-          title: 'Registration Successful!',
+          title: 'নিবন্ধন সফল!',
           description: result.message,
         });
         form.reset();
       } else {
         toast({
-          title: 'Registration Failed',
-          description: result.message || 'An unexpected error occurred.',
+          title: 'নিবন্ধন ব্যর্থ',
+          description: result.message || 'একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।',
           variant: 'destructive',
         });
       }
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Something went wrong. Please try again.',
+        title: 'ত্রুটি',
+        description: 'কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
         variant: 'destructive',
       });
     } finally {
@@ -75,9 +75,9 @@ export function RegistrationForm() {
              <div className="mx-auto w-fit mb-4 text-primary">
                 <Users size={40} strokeWidth={1.5} />
             </div>
-            <CardTitle className="text-3xl font-headline sm:text-4xl">Register for the Reunion</CardTitle>
+            <CardTitle className="text-3xl font-headline sm:text-4xl">পুনর্মিলনের জন্য নিবন্ধন করুন</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground font-body">
-              Secure your spot and let us know your T-shirt size!
+              আপনার স্থান নিশ্চিত করুন এবং আপনার টি-শার্টের সাইজ জানান!
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8">
@@ -88,9 +88,9 @@ export function RegistrationForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>সম্পূর্ণ নাম</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Jane Doe" {...field} />
+                        <Input placeholder="যেমনঃ রাজীব আহমেদ" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -101,9 +101,9 @@ export function RegistrationForm() {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel>ফোন নম্বর</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="e.g. +1234567890" {...field} />
+                        <Input type="tel" placeholder="যেমনঃ +৮৮০১২৩৪৫৬৭৮৯০" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -114,11 +114,11 @@ export function RegistrationForm() {
                   name="tShirtSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>T-Shirt Size</FormLabel>
+                      <FormLabel>টি-শার্ট সাইজ</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select your T-shirt size" />
+                            <SelectValue placeholder="আপনার টি-শার্ট সাইজ নির্বাচন করুন" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -137,10 +137,10 @@ export function RegistrationForm() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Submitting...
+                      জমা দেওয়া হচ্ছে...
                     </>
                   ) : (
-                    'Register Now'
+                    'এখনই নিবন্ধন করুন'
                   )}
                 </Button>
               </form>

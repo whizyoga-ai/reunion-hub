@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['PT Sans', 'sans-serif'],
-        headline: ['Playfair Display', 'serif'],
+        body: ['Hind Siliguri', 'PT Sans', 'sans-serif'],
+        headline: ['Hind Siliguri', 'Playfair Display', 'serif'],
         code: ['monospace'],
       },
       colors: {

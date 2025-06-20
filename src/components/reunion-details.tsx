@@ -3,10 +3,10 @@ import { MapPin, CalendarDays, Clock, PartyPopper } from "lucide-react";
 
 export function ReunionDetails() {
   const reunion = {
-    name: "Uttarpara Amarendra Vidyapith - Grand Reunion (1988 Madhyamik & 1990 HS)",
-    date: "Saturday, December 6th, 2025",
-    time: "10:00 AM - 9:00 PM",
-    venue: "'Alo Ghar', Uttarpara, West Bengal, India",
+    name: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা পুনর্মিলন (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
+    date: "শনিবার, ৬ই ডিসেম্বর, ২০২৫",
+    time: "সকাল ১০:০০ - রাত ৯:০০",
+    venue: "'আলো ঘর', উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত",
   };
 
   return (
@@ -18,7 +18,7 @@ export function ReunionDetails() {
               <PartyPopper size={48} strokeWidth={1.5} />
             </div>
             <CardTitle className="text-4xl font-headline tracking-tight sm:text-5xl">
-              You're Invited!
+              আপনি আমন্ত্রিত!
             </CardTitle>
             <CardDescription className="mt-4 text-lg leading-6 text-primary-foreground/90 font-body">
               {reunion.name}
@@ -28,21 +28,21 @@ export function ReunionDetails() {
             <div className="flex items-start space-x-4">
               <CalendarDays className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">Date</h3>
+                <h3 className="text-xl font-semibold font-headline text-foreground">তারিখ</h3>
                 <p className="text-muted-foreground font-body">{reunion.date}</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Clock className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">Time</h3>
+                <h3 className="text-xl font-semibold font-headline text-foreground">সময়</h3>
                 <p className="text-muted-foreground font-body">{reunion.time}</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <MapPin className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">Venue</h3>
+                <h3 className="text-xl font-semibold font-headline text-foreground">স্থান</h3>
                 <p className="text-muted-foreground font-body">{reunion.venue}</p>
               </div>
             </div>

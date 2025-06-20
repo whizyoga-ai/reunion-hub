@@ -13,28 +13,28 @@ import type { FaqItem } from "@/lib/definitions";
 const faqData: FaqItem[] = [
   {
     id: "faq-1",
-    question: "What is the dress code for the reunion?",
-    answer: "The dress code is smart casual. Feel free to dress comfortably yet stylishly for a day of fun and reconnection!",
+    question: "পুনর্মিলনের জন্য পোশাক বিধি কী?",
+    answer: "পোশাক বিধি হলো স্মার্ট ক্যাজুয়াল। আনন্দ এবং পুনর্মিলনের একটি দিনের জন্য আরামে এবং স্টাইলিশভাবে পোশাক পরতে পারেন!",
   },
   {
     id: "faq-2",
-    question: "Can I bring a guest to the reunion?",
-    answer: "Due to venue capacity and planning, registrations are primarily for alumni. If you wish to bring a guest, please contact the organizers in advance to check for availability.",
+    question: "আমি কি পুনর্মিলনীতে অতিথি আনতে পারি?",
+    answer: "স্থানের সীমাবদ্ধতা এবং পরিকল্পনার কারণে, নিবন্ধন প্রাথমিকভাবে প্রাক্তন ছাত্রদের জন্য। আপনি যদি অতিথি আনতে চান, অনুগ্রহ করে উপলব্ধতা জানতে আয়োজকদের সাথে আগে থেকে যোগাযোগ করুন।",
   },
   {
     id: "faq-3",
-    question: "Is parking available at the venue?",
-    answer: "Limited parking is available at 'Alo Ghar'. We encourage carpooling or using public transport where possible to ease congestion.",
+    question: "অনুষ্ঠানস্থলে কি পার্কিংয়ের ব্যবস্থা আছে?",
+    answer: "'আলো ঘর'-এ সীমিত পার্কিং উপলব্ধ। যানজট কমাতে আমরা সম্ভব হলে কারপুলিং বা গণপরিবহন ব্যবহারের জন্য উৎসাহিত করি।",
   },
   {
     id: "faq-4",
-    question: "What are the COVID-19 safety protocols?",
-    answer: "We will be adhering to all local health guidelines and advisories current at the time of the event. We kindly ask that if you are feeling unwell, please stay home to ensure everyone's safety. Hand sanitizers will be available.",
+    question: "কোভিড-১৯ নিরাপত্তা প্রোটোকলগুলি কী কী?",
+    answer: "অনুষ্ঠানের সময়কার সমস্ত স্থানীয় স্বাস্থ্য নির্দেশিকা এবং পরামর্শ আমরা মেনে চলব। আমরা বিনীতভাবে অনুরোধ করছি যে আপনি যদি অসুস্থ বোধ করেন, অনুগ্রহ করে সকলের নিরাপত্তা নিশ্চিত করতে বাড়িতে থাকুন। হ্যান্ড স্যানিটাইজার উপলব্ধ থাকবে।",
   },
   {
     id: "faq-5",
-    question: "Will food and drinks be provided?",
-    answer: "Yes! A variety of delicious food and refreshing beverages will be provided throughout the event, from 10 AM to 9 PM. We'll have options to cater to different tastes.",
+    question: "খাবার ও পানীয় কি সরবরাহ করা হবে?",
+    answer: "হ্যাঁ! সকাল ১০টা থেকে রাত ৯টা পর্যন্ত অনুষ্ঠান জুড়ে বিভিন্ন ধরনের সুস্বাদু খাবার এবং সতেজ পানীয় সরবরাহ করা হবে। আমাদের বিভিন্ন স্বাদের জন্য বিকল্প থাকবে।",
   },
 ];
 
@@ -47,9 +47,9 @@ export function FaqSection() {
             <div className="mx-auto w-fit mb-4 text-primary">
                 <HelpCircle size={40} strokeWidth={1.5} />
             </div>
-            <CardTitle className="text-3xl font-headline sm:text-4xl">Frequently Asked Questions</CardTitle>
+            <CardTitle className="text-3xl font-headline sm:text-4xl">সচরাচর জিজ্ঞাসিত প্রশ্ন</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground font-body">
-              Find answers to common queries about the reunion.
+              পুনর্মিলন সম্পর্কিত সাধারণ প্রশ্নের উত্তর খুঁজুন।
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8 pt-0">
