@@ -3,7 +3,7 @@ import { MapPin, CalendarDays, Clock, PartyPopper } from "lucide-react";
 
 export function ReunionDetails() {
   const reunion = {
-    name: "Our Amazing School Reunion!",
+    name: "Uttarpara Amarendra Vidyapith - Grand Reunion (1988 Madhyamik & 1990 HS)",
     date: "Saturday, December 6th, 2025",
     time: "10:00 AM - 9:00 PM",
     venue: "'Alo Ghar', Uttarpara, West Bengal, India",

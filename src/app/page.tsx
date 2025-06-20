@@ -29,11 +29,11 @@ export default function HomePage() {
           </div>
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-5xl font-extrabold font-headline tracking-tight text-primary sm:text-6xl md:text-7xl">
-              Welcome Back, Alumni!
+              Welcome Back, Uttarpara Amarendra Vidyapith Alumni!
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground font-body">
-              Get ready to reconnect, reminisce, and create new memories at our grand school reunion.
-              Scroll down for details and registration.
+              Reconnect with your batchmates from the 1988 Madhyamik & 1990 HS batch.
+              Get ready to reminisce and create new memories at our grand school reunion.
             </p>
             <div className="mt-10">
               <Image 
@@ -42,7 +42,7 @@ export default function HomePage() {
                 width={800} 
                 height={400}
                 className="rounded-lg shadow-2xl mx-auto"
-                data-ai-hint="reunion celebration"
+                data-ai-hint="reunion school"
                 priority
               />
             </div>

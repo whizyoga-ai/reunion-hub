@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Reunion Hub',
-  description: 'Join us for the school reunion!',
+  title: 'Uttarpara Amarendra Vidyapith - Reunion Hub (1988 Madhyamik & 1990 HS)',
+  description: 'Join the reunion for Uttarpara Amarendra Vidyapith (1988 Madhyamik & 1990 HS batch).',
 };
 
 export default function RootLayout({
