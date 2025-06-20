@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -45,21 +46,21 @@ export function RegistrationForm() {
       const result = await handleRegistration(values);
       if (result.success) {
         toast({
-          title: 'নিবন্ধন সফল!',
+          title: 'Registration Successful!',
           description: result.message,
         });
         form.reset();
       } else {
         toast({
-          title: 'নিবন্ধন ব্যর্থ',
-          description: result.message || 'একটি অপ্রত্যাশিত ত্রুটি ঘটেছে।',
+          title: 'Registration Failed',
+          description: result.message || 'An unexpected error occurred.',
           variant: 'destructive',
         });
       }
     } catch (error) {
       toast({
-        title: 'ত্রুটি',
-        description: 'কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।',
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
         variant: 'destructive',
       });
     } finally {
@@ -75,9 +76,9 @@ export function RegistrationForm() {
              <div className="mx-auto w-fit mb-4 text-primary">
                 <Users size={40} strokeWidth={1.5} />
             </div>
-            <CardTitle className="text-3xl font-headline sm:text-4xl">পুনর্মিলনের জন্য নিবন্ধন করুন</CardTitle>
+            <CardTitle className="text-3xl font-headline sm:text-4xl">Register for the Reunion</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground font-body">
-              আপনার স্থান নিশ্চিত করুন এবং আপনার টি-শার্টের সাইজ জানান!
+              Secure your spot and let us know your t-shirt size!
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8">
@@ -88,9 +89,9 @@ export function RegistrationForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>সম্পূর্ণ নাম</FormLabel>
+                      <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="যেমনঃ রাজীব আহমেদ" {...field} />
+                        <Input placeholder="e.g., John Doe" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -101,9 +102,9 @@ export function RegistrationForm() {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>ফোন নম্বর</FormLabel>
+                      <FormLabel>Phone Number</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="যেমনঃ +৮৮০১২৩৪৫৬৭৮৯০" {...field} />
+                        <Input type="tel" placeholder="e.g., +1234567890" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -114,11 +115,11 @@ export function RegistrationForm() {
                   name="tShirtSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>টি-শার্ট সাইজ</FormLabel>
+                      <FormLabel>T-Shirt Size</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="আপনার টি-শার্ট সাইজ নির্বাচন করুন" />
+                            <SelectValue placeholder="Select your t-shirt size" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -137,10 +138,10 @@ export function RegistrationForm() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      জমা দেওয়া হচ্ছে...
+                      Submitting...
                     </>
                   ) : (
-                    'এখনই নিবন্ধন করুন'
+                    'Register Now'
                   )}
                 </Button>
               </form>

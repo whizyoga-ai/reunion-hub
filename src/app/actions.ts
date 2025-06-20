@@ -1,3 +1,4 @@
+
 'use server';
 
 import { z } from 'zod';
@@ -17,7 +18,7 @@ export async function handleRegistration(
     const validatedFields = RegistrationFormSchema.safeParse(values);
 
     if (!validatedFields.success) {
-      return { success: false, message: 'অবৈধ ফর্ম ডেটা।' };
+      return { success: false, message: 'Invalid form data.' };
     }
 
     // Simulate saving data
@@ -27,10 +28,10 @@ export async function handleRegistration(
     // For now, we just return a success message.
     await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
 
-    return { success: true, message: 'নিবন্ধন করার জন্য ধন্যবাদ! আপনার সাথে দেখা হওয়ার অপেক্ষায় রইলাম।' };
+    return { success: true, message: 'Thanks for registering! We look forward to seeing you.' };
   } catch (error) {
     console.error('Registration error:', error);
-    return { success: false, message: 'নিবন্ধন ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।' };
+    return { success: false, message: 'Registration failed. Please try again.' };
   }
 }
 
