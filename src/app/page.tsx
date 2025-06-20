@@ -37,12 +37,12 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image 
-                src="https://placehold.co/800x400.png" 
-                alt="School reunion gathering" 
-                width={800} 
-                height={400}
+                src="https://placehold.co/851x315.png" 
+                alt="Uttarpara Amarendra Vidyapith school building" 
+                width={851} 
+                height={315}
                 className="rounded-lg shadow-2xl mx-auto"
-                data-ai-hint="reunion school"
+                data-ai-hint="school building"
                 priority
               />
             </div>
