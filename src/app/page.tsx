@@ -1,3 +1,4 @@
+
 import { ReunionDetails } from "@/components/reunion-details";
 import { RegistrationForm } from "@/components/registration-form";
 import { IcebreakerTool } from "@/components/icebreaker-tool";
@@ -36,10 +37,10 @@ export default function HomePage() {
               Get ready to reminisce and create new memories at our grand school reunion.
             </p>
             <div className="mt-10">
-              <Image 
-                src="https://placehold.co/851x315.png" 
-                alt="Uttarpara Amarendra Vidyapith school building" 
-                width={851} 
+              <Image
+                src="https://placehold.co/851x315.png"
+                alt="Uttarpara Amarendra Vidyapith school building"
+                width={851}
                 height={315}
                 className="rounded-lg shadow-2xl mx-auto"
                 data-ai-hint="school building"
@@ -48,7 +49,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        
+
         <ReunionDetails />
         <Separator className="my-0" />
         <RegistrationForm />
