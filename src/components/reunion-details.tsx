@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, CalendarDays, Clock, PartyPopper } from "lucide-react";
 
@@ -18,7 +19,7 @@ export function ReunionDetails() {
               <PartyPopper size={48} strokeWidth={1.5} />
             </div>
             <CardTitle className="text-4xl font-headline tracking-tight sm:text-5xl">
-              আপনি আমন্ত্রিত!
+              আসলে কেউ বড় হয় না
             </CardTitle>
             <CardDescription className="mt-4 text-lg leading-6 text-primary-foreground/90 font-body">
               {reunion.name}
