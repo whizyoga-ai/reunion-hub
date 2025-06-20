@@ -32,9 +32,8 @@ export default function HomePage() {
             <h1 className="text-5xl font-extrabold font-headline tracking-tight text-primary sm:text-6xl md:text-7xl">
               স্বাগতম, উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের প্রাক্তন ছাত্র-ছাত্রীরা!
             </h1>
-            <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground font-body">
-              ১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে পুনরায় সংযোগ স্থাপন করুন।
-              আমাদের এই বর্ণাঢ্য স্কুল পুনর্মিলনীতে স্মৃতিচারণ করুন এবং নতুন স্মৃতি তৈরি করতে প্রস্তুত হন।
+            <p className="mt-6 max-w-3xl mx-auto text-xl text-foreground font-body">
+              ১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার আয়, আড্ডা দে। আমাদের এই বর্ণাঢ্য স্কুল পুনর্মিলনীতে চল্ পুরনো স্মৃতিগুলো ঝালিয়ে নিই আর নতুন কিছু স্মৃতি তৈরি করি।
             </p>
             <div className="mt-10">
               <Image
@@ -65,7 +64,7 @@ export default function HomePage() {
             &copy; {new Date().getFullYear()} পুনর্মিলন কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।
           </p>
           <p className="text-xs mt-1 font-body">
-            আপনাদের সাথে উদযাপন করার জন্য উন্মুখ!
+            তোমাদের সাথে উদযাপন করার জন্য উন্মুখ!
           </p>
         </div>
       </footer>
