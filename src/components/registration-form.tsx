@@ -22,17 +22,25 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { RegistrationFormSchema, type RegistrationFormValues } from '@/lib/definitions';
+import { registrationFormSchemaEn, registrationFormSchemaBn, type RegistrationFormValues } from '@/lib/definitions';
 import { handleRegistration } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Users } from 'lucide-react';
+import { content } from '@/lib/content';
 
-export function RegistrationForm() {
+interface RegistrationFormProps {
+  lang: 'en' | 'bn';
+}
+
+export function RegistrationForm({ lang }: RegistrationFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const { toast } = useToast();
+  const c = content[lang].registrationForm;
+
+  const formSchema = lang === 'en' ? registrationFormSchemaEn : registrationFormSchemaBn;
 
   const form = useForm<RegistrationFormValues>({
-    resolver: zodResolver(RegistrationFormSchema),
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       phoneNumber: '',
@@ -46,21 +54,21 @@ export function RegistrationForm() {
       const result = await handleRegistration(values);
       if (result.success) {
         toast({
-          title: 'Registration Successful!',
+          title: c.successToastTitle,
           description: result.message,
         });
         form.reset();
       } else {
         toast({
-          title: 'Registration Failed',
+          title: c.failureToastTitle,
           description: result.message || 'An unexpected error occurred.',
           variant: 'destructive',
         });
       }
     } catch (error) {
       toast({
-        title: 'Error',
-        description: 'Something went wrong. Please try again.',
+        title: c.errorToastTitle,
+        description: c.errorToastDescription,
         variant: 'destructive',
       });
     } finally {
@@ -76,9 +84,9 @@ export function RegistrationForm() {
              <div className="mx-auto w-fit mb-4 text-primary">
                 <Users size={40} strokeWidth={1.5} />
             </div>
-            <CardTitle className="text-3xl font-headline sm:text-4xl">Register for the Reunion</CardTitle>
+            <CardTitle className="text-3xl font-headline sm:text-4xl">{c.title}</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground font-body">
-              Secure your spot and let us know your t-shirt size!
+              {c.description}
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8">
@@ -89,9 +97,9 @@ export function RegistrationForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>{c.nameLabel}</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., John Doe" {...field} />
+                        <Input placeholder={c.namePlaceholder} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -102,9 +110,9 @@ export function RegistrationForm() {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel>{c.phoneLabel}</FormLabel>
                       <FormControl>
-                        <Input type="tel" placeholder="e.g., +1234567890" {...field} />
+                        <Input type="tel" placeholder={c.phonePlaceholder} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -115,11 +123,11 @@ export function RegistrationForm() {
                   name="tShirtSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>T-Shirt Size</FormLabel>
+                      <FormLabel>{c.tshirtLabel}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select your t-shirt size" />
+                            <SelectValue placeholder={c.tshirtPlaceholder} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -138,10 +146,10 @@ export function RegistrationForm() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Submitting...
+                      {c.submittingButton}
                     </>
                   ) : (
-                    'Register Now'
+                    c.submitButton
                   )}
                 </Button>
               </form>

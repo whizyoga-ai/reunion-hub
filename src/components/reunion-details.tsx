@@ -1,14 +1,14 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, CalendarDays, Clock, PartyPopper } from "lucide-react";
+import { content } from '@/lib/content';
 
-export function ReunionDetails() {
-  const reunion = {
-    name: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা পুনর্মিলন (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
-    date: "শনিবার, ৬ই ডিসেম্বর, ২০২৫",
-    time: "সকাল ১০:০০ - রাত ৯:০০",
-    venue: "'আলো ঘর', উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত",
-  };
+interface ReunionDetailsProps {
+  lang: 'en' | 'bn';
+}
+
+export function ReunionDetails({ lang }: ReunionDetailsProps) {
+  const c = content[lang].reunionDetails;
 
   return (
     <section id="details" className="py-16 sm:py-24 bg-muted/50">
@@ -19,32 +19,32 @@ export function ReunionDetails() {
               <PartyPopper size={48} strokeWidth={1.5} />
             </div>
             <CardTitle className="text-4xl font-headline tracking-tight sm:text-5xl">
-              আসলে কেউ বড় হয় না
+              {c.cardTitle}
             </CardTitle>
             <CardDescription className="mt-4 text-lg leading-6 text-primary-foreground/90 font-body">
-              {reunion.name}
+              {c.eventName}
             </CardDescription>
           </CardHeader>
           <CardContent className="p-8 space-y-6">
             <div className="flex items-start space-x-4">
               <CalendarDays className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">তারিখ</h3>
-                <p className="text-muted-foreground font-body">{reunion.date}</p>
+                <h3 className="text-xl font-semibold font-headline text-foreground">{c.dateLabel}</h3>
+                <p className="text-muted-foreground font-body">{c.date}</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Clock className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">সময়</h3>
-                <p className="text-muted-foreground font-body">{reunion.time}</p>
+                <h3 className="text-xl font-semibold font-headline text-foreground">{c.timeLabel}</h3>
+                <p className="text-muted-foreground font-body">{c.time}</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <MapPin className="h-8 w-8 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
               <div>
-                <h3 className="text-xl font-semibold font-headline text-foreground">স্থান</h3>
-                <p className="text-muted-foreground font-body">{reunion.venue}</p>
+                <h3 className="text-xl font-semibold font-headline text-foreground">{c.venueLabel}</h3>
+                <p className="text-muted-foreground font-body">{c.venue}</p>
               </div>
             </div>
           </CardContent>
