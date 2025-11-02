@@ -14,13 +14,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { icebreakerFormSchemaEn, icebreakerFormSchemaBn, type IcebreakerFormValues } from '@/lib/definitions';
 import { getIcebreakerSuggestion } from '@/app/actions';
@@ -45,7 +39,8 @@ export function IcebreakerTool({ lang }: IcebreakerToolProps) {
     defaultValues: {
       name: '',
       phoneNumber: '',
-      tShirtSize: undefined,
+      fishDishes: false,
+      alcoholicDrinks: false,
     },
   });
 
@@ -122,25 +117,39 @@ export function IcebreakerTool({ lang }: IcebreakerToolProps) {
                 />
                 <FormField
                   control={form.control}
-                  name="tShirtSize"
+                  name="fishDishes"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{c.tshirtLabel}</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={c.tshirtPlaceholder} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                           {["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
-                            <SelectItem key={size} value={size}>
-                              {size}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
+                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                      <div className="space-y-0.5">
+                        <FormLabel className="text-base">
+                          {c.fishLabel}
+                        </FormLabel>
+                      </div>
+                      <FormControl>
+                        <Switch
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                 <FormField
+                  control={form.control}
+                  name="alcoholicDrinks"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                      <div className="space-y-0.5">
+                        <FormLabel className="text-base">
+                          {c.alcoholicLabel}
+                        </FormLabel>
+                      </div>
+                      <FormControl>
+                        <Switch
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
                     </FormItem>
                   )}
                 />

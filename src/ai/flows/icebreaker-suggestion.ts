@@ -15,7 +15,8 @@ import {z} from 'genkit';
 const IcebreakerInputSchema = z.object({
   name: z.string().describe('The attendee\u2019s name.'),
   phoneNumber: z.string().describe('The attendee\u2019s phone number.'),
-  tShirtSize: z.string().describe('The attendee\u2019s t-shirt size.'),
+  fishDishes: z.boolean().describe('Whether the attendee prefers fish dishes.'),
+  alcoholicDrinks: z.boolean().describe('Whether the attendee prefers alcoholic drinks.'),
 });
 export type IcebreakerInput = z.infer<typeof IcebreakerInputSchema>;
 
@@ -42,7 +43,8 @@ const icebreakerPrompt = ai.definePrompt({
 
   Attendee Name: {{{name}}}
   Phone Number: {{{phoneNumber}}}
-  T-Shirt Size: {{{tShirtSize}}}
+  Prefers Fish: {{{fishDishes}}}
+  Prefers Alcohol: {{{alcoholicDrinks}}}
 
   Icebreaker Question:`,
 });
