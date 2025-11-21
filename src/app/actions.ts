@@ -2,7 +2,7 @@
 'use server';
 
 import { z } from 'zod';
-import { registrationFormSchemaEn, icebreakerFormSchemaEn, type RegistrationFormValues, type IcebreakerFormValues } from '@/lib/definitions';
+import { icebreakerFormSchemaEn, type IcebreakerFormValues } from '@/lib/definitions';
 import { generateIcebreakerQuestion, type IcebreakerOutput } from '@/ai/flows/icebreaker-suggestion';
 
 interface ActionResponse {
@@ -10,28 +10,6 @@ interface ActionResponse {
   message?: string;
   data?: any;
 }
-
-export async function handleRegistration(
-  values: RegistrationFormValues
-): Promise<ActionResponse> {
-  try {
-    const validatedFields = registrationFormSchemaEn.safeParse(values);
-
-    if (!validatedFields.success) {
-      return { success: false, message: 'Invalid form data.' };
-    }
-
-    console.log('Registration data:', validatedFields.data);
-
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    return { success: true, message: 'Thanks for registering! We look forward to seeing you.' };
-  } catch (error) {
-    console.error('Registration error:', error);
-    return { success: false, message: 'Registration failed. Please try again.' };
-  }
-}
-
 
 export async function getIcebreakerSuggestion(
   values: IcebreakerFormValues

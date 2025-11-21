@@ -8,7 +8,7 @@ export const content = {
     nav: {
       title: "Reunion Hub",
       details: "Details",
-      register: "Register",
+      attendees: "Attendees",
       icebreaker: "Icebreaker",
       faq: "FAQ",
       translate: "বাংলা",
@@ -28,21 +28,21 @@ export const content = {
       venueLabel: "Venue",
       venue: "'Alo Ghor', Uttarpara, West Bengal, India",
     },
-    registrationForm: {
-      title: "Register for the Reunion",
-      description: "Secure your spot and let us know your t-shirt size!",
-      nameLabel: "Full Name",
-      namePlaceholder: "e.g., John Doe",
-      phoneLabel: "Phone Number",
-      phonePlaceholder: "e.g., +1234567890",
-      tshirtLabel: "T-Shirt Size",
-      tshirtPlaceholder: "Select your t-shirt size",
-      submitButton: "Register Now",
-      submittingButton: "Submitting...",
-      successToastTitle: "Registration Successful!",
-      failureToastTitle: "Registration Failed",
-      errorToastTitle: "Error",
-      errorToastDescription: "Something went wrong. Please try again.",
+    confirmedAttendees: {
+      title: "Confirmed Attendees",
+      description: "Here's who has already confirmed their presence.",
+      addMorePrompt: "Want to add a name to the list?",
+      namePlaceholder: "Enter a name...",
+      addButton: "Add",
+      addSuccessToastTitle: "Name Added!",
+      addSuccessToastDescription: "has been added to the list.",
+      names: [
+        "Tanmoy", "Basab", "Ratul", "Sekharjit", "Supratim", "Chandan", 
+        "Biswaranjan", "Pradip", "Yogobrata", "Sudipta", "Shovon", "Arun", 
+        "Srikanta", "Amal", "Samir Mondal", "Subrata", "Sujoy", "Samar", 
+        "Uttam", "Chiranjeeb", "Siddhartha", "Anirban", "Mridul", "Swarup", 
+        "Sanjay Banik"
+      ]
     },
     icebreakerTool: {
       title: "Icebreaker Corner",
@@ -107,7 +107,7 @@ export const content = {
     nav: {
       title: "পুনর্মিলন কেন্দ্র",
       details: "বিবরণ",
-      register: "নিবন্ধন",
+      attendees: "উপস্থিতি",
       icebreaker: "পরিচিতি পর্ব",
       faq: "প্রশ্নাবলী",
       translate: "English",
@@ -127,21 +127,21 @@ export const content = {
       venueLabel: "স্থান",
       venue: "'আলো ঘর', উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত",
     },
-    registrationForm: {
-      title: "Register for the Reunion",
-      description: "Secure your spot and let us know your t-shirt size!",
-      nameLabel: "Full Name",
-      namePlaceholder: "e.g., John Doe",
-      phoneLabel: "Phone Number",
-      phonePlaceholder: "e.g., +1234567890",
-      tshirtLabel: "T-Shirt Size",
-      tshirtPlaceholder: "Select your t-shirt size",
-      submitButton: "Register Now",
-      submittingButton: "Submitting...",
-      successToastTitle: "Registration Successful!",
-      failureToastTitle: "Registration Failed",
-      errorToastTitle: "Error",
-      errorToastDescription: "Something went wrong. Please try again.",
+    confirmedAttendees: {
+      title: "যারা ইতিমধ্যে কনফার্ম করেছে:",
+      description: "যারা ইতিমধ্যে তাদের উপস্থিতি নিশ্চিত করেছে তাদের তালিকা নিচে দেওয়া হলো।",
+      addMorePrompt: "তালিকায় একটি নাম যোগ করতে চান?",
+      namePlaceholder: "একটি নাম লিখুন...",
+      addButton: "যোগ করুন",
+      addSuccessToastTitle: "নাম যোগ করা হয়েছে!",
+      addSuccessToastDescription: "তালিকায় যোগ করা হয়েছে।",
+      names: [
+        "তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", 
+        "বিশ্বরঞ্জন", "প্রদীপ", "যোগোব্রত", "সুদীপ্ত", "শোভন", "অরুণ", 
+        "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", 
+        "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", 
+        "সঞ্জয় বণিক"
+      ]
     },
     icebreakerTool: {
       title: "পরিচিতি পর্ব",
@@ -194,7 +194,7 @@ export const content = {
       ],
     },
     footer: {
-      copyright: `&copy; ${new Date().getFullYear()} পুনর্মিলন কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
+      copyright: `© ${new Date().getFullYear()} পুনর্মিলন কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
       closing: "তোমাদের সাথে উদযাপন করার জন্য উন্মুখ!",
     },
   },

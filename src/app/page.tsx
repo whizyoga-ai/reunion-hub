@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import { ReunionDetails } from "@/components/reunion-details";
-import { RegistrationForm } from "@/components/registration-form";
+import { ConfirmedAttendees } from "@/components/confirmed-attendees";
 import { IcebreakerTool } from "@/components/icebreaker-tool";
 import { FaqSection } from "@/components/faq-section";
 import { Separator } from "@/components/ui/separator";
@@ -29,7 +29,7 @@ export default function HomePage() {
           </a>
           <nav className="flex items-center space-x-2 sm:space-x-4">
             <a href="#details" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.details}</a>
-            <a href="#register" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.register}</a>
+            <a href="#attendees" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.attendees}</a>
             <a href="#icebreaker" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.icebreaker}</a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.faq}</a>
             <Button onClick={toggleLanguage} variant="outline" size="sm" className="w-20">
@@ -53,7 +53,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src="https://picsum.photos/seed/uav/851/351"
+                src="https://picsum.photos/seed/uav-building/851/351"
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
@@ -67,7 +67,7 @@ export default function HomePage() {
 
         <ReunionDetails lang={lang} />
         <Separator className="my-0" />
-        <RegistrationForm lang={lang} />
+        <ConfirmedAttendees lang={lang} />
         <Separator className="my-0" />
         <IcebreakerTool lang={lang} />
         <Separator className="my-0" />
