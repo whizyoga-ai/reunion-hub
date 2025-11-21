@@ -53,7 +53,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src="https://placehold.co/851x351.png"
+                src="https://picsum.photos/seed/uav/851/351"
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
