@@ -57,7 +57,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src="/school-building.jpg"
+                src="/amarendra1.jpg"
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
