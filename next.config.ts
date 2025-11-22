@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'akm-img-a-in.tosshub.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent.fblr2-4.fna.fbcdn.net',
       }
     ],
   },
