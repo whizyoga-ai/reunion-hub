@@ -1,7 +1,12 @@
 
 import type {NextConfig} from 'next';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig: NextConfig = {
+  output: 'export',
+  basePath: basePath,
+  assetPrefix: basePath,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -26,7 +31,7 @@ const nextConfig: NextConfig = {
         hostname: 'akm-img-a-in.tosshub.com',
       },
       {
-        protocol: 'https',
+        protocol: 'https'
         hostname: 'scontent.fblr2-4.fna.fbcdn.net',
       }
     ],

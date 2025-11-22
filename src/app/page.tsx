@@ -13,6 +13,8 @@ import Image from 'next/image';
 import { content } from '@/lib/content';
 import { Button } from '@/components/ui/button';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
 
@@ -57,7 +59,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src="https://scontent.fblr2-4.fna.fbcdn.net/v/t39.30808-6/301805836_487048956771854_1926997738625733197_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=V5l5nFP4ZYAQ7kNvgHOTmDR&_nc_zt=23&_nc_ht=scontent.fblr2-4.fna&_nc_gid=A2b8X-Ud4_MmG5O8m2zQFRr&oh=00_AYDEqLCY0R0oQLjv7W0EzFWwXcN4RfiTzOTjQ9JGp-aQfQ&oe=674027B5"
+                src={`${basePath}/school-building.jpg`}
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
