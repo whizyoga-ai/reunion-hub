@@ -46,7 +46,8 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">
-      <section className="relative py-32 md:py-48 bg-gradient-to-br from-rose-100 via-pink-50 to-orange-50">      
+      <section className="relative py-32 md:py-48 bg-gradient-to-br from-rose-100 via-pink-50 to-orange-50">
+                <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-5xl font-extrabold font-headline tracking-tight text-primary sm:text-6xl md:text-7xl">
               {c.hero.title}
             </h1>
@@ -64,7 +65,7 @@ export default function HomePage() {
                 priority
               />
             </div>
-          </div>
+                          </div>
         </section>
 
         <RegistrationForm lang={lang} />
