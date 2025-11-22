@@ -154,6 +154,8 @@ export const content = {
       failureToastDescription: "Couldn't generate a question.",
       errorToastTitle: "Error",
       errorToastDescription: "Something went wrong. Please try again.",
+      disabledTitle: "Feature Disabled",
+      disabledDescription: "The AI Icebreaker tool is available in the local development environment but is disabled in the deployed version.",
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -345,6 +347,8 @@ export const content = {
       failureToastDescription: "একটি প্রশ্ন তৈরি করা যায়নি।",
       errorToastTitle: "ত্রুটি",
       errorToastDescription: "কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+      disabledTitle: "বৈশিষ্ট্য নিষ্ক্রিয়",
+      disabledDescription: "এআই আইসব্রেকার টুলটি স্থানীয় ডেভেলপমেন্ট পরিবেশে উপলব্ধ কিন্তু মোতায়েন করা সংস্করণে নিষ্ক্রিয় করা আছে।",
     },
     faq: {
       title: "সচরাচর জিজ্ঞাসিত প্রশ্ন",

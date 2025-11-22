@@ -19,8 +19,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { icebreakerFormSchemaEn, icebreakerFormSchemaBn, type IcebreakerFormValues } from '@/lib/definitions';
 import { getIcebreakerSuggestion } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Sparkles, Lightbulb } from 'lucide-react';
+import { Loader2, Sparkles, Lightbulb, Info } from 'lucide-react';
 import { content } from '@/lib/content';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 interface IcebreakerToolProps {
   lang: 'en' | 'bn';
@@ -89,79 +90,83 @@ export function IcebreakerTool({ lang }: IcebreakerToolProps) {
           <CardContent className="p-8">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{c.nameLabel}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={c.namePlaceholder} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="phoneNumber"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{c.phoneLabel}</FormLabel>
-                      <FormControl>
-                        <Input type="tel" placeholder={c.phonePlaceholder} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="fishDishes"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
-                      <div className="space-y-0.5">
-                        <FormLabel className="text-base">
-                          {c.fishLabel}
-                        </FormLabel>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                 <FormField
-                  control={form.control}
-                  name="alcoholicDrinks"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
-                      <div className="space-y-0.5">
-                        <FormLabel className="text-base">
-                          {c.alcoholicLabel}
-                        </FormLabel>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      {c.submittingButton}
-                    </>
-                  ) : (
-                    c.submitButton
-                  )}
+                <Alert>
+                  <Info className="h-4 w-4" />
+                  <AlertTitle>{c.disabledTitle}</AlertTitle>
+                  <AlertDescription>
+                    {c.disabledDescription}
+                  </AlertDescription>
+                </Alert>
+                <fieldset disabled>
+                  <div className="space-y-8">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{c.nameLabel}</FormLabel>
+                          <FormControl>
+                            <Input placeholder={c.namePlaceholder} {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{c.phoneLabel}</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder={c.phonePlaceholder} {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="fishDishes"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                          <div className="space-y-0.5">
+                            <FormLabel className="text-base">
+                              {c.fishLabel}
+                            </FormLabel>
+                          </div>
+                          <FormControl>
+                            <Switch
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                     <FormField
+                      control={form.control}
+                      name="alcoholicDrinks"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                          <div className="space-y-0.5">
+                            <FormLabel className="text-base">
+                              {c.alcoholicLabel}
+                            </FormLabel>
+                          </div>
+                          <FormControl>
+                            <Switch
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </fieldset>
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled>
+                  {c.submitButton}
                 </Button>
               </form>
             </Form>

@@ -29,6 +29,7 @@ export async function getIcebreakerSuggestion(
     }
   } catch (error) {
     console.error('Icebreaker generation error:', error);
-    return { success: false, message: 'Failed to generate question. Please try again.' };
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+    return { success: false, message: `Failed to generate question: ${errorMessage}` };
   }
 }

@@ -1,3 +1,4 @@
+
 // icebreaker-suggestion.ts
 'use server';
 
@@ -46,7 +47,9 @@ const icebreakerPrompt = ai.definePrompt({
   Prefers Fish: {{{fishDishes}}}
   Prefers Alcohol: {{{alcoholicDrinks}}}
 
-  Icebreaker Question:`,
+  The question should be friendly, short, and directly related to the provided preferences to start a fun conversation.
+  
+  Generate only the icebreaker question.`,
 });
 
 const icebreakerFlow = ai.defineFlow(
