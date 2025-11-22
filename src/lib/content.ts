@@ -177,11 +177,6 @@ export const content = {
           answer: "Limited parking is available at 'Alo Ghor'. We encourage carpooling or using public transport if possible to ease congestion.",
         },
         {
-          id: "faq-4",
-          question: "What are the COVID-19 safety protocols?",
-          answer: "We will adhere to all local health guidelines and advisories at the time of the event. We kindly request that if you feel unwell, please stay home to ensure everyone's safety. Hand sanitizers will be available.",
-        },
-        {
           id: "faq-5",
           question: "Will food and beverages be provided?",
           answer: "Yes! A variety of delicious food and refreshing beverages will be provided throughout the event from 10 AM to 9 PM. We will have options to cater to different tastes.",
@@ -368,11 +363,6 @@ export const content = {
           id: "faq-3",
           question: "অনুষ্ঠানস্থলে কি পার্কিংয়ের ব্যবস্থা আছে?",
           answer: "'আলো ঘর'-এ সীমিত পার্কিং উপলব্ধ। যানজট কমাতে আমরা সম্ভব হলে কারপুলিং বা গণপরিবহন ব্যবহারের জন্য উৎসাহিত করি।",
-        },
-        {
-          id: "faq-4",
-          question: "কোভিড-১৯ নিরাপত্তা প্রোটোকলগুলি কী কী?",
-          answer: "অনুষ্ঠানের সময়কার সমস্ত স্থানীয় স্বাস্থ্য নির্দেশিকা এবং পরামর্শ আমরা মেনে চলব। আমরা বিনীতভাবে অনুরোধ করছি যে আপনি যদি অসুস্থ বোধ করেন, অনুগ্রহ করে সকলের নিরাপত্তা নিশ্চিত করতে বাড়িতে থাকুন। হ্যান্ড স্যানিটাইজার উপলব্ধ থাকবে।",
         },
         {
           id: "faq-5",
