@@ -57,7 +57,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src="https://picsum.photos/seed/uav-building/851/351"
+                src="https://akm-img-a-in.tosshub.com/aajtak/images/photo_gallery/202003/20200303_113952_uas_8_1.jpg"
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
