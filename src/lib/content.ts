@@ -87,7 +87,7 @@ export const content = {
         breakfast: {
             title: "BREAKFAST",
             items: [
-                "Kachori - Hing/Motor Shutir or Luchi",
+                "Kachori - Hing/Motorshutir kochuri or Luchi",
                 "Chholar Dal or Alur Torkari",
                 "Sweet"
             ]
