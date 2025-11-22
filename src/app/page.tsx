@@ -7,6 +7,7 @@ import { ConfirmedAttendees } from "@/components/confirmed-attendees";
 import { IcebreakerTool } from "@/components/icebreaker-tool";
 import { FaqSection } from "@/components/faq-section";
 import { MenuSection } from "@/components/menu-section";
+import { ProgramSchedule } from "@/components/program-schedule";
 import { Separator } from "@/components/ui/separator";
 import Image from 'next/image';
 import { content } from '@/lib/content';
@@ -30,6 +31,7 @@ export default function HomePage() {
           </a>
           <nav className="flex items-center space-x-2 sm:space-x-4">
             <a href="#details" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.details}</a>
+            <a href="#program" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.program}</a>
             <a href="#menu" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.menu}</a>
             <a href="#attendees" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.attendees}</a>
             <a href="#icebreaker" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.icebreaker}</a>
@@ -68,6 +70,8 @@ export default function HomePage() {
         </section>
 
         <ReunionDetails lang={lang} />
+        <Separator className="my-0" />
+        <ProgramSchedule lang={lang} />
         <Separator className="my-0" />
         <MenuSection lang={lang} />
         <Separator className="my-0" />
