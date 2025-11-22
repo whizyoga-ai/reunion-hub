@@ -46,9 +46,9 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-          <div className="absolute inset-0 opacity-50">
-             {/* You can add a subtle background pattern or image here if desired */}
+      <section className="relative py-32 md:py-48 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(https://i.postimg.cc/9XK6N8yN/uttarpara-amarendra-vidyapith.jpg)'}}>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>          <div className="absolute inset-0 opacity-50">            {/* You can add a subtle background pattern or image here if desired */}
           </div>
           <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-5xl font-extrabold font-headline tracking-tight text-primary sm:text-6xl md:text-7xl">
