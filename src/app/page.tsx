@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import Image from 'next/image';
 import { content } from '@/lib/content';
 import { Button } from '@/components/ui/button';
+import { RegistrationForm } from '@/components/registration-form';
 
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
@@ -30,6 +31,7 @@ export default function HomePage() {
             {c.nav.title}
           </a>
           <nav className="flex items-center space-x-2 sm:space-x-4">
+            <a href="#register" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.register}</a>
             <a href="#details" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.details}</a>
             <a href="#program" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.program}</a>
             <a href="#menu" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{c.nav.menu}</a>
@@ -69,6 +71,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <RegistrationForm lang={lang} />
+        <Separator className="my-0" />
         <ReunionDetails lang={lang} />
         <Separator className="my-0" />
         <ProgramSchedule lang={lang} />
