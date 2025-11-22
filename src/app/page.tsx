@@ -13,8 +13,6 @@ import Image from 'next/image';
 import { content } from '@/lib/content';
 import { Button } from '@/components/ui/button';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
 
@@ -59,7 +57,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10">
               <Image
-                src={`${basePath}/school-building.jpg`}
+                src="/school-building.jpg"
                 alt={c.hero.imageAlt}
                 width={851}
                 height={351}
