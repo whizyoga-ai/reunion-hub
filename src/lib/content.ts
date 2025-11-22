@@ -8,6 +8,7 @@ export const content = {
     nav: {
       title: "Reunion Hub",
       details: "Details",
+      menu: "Menu",
       attendees: "Attendees",
       icebreaker: "Icebreaker",
       faq: "FAQ",
@@ -27,6 +28,45 @@ export const content = {
       time: "10:00 AM - 9:00 PM",
       venueLabel: "Venue",
       venue: "'Alo Ghor', Uttarpara, West Bengal, India",
+    },
+    menuSection: {
+        title: "Ratul's Plate",
+        description: "A glimpse into our possible delectable menu for the day.",
+        breakfast: {
+            title: "BREAKFAST",
+            items: [
+                "Kachori - Hing/Motor Shutir or Luchi",
+                "Chholar Dal or Alur Torkari",
+                "Sweet"
+            ]
+        },
+        lunch: {
+            title: "LUNCH",
+            items: [
+                "Rice",
+                "Moog Dal - with Peas/Fish Head",
+                "Beguni or Jhuri Alu Bhaja",
+                "Shukto",
+                "Fish - Rui or Katla Kalia",
+                "Mutton Curry",
+                "Chutney",
+                "Misti Doi or Ice Cream"
+            ]
+        },
+        evening: {
+            title: "EVENING SNACKS",
+            items: [
+                "Fish Fry / Lollipop / Kabab / Boiled Chickpeas"
+            ]
+        },
+        dinner: {
+            title: "DINNER",
+            items: [
+                "Roti",
+                "Egg Torka / Paneer Item",
+                "Sweet"
+            ]
+        }
     },
     confirmedAttendees: {
       title: "Confirmed Attendees",
@@ -107,6 +147,7 @@ export const content = {
     nav: {
       title: "পুনর্মিলন কেন্দ্র",
       details: "বিবরণ",
+      menu: "খাদ্যতালিকা",
       attendees: "উপস্থিতি",
       icebreaker: "পরিচিতি পর্ব",
       faq: "প্রশ্নাবলী",
@@ -126,6 +167,45 @@ export const content = {
       time: "সকাল ১০:০০ - রাত ৯:০০",
       venueLabel: "স্থান",
       venue: "'আলো ঘর', উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত",
+    },
+    menuSection: {
+        title: "🍽️ রাতুলের পাত 🍽️",
+        description: "আমাদের সম্ভাব্য খাদ্যতালিকার একটি ঝলক।",
+        breakfast: {
+            title: "প্রাতঃরাশ (BREAKFAST)",
+            items: [
+                "কচুরি – হিং/কড়াইশুঁটি অথবা লুচি",
+                "ছোলার ডাল অথবা আলুর তরকারি",
+                "মিষ্টি"
+            ]
+        },
+        lunch: {
+            title: "মধ্যাহ্নভোজ (LUNCH)",
+            items: [
+                "ভাত",
+                "মুগ ডাল – কড়াইশুঁটি/মাছের মাথা",
+                "বেগুনি বা ঝুরি আলুভাজা",
+                "শুকতো",
+                "মাছ – রুই বা কাতলা কালিয়া",
+                "মাংস – খাসির",
+                "চাটনি",
+                "মিষ্টি দই অথবা আইসক্রিম"
+            ]
+        },
+        evening: {
+            title: "সন্ধ্যার খাবার (EVENING CHAKHNA)",
+            items: [
+                "ফিশ ফ্রাই / ললিপপ / কাবাব / ছোলা সেদ্ধ"
+            ]
+        },
+        dinner: {
+            title: "রাতের খাবার (DINNER)",
+            items: [
+                "রুটি",
+                "এগ তড়কা / পনির আইটেম",
+                "মিষ্টি"
+            ]
+        }
     },
     confirmedAttendees: {
       title: "যারা ইতিমধ্যে কনফার্ম করেছে:",
