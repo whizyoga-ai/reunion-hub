@@ -54,17 +54,6 @@ export default function HomePage() {
             <p className="mt-6 max-w-3xl mx-auto text-xl text-foreground font-body">
               {c.hero.subtitle}
             </p>
-            <div className="mt-10">
-              <Image
-                src="/amarendra1.jpg"
-                alt={c.hero.imageAlt}
-                width={851}
-                height={351}
-                className="rounded-lg shadow-2xl mx-auto"
-                data-ai-hint="school building"
-                priority
-              />
-            </div>
                           </div>
         </section>
 
