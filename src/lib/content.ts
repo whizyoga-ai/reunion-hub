@@ -70,29 +70,70 @@ export const content = {
       submitButton: "Register Now"
     },
     menuSection: {
-        title: "Dr. Pradip Dey Menu Lab 🧑‍🔬",
-        description: "Shh! The menu is a delicious secret. Come hungry, leave happy! 🍴✨
-        breakfast: {
-            title: ""জলখাবার (JALKHABAR)"",
-        "Dr. Pradip Dey's morning hypothesis: Empty stomach + Jalkhabar = Happy reunion! 🧑‍🔬☕",        "Life is uncertain. Eat dessert first... but wait, this is breakfast! 🤔",
-        "প্রদীপবাবুর সকালের গবেষণা: জলখাবার ছাড়া পুনর্মিলন অসম্পূর্ণ! 😄🍳",        "Breakfast: Because adulting is hard without coffee... or is it tea? ☕"
-            
-        lunch: {
-            title: "LUNCH",
-                items: [
-        "State Entomologist guarantee: No bugs in this menu, only delicious surprises! 🐛❌🍽️✔️",        "দুপুরের খাবার মানে বন্ধুদের সাথে গল্প... খাবার পরেও আসবে! 😂",
-        "দুপুরের খাবার: প্রদীপবাবুর কৃষি বিভাগের সেরা ফসল! 🌾❤️"      ]
-        evening: {
-            title: "EVENING SNACKS",
-                items: [
-        "Tea-time at Dr. Dey lab: Where science meets samosas! ☕🥟🔬",        "চা-পান আর আড্ডা - স্কুলের দিন ফিরে এলো! 🍵😄",
-            
-        dinner: {
-            title: "DINNER",
-                items: [
-        "Dr. Pradip Dey final experiment: Can we fit dessert after reunion feast? 🍰🔬",        "রাতের খাবারে বন্ধুত্ব গাঢ়় হয়, পেট ভরে আর মন খুশিতে! 🍛❤️",
-            ]
-        }
+
+    title: "Dr. Pradip Dey Menu Lab 🧑‍🔬",
+    description: "Shh! The menu is a delicious secret. Come hungry, leave happy! 🍴✨",
+    breakfast: {
+      title: "জলখাবার (JALKHABAR) 🌅",
+      jokes: [
+        "Breakfast curated by Dr. Pradip Dey — guaranteed 100% farm-fresh and 200% confusion.",
+        "Morning menu by Pradi… if anything sprouts on your plate, that's part of the plan.",
+        "Our scientist-in-charge says breakfast will be high-yield… for our stomachs.",
+        "Pradi's breakfast: scientifically proven to wake you up, whether you want or not.",
+        "Don't worry, breakfast is pesticide-free. The jokes aren't.",
+        "প্রদীপবাবুর সকালের মেনু — ১০০% তাজা ফসল আর ২০০% বিভ্রান্তি গ্যারান্টিড।",
+        "সকালের খাবার প্রদীপ দার তত্ত্বাবধানে... প্লেটে কিছু গজালে সেটাই পরিকল্পনা।",
+        "আমাদের বিজ্ঞানী বলছেন সকালের খাবার high-yield হবে... পেটের জন্য।",
+        "প্রদীপবাবুর ব্রেকফাস্ট: বৈজ্ঞানিকভাবে প্রমাণিত জাগিয়ে তুলবে, চান বা না চান।",
+        "চিন্তা নেই, সকালের খাবার pesticide-free। কৌতুক অবশ্য নয়।"
+      ]
+    },
+    lunch: {
+      title: "LUNCH 🌞",
+      jokes: [
+        "Lunch by Dr. Dey — optimized for maximum photosynthesis after eating.",
+        "Today's lunch is research grade. Please don't ask for peer review.",
+        "Pradi promises lunch that increases productivity… at least of burps.",
+        "If lunch feels like a field experiment, remember: we are the sample size.",
+        "Lunch menu so secret, even the agricultural department needs clearance.",
+        "দুপুরের খাবার ডক্টর দে-র তত্ত্বাবধানে — খাওয়ার পর সর্বোচ্চ photosynthesis নিশ্চিত।",
+        "আজকের লাঞ্চ research grade। peer review চাইবেন না please।",
+        "প্রদীপবাবু প্রতিশ্রুতি দিচ্ছেন লাঞ্চ productivity বাড়াবে... অন্তত ঢেঁকুরের।",
+        "লাঞ্চ যদি field experiment মনে হয়, মনে রাখবেন: আমরাই sample size।",
+        "লাঞ্চ মেনু এতটাই গোপন, কৃষি বিভাগেরও clearance লাগে।"
+      ]
+    },
+    evening: {
+      title: "TIFFIN (EVENING) 🌥",
+      jokes: [
+        "Evening tiffin curated by Dr. Dey — perfect for those who like snacks with scientific uncertainty.",
+        "Tiffin so fresh, he might still be monitoring its soil moisture.",
+        "Pradi's tiffin: ideal for those who believe snacks should also undergo field trials.",
+        "If your tiffin crunches strangely… that's texture optimization, not a mistake.",
+        "Tiffin strictly based on agricultural principles: zero wastage, maximum munchage.",
+        "সন্ধ্যার টিফিন ডক্টর দে-র তত্ত্বাবধানে — যারা বৈজ্ঞানিক অনিশ্চয়তা সহ স্ন্যাকস পছন্দ করেন তাদের জন্য পারফেক্ট।",
+        "টিফিন এতটাই তাজা, উনি হয়তো এখনও soil moisture মনিটর করছেন।",
+        "প্রদীপবাবুর টিফিন: যারা বিশ্বাস করেন স্ন্যাকসেরও field trial হওয়া উচিত তাদের জন্য আদর্শ।",
+        "টিফিন যদি অদ্ভুতভাবে কচকচ করে... সেটা texture optimization, ভুল নয়।",
+        "টিফিন সম্পূর্ণ কৃষি নীতি অনুযায়ী: শূন্য অপচয়, সর্বোচ্চ munchage।"
+      ]
+    },
+    dinner: {
+      title: "DINNER 🌙",
+      jokes: [
+        "Dinner designed by our scientist — expect high nutrition, low nonsense… or maybe reverse.",
+        "Pradi's dinner: cultivated with love, served with scientific overconfidence.",
+        "Dinner may or may not follow crop rotation principles. Eat responsibly.",
+        "If dinner tastes experimental… congratulations, you're participating in innovation.",
+        "Night menu curated by Dr. Dey — the only scientist who can turn dinner into a seminar.",
+        "রাতের খাবার আমাদের বিজ্ঞানীর ডিজাইন — আশা করুন উচ্চ পুষ্টি, কম বাজে কথা... অথবা উল্টোটা।",
+        "প্রদীপবাবুর রাতের খাবার: ভালোবাসা দিয়ে চাষ, বৈজ্ঞানিক আত্মবিশ্বাসে পরিবেশন।",
+        "ডিনার হয়তো crop rotation নীতি মানে, নাও মানতে পারে। দায়িত্বশীলভাবে খান।",
+        "ডিনার যদি পরীক্ষামূলক লাগে... অভিনন্দন, আপনি innovation-এ অংশগ্রহণ করছেন।",
+        "রাতের মেনু ডক্টর দে-র তত্ত্বাবধানে — একমাত্র বিজ্ঞানী যিনি ডিনারকে সেমিনারে পরিণত করতে পারেন।"
+      ]
+    }
+  
     },
     confirmedAttendees: {
       title: "Confirmed Attendees",
