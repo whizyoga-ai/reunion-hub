@@ -10,13 +10,11 @@ This project is deployed to GitHub Pages and includes several mechanisms to ensu
 
 2. **`.nojekyll` File**: A `.nojekyll` file is included in the `public/` directory and is copied to the build output. This prevents GitHub Pages from processing the site with Jekyll, which can cause caching issues and file processing problems.
 
-3. **Build Timestamp Environment Variable**: The deployment workflow adds a `BUILD_TIMESTAMP` environment variable that combines the GitHub run number and commit SHA. This helps ensure that each build is unique.
-
-4. **Build Metadata File**: The workflow creates a `BUILD_INFO.txt` file in the output directory that contains:
-   - Unique build ID with timestamp
+3. **Deployment Metadata File**: The workflow creates a `BUILD_INFO.txt` file in the output directory that contains:
+   - Next.js build ID (extracted from the build output)
    - GitHub run number
    - Commit SHA
-   - Build timestamp
+   - Deployment timestamp
 
 ### How It Works
 
