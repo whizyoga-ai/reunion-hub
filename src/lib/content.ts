@@ -145,7 +145,7 @@ export const content = {
       addSuccessToastDescription: "has been added to the list.",
       names: [
         "Tanmoy", "Basab", "Sekharjit", "Supratim", "Chandan", 
-        "Biswaranjan", "Pradip", "Yogobrata", "Sudipta", "Shovon", "Arun", 
+        "Biswaranjan", "Pradip", "Yogabrata", "Sudipta", "Shovon", "Arun", 
         "Srikanta", "Amal", "Samir Mondal", "Subrata", "Sujoy", "Samar", 
         "Uttam", "Chiranjeeb", "Siddhartha", "Anirban", "Mridul", "Swarup", 
         "Sanjay Banik"
