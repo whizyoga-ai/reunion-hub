@@ -70,39 +70,27 @@ export const content = {
       submitButton: "Register Now"
     },
     menuSection: {
-        title: What's Cooking? 🤔 It's a Surprise!
+        title: "Dr. Pradip Dey Menu Lab 🧑‍🔬",
         description: "Shh! The menu is a delicious secret. Come hungry, leave happy! 🍴✨
         breakfast: {
-            title: "BREAKFAST",
-               "What\'s Cooking? 🤔 It\'s a Surprise!",
-        "Life is uncertain. Eat dessert first... but wait, this is breakfast! 🤔",
-        "সকালে খেয়ে দিন ভালো হয়, কিন্তু কী খাবেন? এটাই সারপ্রাইজ! 😄",
-        "Breakfast: Because adulting is hard without coffee... or is it tea? ☕"
-      ]
+            title: ""জলখাবার (JALKHABAR)"",
+        "Dr. Pradip Dey's morning hypothesis: Empty stomach + Jalkhabar = Happy reunion! 🧑‍🔬☕",        "Life is uncertain. Eat dessert first... but wait, this is breakfast! 🤔",
+        "প্রদীপবাবুর সকালের গবেষণা: জলখাবার ছাড়া পুনর্মিলন অসম্পূর্ণ! 😄🍳",        "Breakfast: Because adulting is hard without coffee... or is it tea? ☕"
             
         lunch: {
             title: "LUNCH",
                 items: [
-        "Point #1: Food is ready. Point #2: You're hungry. Conclusion: Reunion logic! 🍽️",
-        "দুপুরের খাবার মানে বন্ধুদের সাথে গল্প... খাবার পরেও আসবে! 😂",
-        "Surprise Menu: Where every bite is an adventure and every dish a mystery! 🍲"
-      ]
-            
+        "State Entomologist guarantee: No bugs in this menu, only delicious surprises! 🐛❌🍽️✔️",        "দুপুরের খাবার মানে বন্ধুদের সাথে গল্প... খাবার পরেও আসবে! 😂",
+        "দুপুরের খাবার: প্রদীপবাবুর কৃষি বিভাগের সেরা ফসল! 🌾❤️"      ]
         evening: {
             title: "EVENING SNACKS",
                 items: [
-        "Tea time: When reunions get real and stories get spicy! ☕😏",
-        "চা-পান আর আড্ডা - স্কুলের দিন ফিরে এলো! 🍵😄",
-        "Snack attack incoming! Batteries need recharging for more nostalgia! 🥤"
-      ]
+        "Tea-time at Dr. Dey lab: Where science meets samosas! ☕🥟🔬",        "চা-পান আর আড্ডা - স্কুলের দিন ফিরে এলো! 🍵😄",
             
         dinner: {
             title: "DINNER",
                 items: [
-        "Dinner is served! Or is it? The suspense is delicious! 🍽️😋",
-        "রাতের খাবারে বন্ধুত্ব গাঢ়় হয়, পেট ভরে আর মন খুশিতে! 🍛❤️",
-        "Grand finale feast! End the day with full bellies and fuller hearts! 🎉"
-      ]
+        "Dr. Pradip Dey final experiment: Can we fit dessert after reunion feast? 🍰🔬",        "রাতের খাবারে বন্ধুত্ব গাঢ়় হয়, পেট ভরে আর মন খুশিতে! 🍛❤️",
             ]
         }
     },
