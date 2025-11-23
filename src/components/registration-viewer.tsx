@@ -37,18 +37,36 @@ interface RegistrationViewerProps {
 const getCharacterAvatar = (name: string): string => {
   const avatars: { [key: string]: string } = {
     'হিজিবিজবিজ': '🤪',
-    'হুঁকো মুখো হ্যাংলা': '💨',
+    'হুঁকো মুখো হ্যাংলা': '💨', 
     'খিচুড়ি': '🍲',
     'আবোল তাবোল': '📝',
-    'তেনিদা': '🕵️',
+    'তেনিদা': '🕵️‍♂️',
     'হাঁদা ভোঁদা': '😂',
-    'নন্টে ফন্টে': '👦',
+    'নন্টে ফন্টে': '👦👦',
     'পাগলা দাশু': '🤡',
     'কুমড়ো পটাশ': '🎃',
-    'বাঁটুল দ্য গ্রেট': '🦸',
-    'বাহাদুর বেড়াল': '🐱'
+    'বাঁটুল দ্য গ্রেট': '🦸‍♂️',
+    'বাহাদুর বেড়াল': '🐱‍👤'
   }
   return avatars[name] || '👤'
+}
+
+// Helper function to get character image path (for future use)
+const getCharacterImage = (name: string): string => {
+  const imageMap: { [key: string]: string } = {
+    'হিজিবিজবিজ': '/images/characters/hijibijbij.png',
+    'হুঁকো মুখো হ্যাংলা': '/images/characters/hunko-mukho.png',
+    'খিচুড়ি': '/images/characters/khichuri.png',
+    'আবোল তাবোল': '/images/characters/abol-tabol.png',
+    'তেনিদা': '/images/characters/tenida.png',
+    'হাঁদা ভোঁদা': '/images/characters/handa-bhonda.png',
+    'নন্টে ফন্টে': '/images/characters/nonte-fonte.png',
+    'পাগলা দাশু': '/images/characters/pagla-dashu.png',
+    'কুমড়ো পটাশ': '/images/characters/kumro-potash.png',
+    'বাঁটুল দ্য গ্রেট': '/images/characters/bantul.png',
+    'বাহাদুর বেড়াল': '/images/characters/bahadur-beral.png'
+  }
+  return imageMap[name] || '/images/characters/default.png'
 }
 
 export default function RegistrationViewer({ language }: RegistrationViewerProps) {
@@ -60,16 +78,36 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
 
   // Load registrations from localStorage on component mount
   useEffect(() => {
+    // Clear any old localStorage keys that might conflict
+    const oldKeys = ['reunion-registrations', 'registrations', 'reunionData']
+    oldKeys.forEach(key => {
+      if (localStorage.getItem(key)) {
+        localStorage.removeItem(key)
+      }
+    })
+
     const savedRegistrations = localStorage.getItem('reunionRegistrations')
     if (savedRegistrations) {
       try {
-        setRegistrations(JSON.parse(savedRegistrations))
+        const parsed = JSON.parse(savedRegistrations)
+        // Ensure we have all 11 characters - if not, refresh with dummy data
+        if (parsed.length < 11) {
+          const dummyRegistrations = getDummyRegistrations()
+          setRegistrations(dummyRegistrations)
+          localStorage.setItem('reunionRegistrations', JSON.stringify(dummyRegistrations))
+        } else {
+          setRegistrations(parsed)
+        }
       } catch (error) {
         console.error('Error loading registrations:', error)
+        // Fallback to dummy data
+        const dummyRegistrations = getDummyRegistrations()
+        setRegistrations(dummyRegistrations)
+        localStorage.setItem('reunionRegistrations', JSON.stringify(dummyRegistrations))
       }
     } else {
       // Add dummy funny registrations if none exist
-      const dummyRegistrations = getDummyRegistrations()
+      const dummyRegistrations = getDummyRegistrations()  
       setRegistrations(dummyRegistrations)
       localStorage.setItem('reunionRegistrations', JSON.stringify(dummyRegistrations))
     }
