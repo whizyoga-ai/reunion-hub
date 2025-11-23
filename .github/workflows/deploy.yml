@@ -45,6 +45,14 @@ jobs:
         env:
             # Set the basePath for GitHub Pages
             NEXT_PUBLIC_BASE_PATH: /reunion-hub
+            # Add timestamp to force cache invalidation
+            BUILD_TIMESTAMP: ${{ github.run_number }}-${{ github.sha }}
+      - name: Add cache-busting metadata
+        run: |
+          echo "Build ID: $(date +%s)-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 10 | head -n 1)" > ./out/BUILD_INFO.txt
+          echo "GitHub Run Number: ${{ github.run_number }}" >> ./out/BUILD_INFO.txt
+          echo "Commit SHA: ${{ github.sha }}" >> ./out/BUILD_INFO.txt
+          echo "Build Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> ./out/BUILD_INFO.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
