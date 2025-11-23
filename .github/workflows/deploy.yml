@@ -45,6 +45,18 @@ jobs:
         env:
             # Set the basePath for GitHub Pages
             NEXT_PUBLIC_BASE_PATH: /reunion-hub
+      - name: Add deployment metadata
+        run: |
+          # Extract the Next.js build ID from the output directory
+          NEXTJS_BUILD_ID=$(ls -1 ./out/_next/ | grep -E '^[0-9]+-[a-z0-9]+$' | head -n 1)
+          if [ -z "$NEXTJS_BUILD_ID" ]; then
+            echo "Warning: Could not extract Next.js build ID from ./out/_next/ directory, using timestamp fallback. This may indicate a build issue."
+            NEXTJS_BUILD_ID="$(date +%s)-unknown"
+          fi
+          echo "Next.js Build ID: ${NEXTJS_BUILD_ID}" > ./out/BUILD_INFO.txt
+          echo "GitHub Run Number: ${{ github.run_number }}" >> ./out/BUILD_INFO.txt
+          echo "Commit SHA: ${{ github.sha }}" >> ./out/BUILD_INFO.txt
+          echo "Deployed At: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> ./out/BUILD_INFO.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
