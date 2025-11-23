@@ -377,21 +377,22 @@ export default function HomePage() {
 
       {/* Registration Viewer Modal */}
       {showRegistrationViewer && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden">
-            <div className="p-4 border-b flex justify-between items-center">
-              <h2 className="text-2xl font-bold">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 z-50">
+          <div className="bg-white rounded-lg w-full max-w-5xl h-[85vh] overflow-hidden flex flex-col shadow-2xl">
+            <div className="p-3 border-b flex justify-between items-center bg-gradient-to-r from-primary to-indigo-600 text-white">
+              <h2 className="text-xl font-bold">
                 {lang === 'bn' ? 'নিবন্ধিত সদস্যদের তালিকা' : 'Registration List'}
               </h2>
               <Button 
                 variant="ghost" 
                 size="sm"
+                className="text-white hover:bg-white/20"
                 onClick={() => setShowRegistrationViewer(false)}
               >
                 ✕
               </Button>
             </div>
-            <div className="overflow-y-auto">
+            <div className="flex-1 overflow-hidden">
               <RegistrationViewer language={lang} />
             </div>
           </div>

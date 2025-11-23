@@ -34,7 +34,7 @@ export function RegistrationModal({ lang }: RegistrationModalProps) {
           {c.submitButton}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[700px] max-h-[95vh] overflow-hidden flex flex-col">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl text-primary">
             <GraduationCap className="h-6 w-6" />
@@ -45,7 +45,8 @@ export function RegistrationModal({ lang }: RegistrationModalProps) {
           </DialogDescription>
         </DialogHeader>
         
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <div className="flex-1 overflow-y-auto pr-2">
+          <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="name">{c.nameLabel}</Label>
@@ -167,7 +168,8 @@ export function RegistrationModal({ lang }: RegistrationModalProps) {
               {lang === 'en' ? 'Cancel' : 'বাতিল'}
             </Button>
           </div>
-        </form>
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   );
