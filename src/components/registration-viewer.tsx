@@ -10,7 +10,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Textarea } from '@/components/ui/textarea'
-import { Search, Users, Calendar, Phone, Mail, Briefcase, Heart, Star, Sparkles, Edit, Camera, Save, X } from 'lucide-react'
+import { Search, Users, Calendar, Phone, Mail, Briefcase, Heart, Star, Sparkles, Edit, Camera, Save, X, RefreshCw } from 'lucide-react'
 import { content } from '@/lib/content'
 
 interface PersonData {
@@ -86,7 +86,8 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
 
   const t = content[language]
 
-  useEffect(() => {
+  // Function to reload all data
+  const reloadAllData = () => {
     let combinedData = [...getRealParticipants(), ...getCharacterData(), ...loadSavedRegistrations()]
     
     // Load and apply saved participant data
@@ -115,7 +116,26 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
     })
     
     setAllPeople(combinedData)
-  }, [])
+    console.log('Data reloaded. Total people:', combinedData.length)
+  }
+
+  useEffect(() => {
+    reloadAllData()
+    
+    // Listen for storage changes to refresh data when new registrations are added
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'reunionRegistrations') {
+        console.log('New registration detected, reloading data...')
+        reloadAllData()
+      }
+    }
+    
+    window.addEventListener('storage', handleStorageChange)
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const getRealParticipants = (): PersonData[] => {
     const realParticipants = ["Tanmoy", "Basab", "Ratul", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata", "Sudipta", "Shoban", "Arun", "Srikanta", "Amal", "Samir Mondal", "Subrata", "Sujay", "Samar", "Uttam", "Chiranjib", "Siddhartha", "Anirban", "Mridul", "Swarup", "Sanjay Banik", "Somnath"]
@@ -172,17 +192,19 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
       const saved = localStorage.getItem('reunionRegistrations')
       if (saved) {
         const parsed = JSON.parse(saved)
-        // Convert old format to new format
+        console.log('Loading saved registrations:', parsed.length, 'entries')
+        
+        // Convert registration form submissions to PersonData format
         return parsed.map((reg: any, index: number) => ({
-          id: `saved-${index + 1}`,
-          name: reg.name,
-          email: reg.email,
-          type: 'character' as const,
-          profession: reg.profession || 'Mystery Professional',
-          funFact: 'From registration form',
-          message: reg.remarks || reg.message || 'No message provided',
+          id: `registration-${reg.id || index + 1}`,
+          name: reg.name || `Anonymous ${index + 1}`,
+          email: reg.email || 'no-email@addabaji.com',
+          type: 'character' as const, // Registration submissions appear as characters
+          profession: reg.profession || 'Reunion Attendee',
+          funFact: reg.remarks || 'Submitted via registration form',
+          message: reg.remarks || 'Looking forward to the reunion!',
           timestamp: new Date(reg.submittedAt || Date.now()),
-          // Keep extended data
+          // Keep all extended registration data
           presentAddress: reg.presentAddress,
           permanentAddress: reg.permanentAddress,
           mobile: reg.mobile,
@@ -378,6 +400,15 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
               className="pl-10"
             />
           </div>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={reloadAllData}
+            className="flex items-center gap-2"
+          >
+            <RefreshCw className="w-4 h-4" />
+            {language === 'en' ? 'Refresh' : 'রিফ্রেশ'}
+          </Button>
           <Badge variant="outline" className="flex items-center gap-1">
             <Users className="w-4 h-4" />
             {filteredPeople.length} {language === 'en' ? 'Total' : 'মোট'}
