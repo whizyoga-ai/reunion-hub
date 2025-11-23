@@ -20,10 +20,12 @@ import { HeritageSection } from '@/components/heritage-section';
 import IdeaBox from '@/components/idea-box';
 import MediaGallery from '@/components/media-gallery';
 import AlumniSpotlight from '@/components/alumni-spotlight';
+import RegistrationViewer from '@/components/registration-viewer';
 import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star, Lightbulb, Images, Award } from 'lucide-react';
 
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
+  const [showRegistrationViewer, setShowRegistrationViewer] = React.useState(false);
 
   const toggleLanguage = () => {
     setLang(prevLang => (prevLang === 'en' ? 'bn' : 'en'));
@@ -157,8 +159,17 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
               <RegistrationModal lang={lang} />
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-white/10 border-white/30 hover:bg-white/20 text-white px-8 py-3 text-lg font-semibold shadow-xl backdrop-blur-sm"
+                onClick={() => setShowRegistrationViewer(true)}
+              >
+                <Users className="mr-2 h-5 w-5" />
+                {lang === 'bn' ? 'নিবন্ধিত তালিকা দেখুন' : 'View Registrations'}
+              </Button>
             </div>
           </div>
         </section>
@@ -363,6 +374,29 @@ export default function HomePage() {
 
       {/* Chatbox Component */}
       <Chatbox lang={lang} />
+
+      {/* Registration Viewer Modal */}
+      {showRegistrationViewer && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-hidden">
+            <div className="p-4 border-b flex justify-between items-center">
+              <h2 className="text-2xl font-bold">
+                {lang === 'bn' ? 'নিবন্ধিত সদস্যদের তালিকা' : 'Registration List'}
+              </h2>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => setShowRegistrationViewer(false)}
+              >
+                ✕
+              </Button>
+            </div>
+            <div className="overflow-y-auto">
+              <RegistrationViewer language={lang} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
