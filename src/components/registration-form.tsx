@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { UserPlus } from "lucide-react";
+import { UserPlus, Camera } from "lucide-react";
+import { useState } from 'react';
 import { content } from '@/lib/content';
 import { useToast } from "@/hooks/use-toast";
 
@@ -31,12 +32,26 @@ interface RegistrationData {
   wardsUnofficial: number;
   testosterone: string;
   remarks: string;
+  profileImage?: string;
   submittedAt: string;
 }
 
 export function RegistrationForm({ lang }: RegistrationFormProps) {
   const c = content[lang].registrationForm;
   const { toast } = useToast();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setProfileImage(result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,6 +75,7 @@ export function RegistrationForm({ lang }: RegistrationFormProps) {
       wardsUnofficial: parseInt(formData.get('wards-unofficial') as string) || 0,
       testosterone: formData.get('testosterone') as string,
       remarks: formData.get('remarks') as string,
+      profileImage: profileImage || undefined,
       submittedAt: new Date().toISOString(),
     };
 
@@ -76,8 +92,9 @@ export function RegistrationForm({ lang }: RegistrationFormProps) {
         "Your information has been saved successfully.",
     });
 
-    // Reset form
+    // Reset form and image
     e.currentTarget.reset();
+    setProfileImage(null);
   };
 
   return (
@@ -95,6 +112,33 @@ export function RegistrationForm({ lang }: RegistrationFormProps) {
           </CardHeader>
           <CardContent className="p-8 pt-0">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
+              {/* Profile Photo Upload */}
+              <div className="space-y-2 md:col-span-2 flex flex-col items-center">
+                <Label className="text-center">Profile Photo</Label>
+                <div className="relative">
+                  {profileImage ? (
+                    <img 
+                      src={profileImage} 
+                      alt="Profile preview"
+                      className="w-24 h-24 rounded-full object-cover border-2 border-gray-200"
+                    />
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-gray-100 border-2 border-gray-200 flex items-center justify-center">
+                      <UserPlus className="w-8 h-8 text-gray-400" />
+                    </div>
+                  )}
+                  <label className="absolute -bottom-1 -right-1 bg-blue-500 text-white rounded-full p-2 cursor-pointer hover:bg-blue-600 transition-colors">
+                    <Camera className="w-4 h-4" />
+                    <input 
+                      type="file" 
+                      accept="image/*" 
+                      onChange={handleImageUpload}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+              </div>
+              
               <div className="space-y-2">
                 <Label htmlFor="name">{c.nameLabel}</Label>
                 <Input id="name" name="name" required />

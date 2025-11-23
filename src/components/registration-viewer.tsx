@@ -22,6 +22,7 @@ interface PersonData {
   funFact?: string
   message?: string
   timestamp?: Date
+  profileImage?: string
   // Extended data for form registrations
   presentAddress?: string
   permanentAddress?: string
@@ -201,9 +202,10 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
           email: reg.email || 'no-email@addabaji.com',
           type: 'character' as const, // Registration submissions appear as characters
           profession: reg.profession || 'Reunion Attendee',
-          funFact: reg.remarks || 'Submitted via registration form',
+          funFact: reg.remarks || 'New registration from form',
           message: reg.remarks || 'Looking forward to the reunion!',
           timestamp: new Date(reg.submittedAt || Date.now()),
+          profileImage: reg.profileImage, // Include profile image from registration
           // Keep all extended registration data
           presentAddress: reg.presentAddress,
           permanentAddress: reg.permanentAddress,
@@ -509,9 +511,9 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
             <DialogTitle className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  {selectedPerson?.type === 'real' && profileImage ? (
+                  {(selectedPerson?.type === 'real' && profileImage) || (selectedPerson?.type === 'character' && selectedPerson.profileImage) ? (
                     <img 
-                      src={profileImage} 
+                      src={selectedPerson.type === 'real' ? profileImage! : selectedPerson.profileImage!} 
                       alt={selectedPerson.name}
                       className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
                     />
@@ -682,38 +684,105 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
                   </div>
                 )}
 
-                {/* Extended data for saved registrations */}
-                {selectedPerson.presentAddress && (
-                  <div className="border-t pt-4 space-y-3">
-                    <h4 className="font-medium">Additional Details:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                {/* Extended data for registration form submissions */}
+                {(selectedPerson.presentAddress || selectedPerson.bloodGroup || selectedPerson.jobNature || selectedPerson.maritalStatus || selectedPerson.girlfriends !== undefined || selectedPerson.wardsOfficial !== undefined || selectedPerson.testosterone) && (
+                  <div className="border-t pt-4 space-y-4">
+                    <h4 className="font-medium text-lg">Registration Details:</h4>
+                    
+                    {/* Contact & Address Info */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {selectedPerson.mobile && (
                         <div>
-                          <span className="flex items-center gap-2 font-medium">
+                          <span className="flex items-center gap-2 font-medium text-sm">
                             <Phone className="w-4 h-4" /> Mobile:
                           </span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.mobile}</p>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.mobile}</p>
                         </div>
                       )}
                       {selectedPerson.bloodGroup && (
                         <div>
-                          <span className="font-medium">Blood Group:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.bloodGroup}</p>
+                          <span className="font-medium text-sm">Blood Group:</span>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.bloodGroup}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Address Information */}
+                    {(selectedPerson.presentAddress || selectedPerson.permanentAddress) && (
+                      <div className="space-y-3">
+                        {selectedPerson.presentAddress && (
+                          <div>
+                            <span className="font-medium text-sm">Present Address:</span>
+                            <p className="text-sm text-gray-700 bg-gray-50 p-2 rounded mt-1">{selectedPerson.presentAddress}</p>
+                          </div>
+                        )}
+                        {selectedPerson.permanentAddress && (
+                          <div>
+                            <span className="font-medium text-sm">Permanent Address:</span>
+                            <p className="text-sm text-gray-700 bg-gray-50 p-2 rounded mt-1">{selectedPerson.permanentAddress}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Professional Information */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {selectedPerson.jobNature && (
+                        <div>
+                          <span className="font-medium text-sm">Job Nature:</span>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.jobNature}</p>
                         </div>
                       )}
                       {selectedPerson.organization && (
                         <div>
-                          <span className="font-medium">Organization:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.organization}</p>
-                        </div>
-                      )}
-                      {selectedPerson.maritalStatus && (
-                        <div>
-                          <span className="font-medium">Marital Status:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.maritalStatus}</p>
+                          <span className="font-medium text-sm">Organization:</span>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.organization}</p>
                         </div>
                       )}
                     </div>
+
+                    {/* Personal Information */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {selectedPerson.maritalStatus && (
+                        <div>
+                          <span className="font-medium text-sm">Marital Status:</span>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.maritalStatus}</p>
+                        </div>
+                      )}
+                      {selectedPerson.testosterone && (
+                        <div>
+                          <span className="font-medium text-sm">Testosterone Level:</span>
+                          <p className="ml-6 text-sm text-gray-700">{selectedPerson.testosterone}</p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Fun Statistics */}
+                    {(selectedPerson.girlfriends !== undefined || selectedPerson.wardsOfficial !== undefined || selectedPerson.wardsUnofficial !== undefined) && (
+                      <div>
+                        <span className="font-medium text-sm block mb-2">Statistics:</span>
+                        <div className="grid grid-cols-3 gap-4 text-center">
+                          {selectedPerson.girlfriends !== undefined && (
+                            <div className="bg-pink-50 p-2 rounded">
+                              <div className="text-lg font-bold text-pink-600">{selectedPerson.girlfriends}</div>
+                              <div className="text-xs text-pink-600">Girlfriends</div>
+                            </div>
+                          )}
+                          {selectedPerson.wardsOfficial !== undefined && (
+                            <div className="bg-blue-50 p-2 rounded">
+                              <div className="text-lg font-bold text-blue-600">{selectedPerson.wardsOfficial}</div>
+                              <div className="text-xs text-blue-600">Official Wards</div>
+                            </div>
+                          )}
+                          {selectedPerson.wardsUnofficial !== undefined && (
+                            <div className="bg-green-50 p-2 rounded">
+                              <div className="text-lg font-bold text-green-600">{selectedPerson.wardsUnofficial}</div>
+                              <div className="text-xs text-green-600">Unofficial Wards</div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
