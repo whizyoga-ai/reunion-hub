@@ -64,8 +64,20 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
         <div className="container flex h-20 max-w-screen-2xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
           <a href="#hero" className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
-              <GraduationCap className="w-7 h-7 text-white" />
+            <div className="flex items-center gap-2">
+              <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-blue-200 shadow-sm">
+                <Image 
+                  src="/reunion-hub/images/amarendra1.jpg" 
+                  alt="School" 
+                  width={48}
+                  height={48}
+                  className="object-cover w-full h-full"
+                  unoptimized
+                />
+              </div>
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900">{c.nav.title}</h1>
@@ -129,6 +141,29 @@ export default function HomePage() {
         {/* Quick Info Cards */}
         <section className="py-16 -mt-16 relative z-20">
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            {/* School Memory Card */}
+            <div className="flex justify-center mb-8">
+              <Card className="bg-white/95 backdrop-blur shadow-xl border-0 max-w-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden border-2 border-blue-200 shadow-sm flex-shrink-0">
+                      <Image 
+                        src="/reunion-hub/images/amarendra1.jpg" 
+                        alt="Our School Days" 
+                        width={64}
+                        height={64}
+                        className="object-cover w-full h-full"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-bold text-gray-900">{lang === 'en' ? 'Our School' : 'আমাদের স্কুল'}</h3>
+                      <p className="text-sm text-gray-600">{lang === 'en' ? 'Where memories were made' : 'যেখানে স্মৃতি তৈরি হয়েছিল'}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {highlights.map((item, index) => (
                 <a key={index} href={item.href} className="block">

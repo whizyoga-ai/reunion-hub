@@ -39,8 +39,40 @@ export function MenuSection({ lang }: MenuSectionProps) {
         />
       </div>
       <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <Card className="shadow-xl rounded-lg bg-white/90 backdrop-blur-md">
-          <CardHeader className="text-center p-8">
+        <Card className="shadow-xl rounded-lg bg-white/90 backdrop-blur-md relative">
+          {/* Pradip's face in top corners - elliptical */}
+          <div className="absolute -top-3 -left-3 w-14 h-18 rounded-full overflow-hidden border-3 border-orange-200 shadow-lg z-20 transform rotate-12">
+            <Image 
+              src="/reunion-hub/images/pradip-dey.jpg" 
+              alt="Menu Scientist - Pradip" 
+              fill
+              className="object-cover scale-110"
+              unoptimized
+            />
+          </div>
+          <div className="absolute -top-3 -right-3 w-14 h-18 rounded-full overflow-hidden border-3 border-orange-200 shadow-lg z-20 transform -rotate-12">
+            <Image 
+              src="/reunion-hub/images/pradip-dey.jpg" 
+              alt="Menu Scientist - Pradip" 
+              fill
+              className="object-cover scale-110"
+              unoptimized
+            />
+          </div>
+          {/* Center Pradip with chef hat emoji */}
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-center">
+            <div className="w-12 h-15 rounded-full overflow-hidden border-3 border-yellow-300 shadow-lg bg-white">
+              <Image 
+                src="/reunion-hub/images/pradip-dey.jpg" 
+                alt="Chef Pradip" 
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+            <span className="absolute -top-2 -right-1 text-2xl">👨‍🍳</span>
+          </div>
+          <CardHeader className="text-center p-8 pt-12">
             <div className="mx-auto w-fit mb-4 text-primary">
               <Utensils size={40} strokeWidth={1.5} />
             </div>
