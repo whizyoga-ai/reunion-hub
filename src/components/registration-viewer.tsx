@@ -75,13 +75,45 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
   const [searchTerm, setSearchTerm] = useState('')
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
-  const [editedDescription, setEditedDescription] = useState('')
+  const [editedData, setEditedData] = useState({
+    description: '',
+    profession: '',
+    email: '',
+    mobile: '',
+    organization: ''
+  })
   const [profileImage, setProfileImage] = useState<string | null>(null)
 
   const t = content[language]
 
   useEffect(() => {
-    const combinedData = [...getRealParticipants(), ...getCharacterData(), ...loadSavedRegistrations()]
+    let combinedData = [...getRealParticipants(), ...getCharacterData(), ...loadSavedRegistrations()]
+    
+    // Load and apply saved participant data
+    combinedData = combinedData.map(person => {
+      if (person.type === 'real') {
+        const savedDataKey = `participant_${person.name.replace(/\s+/g, '_')}`
+        const savedData = localStorage.getItem(savedDataKey)
+        
+        if (savedData) {
+          try {
+            const parsed = JSON.parse(savedData)
+            return {
+              ...person,
+              funFact: parsed.description || person.funFact,
+              profession: parsed.profession || person.profession,
+              email: parsed.email || person.email,
+              mobile: parsed.mobile || person.mobile,
+              organization: parsed.organization || person.organization
+            }
+          } catch (error) {
+            console.error('Error loading saved data for', person.name, error)
+          }
+        }
+      }
+      return person
+    })
+    
     setAllPeople(combinedData)
   }, [])
 
@@ -186,15 +218,41 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
     setIsDialogOpen(true)
     setIsEditing(false)
     
-    // Load saved description and image for real participants
+    // Load saved data and image for real participants
     if (person.type === 'real') {
-      const savedData = localStorage.getItem(`participant-${person.id}`)
+      const savedDataKey = `participant_${person.name.replace(/\s+/g, '_')}`
+      const savedData = localStorage.getItem(savedDataKey)
+      
       if (savedData) {
-        const parsed = JSON.parse(savedData)
-        setEditedDescription(parsed.description || person.funFact || '')
-        setProfileImage(parsed.image || null)
+        try {
+          const parsed = JSON.parse(savedData)
+          setEditedData({
+            description: parsed.description || person.funFact || '',
+            profession: parsed.profession || person.profession || '',
+            email: parsed.email || person.email || '',
+            mobile: parsed.mobile || '',
+            organization: parsed.organization || ''
+          })
+          setProfileImage(parsed.image || null)
+        } catch (error) {
+          console.error('Error parsing saved data:', error)
+          setEditedData({
+            description: person.funFact || '',
+            profession: person.profession || '',
+            email: person.email || '',
+            mobile: '',
+            organization: ''
+          })
+          setProfileImage(null)
+        }
       } else {
-        setEditedDescription(person.funFact || '')
+        setEditedData({
+          description: person.funFact || '',
+          profession: person.profession || '',
+          email: person.email || '',
+          mobile: '',
+          organization: ''
+        })
         setProfileImage(null)
       }
     }
@@ -202,22 +260,55 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
 
   const handleSaveEdit = () => {
     if (selectedPerson && selectedPerson.type === 'real') {
+      const savedDataKey = `participant_${selectedPerson.name.replace(/\s+/g, '_')}`
       const updatedData = {
-        description: editedDescription,
-        image: profileImage
+        ...editedData,
+        image: profileImage,
+        lastUpdated: new Date().toISOString()
       }
-      localStorage.setItem(`participant-${selectedPerson.id}`, JSON.stringify(updatedData))
       
-      // Update the person's funFact in the current state
-      setAllPeople(prev => prev.map(person => 
-        person.id === selectedPerson.id 
-          ? { ...person, funFact: editedDescription }
-          : person
-      ))
-      
-      setSelectedPerson(prev => prev ? { ...prev, funFact: editedDescription } : null)
-      setIsEditing(false)
+      try {
+        localStorage.setItem(savedDataKey, JSON.stringify(updatedData))
+        console.log('Data saved successfully:', savedDataKey, updatedData)
+        
+        // Update the person in allPeople state
+        setAllPeople(prev => prev.map(person => 
+          person.id === selectedPerson.id 
+            ? { 
+                ...person, 
+                funFact: editedData.description,
+                profession: editedData.profession,
+                email: editedData.email,
+                mobile: editedData.mobile,
+                organization: editedData.organization
+              }
+            : person
+        ))
+        
+        // Update selectedPerson
+        setSelectedPerson(prev => prev ? { 
+          ...prev, 
+          funFact: editedData.description,
+          profession: editedData.profession,
+          email: editedData.email,
+          mobile: editedData.mobile,
+          organization: editedData.organization
+        } : null)
+        
+        setIsEditing(false)
+        alert('Profile updated successfully!')
+      } catch (error) {
+        console.error('Error saving data:', error)
+        alert('Failed to save profile. Please try again.')
+      }
     }
+  }
+
+  const handleFieldChange = (field: string, value: string) => {
+    setEditedData(prev => ({
+      ...prev,
+      [field]: value
+    }))
   }
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -450,13 +541,52 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
                       <Mail className="w-4 h-4 text-gray-500" />
                       <span className="text-sm font-medium">Email:</span>
                     </div>
-                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.email}</p>
+                    {selectedPerson.type === 'real' && isEditing ? (
+                      <Input 
+                        value={editedData.email}
+                        onChange={(e) => handleFieldChange('email', e.target.value)}
+                        placeholder="Enter email address"
+                        className="ml-6"
+                        type="email"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-700 ml-6">{editedData.email || selectedPerson.email}</p>
+                    )}
                     
                     <div className="flex items-center gap-2">
                       <Briefcase className="w-4 h-4 text-gray-500" />
                       <span className="text-sm font-medium">Profession:</span>
                     </div>
-                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.profession}</p>
+                    {selectedPerson.type === 'real' && isEditing ? (
+                      <Input 
+                        value={editedData.profession}
+                        onChange={(e) => handleFieldChange('profession', e.target.value)}
+                        placeholder="Enter profession"
+                        className="ml-6"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-700 ml-6">{editedData.profession || selectedPerson.profession}</p>
+                    )}
+
+                    {selectedPerson.type === 'real' && (editedData.mobile || isEditing) && (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-4 h-4 text-gray-500" />
+                          <span className="text-sm font-medium">Mobile:</span>
+                        </div>
+                        {isEditing ? (
+                          <Input 
+                            value={editedData.mobile}
+                            onChange={(e) => handleFieldChange('mobile', e.target.value)}
+                            placeholder="Enter mobile number"
+                            className="ml-6"
+                            type="tel"
+                          />
+                        ) : (
+                          <p className="text-sm text-gray-700 ml-6">{editedData.mobile}</p>
+                        )}
+                      </>
+                    )}
                   </div>
                   
                   <div className="space-y-3">
@@ -468,15 +598,34 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
                     </div>
                     {selectedPerson.type === 'real' && isEditing ? (
                       <Textarea 
-                        value={editedDescription}
-                        onChange={(e) => setEditedDescription(e.target.value)}
+                        value={editedData.description}
+                        onChange={(e) => handleFieldChange('description', e.target.value)}
                         placeholder="Tell us about yourself..."
                         className="ml-6 min-h-[80px]"
                       />
                     ) : (
                       <p className="text-sm text-gray-700 ml-6">
-                        {selectedPerson.type === 'real' ? (editedDescription || selectedPerson.funFact) : selectedPerson.funFact}
+                        {selectedPerson.type === 'real' ? (editedData.description || selectedPerson.funFact) : selectedPerson.funFact}
                       </p>
+                    )}
+
+                    {selectedPerson.type === 'real' && (editedData.organization || isEditing) && (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <Briefcase className="w-4 h-4 text-gray-500" />
+                          <span className="text-sm font-medium">Organization:</span>
+                        </div>
+                        {isEditing ? (
+                          <Input 
+                            value={editedData.organization}
+                            onChange={(e) => handleFieldChange('organization', e.target.value)}
+                            placeholder="Enter organization/company"
+                            className="ml-6"
+                          />
+                        ) : (
+                          <p className="text-sm text-gray-700 ml-6">{editedData.organization}</p>
+                        )}
+                      </>
                     )}
                     
                     {selectedPerson.timestamp && (
