@@ -52,17 +52,13 @@ const getPersonAvatar = (name: string, type: 'real' | 'character'): string => {
       'বাঁটুল দ্য গ্রেট': '👑',
       'ঘনাদা': '🧔‍♂️',
       'গোপাল ভাঁড়': '🎭',
-      'কিশোর কুমার': '🎤',
-      'সুকুমার রায়': '✍️',
       // Legacy characters from old data
       'হিজিবিজবিজ': '🤪',
-      'হুঁকো মুখো হ্যাংলা': '💨',
-      'খিচুড়ি': '🍲',
-      'আবোল তাবোল': '📝'
+      'হুঁকো মুখো হ্যাংলা': '💨'
     }
     return characterAvatars[name] || '🎭'
   } else {
-    // Real participants get professional emojis
+    // Real participants get professional emojis (all 26 participants)
     const realAvatars: { [key: string]: string } = {
       'Tanmoy': '💼', 'Basab': '🔧', 'Ratul': '📹', 'Sekharjit': '💻', 'Supratim': '🎯',
       'Chandan': '🎬', 'Biswaranjan': '📊', 'Pradip': '🌱', 'Yogabrata': '⚖️', 'Sudipta': '🦷',
@@ -122,9 +118,7 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
       { name: 'হাঁদা ভোঁদা', message: 'নতুন দুষ্টুমি শিখেছি।', profession: 'Fun & Games Expert' },
       { name: 'বাঁটুল দ্য গ্রেট', message: 'আমার সাহসিকতার গল্প শোনাব।', profession: 'Adventure Specialist' },  
       { name: 'ঘনাদা', message: 'অবিশ্বাস্য সব সত্যি গল্প আছে।', profession: 'Master Storyteller' },
-      { name: 'গোপাল ভাঁড়', message: 'নতুন হাসির গল্প নিয়ে আসছি।', profession: 'Court Jester' },
-      { name: 'কিশোর কুমার', message: 'গান গেয়ে সবাইকে খুশি করব।', profession: 'Legendary Singer' },
-      { name: 'সুকুমার রায়', message: 'আবোল তাবোল ছড়া শোনাব।', profession: 'Nonsense Poet' }
+      { name: 'গোপাল ভাঁড়', message: 'নতুন হাসির গল্প নিয়ে আসছি।', profession: 'Court Jester' }
     ]
     
     return characters.map((char, index) => ({
