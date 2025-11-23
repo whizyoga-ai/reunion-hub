@@ -69,33 +69,122 @@ export function Chatbox({ lang }: ChatboxProps) {
     }
   }), [lang]);
 
-  const getResponse = (message: string): string => {
+  const getResponse = async (message: string): Promise<string> => {
     const lowerMessage = message.toLowerCase();
     
-    // Check for specific attendee queries
-    const attendeeNames = lang === 'en' 
-      ? ["tanmoy", "basab", "ratul", "sekharjit", "supratim", "chandan", "biswaranjan", "pradip", "yogabrata", "sudipta", "shovan", "arun", "srikanta", "amal", "samir", "subrata", "sujoy", "samar", "uttam", "chiranjeeb", "siddhartha", "anirban", "mridul", "swarup", "sanjay", "somnath"]
-      : ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদিপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বান", "মৃদুল", "স্বরূপ", "সঞ্জয়", "সোমনাথ"];
+    // Multi-language attendee names (both English and Bengali names always checked)
+    const attendeeNamesEn = ["tanmoy", "basab", "ratul", "sekharjit", "supratim", "chandan", "biswaranjan", "pradip", "yogabrata", "sudipta", "shovan", "arun", "srikanta", "amal", "samir", "subrata", "sujoy", "samar", "uttam", "chiranjeeb", "siddhartha", "anirban", "mridul", "swarup", "sanjay", "somnath"];
+    const attendeeNamesBn = ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদিপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বান", "মৃদুল", "স্বরূপ", "সঞ্জয়", "সোমনাথ"];
     
-    const foundAttendee = attendeeNames.find(name => lowerMessage.includes(name.toLowerCase()));
+    // Check for attendee queries in any language
+    const foundAttendeeEn = attendeeNamesEn.find(name => lowerMessage.includes(name.toLowerCase()));
+    const foundAttendeeBn = attendeeNamesBn.find(name => lowerMessage.includes(name));
+    const foundAttendee = foundAttendeeEn || foundAttendeeBn;
+    
     if (foundAttendee && (lowerMessage.includes('join') || lowerMessage.includes('coming') || lowerMessage.includes('attend') || lowerMessage.includes('যোগ') || lowerMessage.includes('আসছে'))) {
       return lang === 'en'
         ? `✅ Yes! ${foundAttendee.charAt(0).toUpperCase() + foundAttendee.slice(1)} has confirmed attendance for the ADDABAJI. Looking forward to seeing them there!`
         : `✅ হ্যাঁ! ${foundAttendee} ADDABAJI-তে উপস্থিতি নিশ্চিত করেছেন। তাঁকে সেখানে দেখার জন্য অপেক্ষা করছি!`;
     }
-    
-    for (const [key, response] of Object.entries(quickResponses)) {
-      if (response.keywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
+
+    // Enhanced keyword matching - check both English and Bengali keywords
+    const allKeywords = {
+      venue: ['venue', 'location', 'where', 'কোথায়', 'স্থান', 'ঠিকানা'],
+      attendees: ['who', 'attendees', 'coming', 'list', 'participants', 'how many', 'count', 'কে', 'কারা', 'আসছে', 'তালিকা', 'কতজন', 'সংখ্যা'],
+      time: ['time', 'when', 'schedule', 'কখন', 'সময়', 'সূচি'],
+      contact: ['contact', 'phone', 'organizer', 'যোগাযোগ', 'ফোন', 'সংগঠক'],
+      menu: ['food', 'menu', 'meal', 'খাবার', 'মেনু', 'খাদ্য'],
+      program: ['program', 'schedule', 'activities', 'প্রোগ্রাম', 'সূচি', 'কার্যক্রম'],
+      coreCommittee: ['organizer', 'team', 'committee', 'pradip', 'core team', 'core committee', 'আয়োজক', 'দল', 'কমিটি', 'মূল কমিটি', 'প্রদিপ', 'মূল দল']
+    };
+
+    // Check for reunion-related queries first
+    for (const [key, keywords] of Object.entries(allKeywords)) {
+      if (keywords.some(keyword => lowerMessage.includes(keyword.toLowerCase()))) {
+        const response = quickResponses[key as keyof typeof quickResponses];
         return response.response;
       }
     }
+
+    // Internet-based queries
+    try {
+      // Weather queries
+      if (lowerMessage.includes('weather') || lowerMessage.includes('আবহাওয়া') || lowerMessage.includes('temperature') || lowerMessage.includes('তাপমাত্রা')) {
+        const weatherInfo = await getWeatherInfo();
+        return weatherInfo;
+      }
+
+      // Transport queries
+      if (lowerMessage.includes('transport') || lowerMessage.includes('train') || lowerMessage.includes('bus') || lowerMessage.includes('যাতায়াত') || lowerMessage.includes('ট্রেন') || lowerMessage.includes('বাস')) {
+        return getTransportInfo();
+      }
+
+      // Shopping queries
+      if (lowerMessage.includes('shop') || lowerMessage.includes('market') || lowerMessage.includes('mall') || lowerMessage.includes('দোকান') || lowerMessage.includes('বাজার') || lowerMessage.includes('মল')) {
+        return getShoppingInfo();
+      }
+
+      // Hotel/accommodation queries
+      if (lowerMessage.includes('hotel') || lowerMessage.includes('stay') || lowerMessage.includes('accommodation') || lowerMessage.includes('হোটেল') || lowerMessage.includes('থাকা') || lowerMessage.includes('আবাসন')) {
+        return getHotelInfo();
+      }
+
+    } catch (error) {
+      console.error('Error fetching external data:', error);
+    }
     
     return lang === 'en'
-      ? "I'm here to help with information about the Uttarpara Amarendra Vidyapith ADDABAJI! Ask me about the venue, attendees, timing, food, or contact details."
-      : "আমি উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের ADDABAJI সম্পর্কে তথ্য দিতে এখানে আছি! আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা যোগাযোগের বিবরণ সম্পর্কে জিজ্ঞাসা করুন।";
+      ? "I'm here to help with information about the Uttarpara Amarendra Vidyapith ADDABAJI! Ask me about the venue, attendees, timing, food, or contact details. I can also help with weather, transport, shopping, and hotels in Uttarpara."
+      : "আমি উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের ADDABAJI সম্পর্কে তথ্য দিতে এখানে আছি! আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা যোগাযোগের বিবরণ সম্পর্কে জিজ্ঞাসা করুন। আমি উত্তরপাড়ার আবহাওয়া, যাতায়াত, কেনাকাটা এবং হোটেল সম্পর্কেও সাহায্য করতে পারি।";
   };
 
-  const handleSendMessage = () => {
+  // Weather function using free API
+  const getWeatherInfo = async (): Promise<string> => {
+    try {
+      // Using a free weather API (OpenWeatherMap or similar)
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Uttarpara,West Bengal,IN&appid=demo&units=metric`);
+      
+      if (!response.ok) {
+        // Fallback to general weather info
+        return lang === 'en'
+          ? "🌤️ December weather in Uttarpara is usually pleasant with temperatures around 15-25°C. It's the perfect weather for our reunion! For real-time weather, check: https://weather.com/en-IN/weather/today/l/Uttarpara+West+Bengal"
+          : "🌤️ উত্তরপাড়ায় ডিসেম্বরের আবহাওয়া সাধারণত মনোরম থাকে ১৫-২৫°সে তাপমাত্রায়। আমাদের আড্ডাবাজির জন্য নিখুঁত আবহাওয়া! বর্তমান আবহাওয়ার জন্য দেখুন: https://weather.com/en-IN/weather/today/l/Uttarpara+West+Bengal";
+      }
+      
+      const data = await response.json();
+      const temp = Math.round(data.main.temp);
+      const description = data.weather[0].description;
+      
+      return lang === 'en'
+        ? `🌤️ Current weather in Uttarpara: ${temp}°C, ${description}. Perfect for our ADDABAJI on Dec 6th!`
+        : `🌤️ উত্তরপাড়ার বর্তমান আবহাওয়া: ${temp}°সে, ${description}। ৬ই ডিসেম্বরের আড্ডাবাজির জন্য উপযুক্ত!`;
+        
+    } catch (error) {
+      return lang === 'en'
+        ? "🌤️ December weather in Uttarpara is usually pleasant with temperatures around 15-25°C. Perfect for our reunion! For live weather: https://weather.com/en-IN/weather/today/l/Uttarpara+West+Bengal"
+        : "🌤️ উত্তরপাড়ায় ডিসেম্বরের আবহাওয়া সাধারণত মনোরম ১৫-২৫°সে। আড্ডাবাজির জন্য নিখুঁত! সরাসরি আবহাওয়া: https://weather.com/en-IN/weather/today/l/Uttarpara+West+Bengal";
+    }
+  };
+
+  const getTransportInfo = (): string => {
+    return lang === 'en'
+      ? "🚆 Transport to Uttarpara:\n• Train: Uttarpara Railway Station (main line)\n• Bus: Regular buses from Kolkata, Howrah\n• Taxi/Auto: Available from Howrah Station (20 min)\n• Metro: Take to Majerhat then bus/taxi\nGoogle Maps: https://goo.gl/maps/uttarpara"
+      : "🚆 উত্তরপাড়ায় যাতায়াত:\n• ট্রেন: উত্তরপাড়া রেলওয়ে স্টেশন (মূল লাইন)\n• বাস: কলকাতা, হাওড়া থেকে নিয়মিত বাস\n• ট্যাক্সি/অটো: হাওড়া স্টেশন থেকে উপলব্ধ (২০ মিনিট)\n• মেট্রো: মজেরহাট পর্যন্ত তারপর বাস/ট্যাক্সি\nগুগল ম্যাপস: https://goo.gl/maps/uttarpara";
+  };
+
+  const getShoppingInfo = (): string => {
+    return lang === 'en'
+      ? "🛍️ Shopping near Uttarpara:\n• Uttarpara Local Market (daily items)\n• Hooghly Bazar (traditional items)\n• Serampore Market (15 min away)\n• City Centre Siliguri (mall, 30 min)\n• Howrah AC Market (electronics, 25 min)\nFor gifts and reunion items!"
+      : "🛍️ উত্তরপাড়ার কাছে কেনাকাটা:\n• উত্তরপাড়া লোকাল মার্কেট (দৈনন্দিন জিনিস)\n• হুগলি বাজার (ঐতিহ্যবাহী জিনিস)\n• শ্রীরামপুর মার্কেট (১৫ মিনিট দূরে)\n• সিটি সেন্টার শিলিগুড়ি (মল, ৩০ মিনিট)\n• হাওড়া এসি মার্কেট (ইলেকট্রনিক্স, ২৫ মিনিট)\nউপহার এবং আড্ডাবাজির জিনিসের জন্য!";
+  };
+
+  const getHotelInfo = (): string => {
+    return lang === 'en'
+      ? "🏨 Hotels near Uttarpara:\n• Hotel Sonar Bangla, Hooghly\n• Peerless Inn, Howrah (luxury)\n• Hotel Golden Park, Serampore\n• Budget stays in Howrah area\n• Book via: MakeMyTrip, Booking.com\nMany alumni are staying locally with family!"
+      : "🏨 উত্তরপাড়ার কাছে হোটেল:\n• হোটেল সোনার বাংলা, হুগলি\n• পিয়ারলেস ইন, হাওড়া (বিলাসবহুল)\n• হোটেল গোল্ডেন পার্ক, শ্রীরামপুর\n• হাওড়া এলাকায় সাশ্রয়ী থাকার জায়গা\n• বুক করুন: MakeMyTrip, Booking.com\nঅনেক প্রাক্তনী স্থানীয়ভাবে পরিবারের সাথে থাকছেন!";
+  };
+
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
     const userMessage: Message = {
@@ -105,14 +194,41 @@ export function Chatbox({ lang }: ChatboxProps) {
       timestamp: new Date()
     };
 
-    const botResponse: Message = {
+    // Add user message and show "typing" indicator
+    setMessages(prev => [...prev, userMessage]);
+    
+    // Add typing indicator
+    const typingMessage: Message = {
       id: Date.now() + 1,
       type: 'bot',
-      content: getResponse(inputValue),
+      content: lang === 'en' ? '🤔 Thinking...' : '🤔 ভাবছি...',
       timestamp: new Date()
     };
+    setMessages(prev => [...prev, typingMessage]);
 
-    setMessages(prev => [...prev, userMessage, botResponse]);
+    try {
+      const responseContent = await getResponse(inputValue);
+      const botResponse: Message = {
+        id: Date.now() + 2,
+        type: 'bot',
+        content: responseContent,
+        timestamp: new Date()
+      };
+
+      // Replace typing indicator with actual response
+      setMessages(prev => prev.slice(0, -1).concat(botResponse));
+    } catch (error) {
+      const errorResponse: Message = {
+        id: Date.now() + 2,
+        type: 'bot',
+        content: lang === 'en' 
+          ? '😅 Sorry, I had trouble processing that. Please try asking about the ADDABAJI details!'
+          : '😅 দুঃখিত, আমার সমস্যা হয়েছে। অনুগ্রহ করে ADDABAJI এর বিবরণ সম্পর্কে জিজ্ঞাসা করুন!',
+        timestamp: new Date()
+      };
+      setMessages(prev => prev.slice(0, -1).concat(errorResponse));
+    }
+
     setInputValue('');
   };
 
