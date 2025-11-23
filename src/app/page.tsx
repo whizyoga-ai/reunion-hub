@@ -183,25 +183,45 @@ export default function HomePage() {
             <Card className="shadow-xl border-0 bg-white/95">
               <ConfirmedAttendees lang={lang} />
             </Card>
+
+            {/* Program Schedule */}
+            <Card className="shadow-xl border-0 bg-gradient-to-br from-amber-50 to-orange-50">
+              <ProgramSchedule lang={lang} />
+            </Card>
+
+            {/* Dr. Pradip's Fun Menu */}
+            <Card className="shadow-xl border-0 bg-gradient-to-br from-emerald-50 to-green-50">
+              <MenuSection lang={lang} />
+            </Card>
+
+            {/* Interactive Sections */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="shadow-xl border-0 bg-gradient-to-br from-purple-50 to-pink-50">
+                <IcebreakerTool lang={lang} />
+              </Card>
+              <Card className="shadow-xl border-0 bg-gradient-to-br from-cyan-50 to-blue-50">
+                <FaqSection lang={lang} />
+              </Card>
+            </div>
             
             <div className="text-center py-8">
               <p className="text-gray-500 text-lg mb-4">
                 {lang === 'en' 
-                  ? 'More details about program, menu, and activities are available through our chat assistant!' 
-                  : 'প্রোগ্রাম, মেনু, এবং কার্যক্রমের আরও বিবরণ আমাদের চ্যাট সহায়কের মাধ্যমে পাওয়া যাবে!'}
+                  ? 'Have questions? Our chat assistant is here to help with any details!' 
+                  : 'প্রশ্ন আছে? আমাদের চ্যাট সহায়ক যে কোনো বিবরণে সাহায্য করতে এখানে আছে!'}
               </p>
               <div className="flex justify-center gap-4 flex-wrap">
                 <Badge variant="outline" className="px-4 py-2">
                   <Utensils className="w-4 h-4 mr-2" />
-                  {lang === 'en' ? 'Special Menu by Dr. Pradip' : 'ডাঃ প্রদীপের বিশেষ মেনু'}
+                  {lang === 'en' ? 'Scientific Menu by Dr. Pradip' : 'ডাঃ প্রদীপের বৈজ্ঞানিক মেনু'}
                 </Badge>
                 <Badge variant="outline" className="px-4 py-2">
                   <Music className="w-4 h-4 mr-2" />
-                  {lang === 'en' ? 'Performances & Fun' : 'পারফরম্যান্স ও মজা'}
+                  {lang === 'en' ? '12-Hour Fun Program' : '১২ ঘণ্টার মজার অনুষ্ঠান'}
                 </Badge>
                 <Badge variant="outline" className="px-4 py-2">
                   <Heart className="w-4 h-4 mr-2" />
-                  {lang === 'en' ? 'Memory Lane' : 'স্মৃতিপথ'}
+                  {lang === 'en' ? '35+ Years of Memories' : '৩৫+ বছরের স্মৃতি'}
                 </Badge>
               </div>
             </div>

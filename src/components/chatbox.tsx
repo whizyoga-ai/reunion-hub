@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MessageCircle, Send, Bot, User, MapPin, Users, Clock, Phone } from 'lucide-react';
+import { MessageCircle, Send, Bot, User, MapPin, Users, Clock, Phone, Utensils } from 'lucide-react';
 import { content } from '@/lib/content';
 
 interface ChatboxProps {
@@ -52,8 +52,14 @@ export function Chatbox({ lang }: ChatboxProps) {
     menu: {
       keywords: ['food', 'menu', 'meal', 'খাবার', 'মেনু', 'খাদ্য'],
       response: lang === 'en'
-        ? "🍽️ Dr. Pradip Dey is curating our special menu! Expect farm-fresh breakfast, research-grade lunch, scientific evening snacks, and innovative dinner. All meals included from 9 AM to 9 PM!"
-        : "🍽️ ডাঃ প্রদীপ দে আমাদের বিশেষ মেনু তৈরি করছেন! খামার-তাজা প্রাতঃরাশ, গবেষণা-গ্রেড দুপুরের খাবার, বৈজ্ঞানিক সন্ধ্যার স্ন্যাকস এবং উদ্ভাবনী রাতের খাবার প্রত্যাশা করুন। সকাল ৯টা থেকে রাত ৯টা পর্যন্ত সব খাবার অন্তর্ভুক্ত!"
+        ? "🍽️ Dr. Pradip Dey's Menu Lab presents: 🌅 JALKHABAR (guaranteed 100% farm-fresh and 200% confusion), 🌞 LUNCH (research-grade, no peer review needed), 🌥 EVENING TIFFIN (with scientific uncertainty), 🌙 DINNER (high nutrition, low nonsense... or maybe reverse!). Check the full funny menu on the main page!"
+        : "🍽️ ডাঃ প্রদীপ দের মেনু ল্যাব উপস্থাপনা: 🌅 জলখাবার (১০০% খামার-তাজা ও ২০০% বিভ্রান্তি গ্যারান্টিযুক্ত), 🌞 দুপুরের খাবার (গবেষণা-গ্রেড), 🌥 সন্ধ্যার টিফিন (বৈজ্ঞানিক অনিশ্চয়তা সহ), 🌙 রাতের খাবার (উচ্চ পুষ্টি, কম বাজে কথা... বা হয়তো উল্টো!)। পূর্ণ মজার মেনু মূল পৃষ্ঠায় দেখুন!"
+    },
+    program: {
+      keywords: ['program', 'schedule', 'activities', 'প্রোগ্রাম', 'সূচি', 'কার্যক্রম'],
+      response: lang === 'en'
+        ? "📅 Full Day Program: 9:00-9:30 AM Welcome drinks, 9:30-10:30 AM Breakfast, 10:30-11:30 AM Back to School stories, 11:30 AM-12:00 PM Health checkup, 12:00-1:30 PM Future planning, 1:30-3:00 PM Lunch, 3:00-4:30 PM Stage performances, 4:30-5:00 PM Tea break, 5:00-6:00 PM More performances, 6:00-6:30 PM Evening snacks, 6:30-8:30 PM Party time, 8:30-9:30 PM Grand dinner!"
+        : "📅 সম্পূর্ণ দিনের অনুষ্ঠান: সকাল ৯:০০-৯:৩০ স্বাগত পানীয়, ৯:৩০-১০:৩০ প্রাতঃরাশ, ১০:৩০-১১:৩০ স্কুলে ফেরা গল্প, ১১:৩০-১২:০০ স্বাস্থ্য পরীক্ষা, ১২:০০-১:৩০ ভবিষ্যৎ পরিকল্পনা, ১:৩০-৩:০০ দুপুরের খাবার, ৩:০০-৪:৩০ মঞ্চ পারফরমেন্স, ৪:৩০-৫:০০ চা বিরতি, ৫:০০-৬:০০ আরো পারফরমেন্স, ৬:০০-৬:৩০ সন্ধ্যার জলখাবার, ৬:৩০-৮:৩০ পার্টি, ৮:৩০-৯:৩০ মহা রাতের খাবার!"
     }
   }), [lang]);
 
@@ -181,7 +187,8 @@ export function Chatbox({ lang }: ChatboxProps) {
               {[
                 { icon: MapPin, text: lang === 'en' ? 'Venue' : 'স্থান', query: 'venue' },
                 { icon: Users, text: lang === 'en' ? 'Who\'s coming' : 'কে আসছে', query: 'who is coming' },
-                { icon: Clock, text: lang === 'en' ? 'Timing' : 'সময়', query: 'time' }
+                { icon: Clock, text: lang === 'en' ? 'Program' : 'অনুষ্ঠান', query: 'program schedule' },
+                { icon: Utensils, text: lang === 'en' ? 'Menu' : 'মেনু', query: 'menu' }
               ].map((item, index) => (
                 <Button
                   key={index}
