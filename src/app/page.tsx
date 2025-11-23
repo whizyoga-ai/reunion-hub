@@ -89,12 +89,13 @@ export default function HomePage() {
               src="/reunion-hub/images/amarendra1.jpg" 
               alt="Uttarpara Amarendra Vidyapith School" 
               fill
-              className="object-cover opacity-15 mix-blend-overlay"
+              className="object-cover opacity-30 mix-blend-soft-light"
               priority
               unoptimized
             />
           </div>
-          <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-indigo-800/60 to-purple-900/60 z-5"></div>
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-semibold bg-white/20 text-white border-white/30">
               <Star className="w-4 h-4 mr-2" />
                 {lang === 'en' ? 'Grand ADDABAJI 2025' : 'মহা আড্ডাবাজি ২০২৫'}
