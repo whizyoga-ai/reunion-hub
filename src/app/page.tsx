@@ -17,7 +17,9 @@ import { Button } from '@/components/ui/button';
 import { RegistrationModal } from '@/components/registration-modal';
 import { Chatbox } from '@/components/chatbox';
 import { HeritageSection } from '@/components/heritage-section';
-import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star } from 'lucide-react';
+import IdeaBox from '@/components/idea-box';
+import MediaGallery from '@/components/media-gallery';
+import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star, Lightbulb, Images } from 'lucide-react';
 
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
@@ -49,6 +51,20 @@ export default function HomePage() {
       value: lang === 'en' ? 'Bhorer Alo Hall' : 'ভোরের আলো হল',
       color: 'text-red-600',
       href: '#details'
+    },
+    {
+      icon: Lightbulb,
+      title: lang === 'en' ? 'Ideas' : 'আইডিয়া',
+      value: lang === 'en' ? 'Share Ideas' : 'আইডিয়া শেয়ার',
+      color: 'text-amber-600',
+      href: '#ideas'
+    },
+    {
+      icon: Images,
+      title: lang === 'en' ? 'Gallery' : 'গ্যালারি',
+      value: lang === 'en' ? 'Media Gallery' : 'মিডিয়া গ্যালারি',
+      color: 'text-purple-600',
+      href: '#gallery'
     },
     {
       icon: Users,
@@ -321,6 +337,16 @@ export default function HomePage() {
 
       {/* Heritage Section */}
       <HeritageSection lang={lang} />
+      
+      {/* Idea Box Section */}
+      <section id="ideas" className="py-16 bg-gradient-to-br from-amber-50 to-orange-50">
+        <IdeaBox language={lang} />
+      </section>
+      
+      {/* Media Gallery Section */}
+      <section id="gallery" className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+        <MediaGallery language={lang} />
+      </section>
 
       {/* Chatbox Component */}
       <Chatbox lang={lang} />

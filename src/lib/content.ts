@@ -184,8 +184,25 @@ export const content = {
         description: "Our beloved Uttarpara Amarendra Vidyapith stands as a testament to educational excellence and cultural richness. For decades, this institution has shaped countless lives, fostering not just academic brilliance but also the values of integrity, creativity, and social responsibility. From these very classrooms and corridors emerged engineers, doctors, teachers, artists, and visionaries who have made their mark across the globe. Today, as we gather for our আড্ডাবাজি, we celebrate not just our reunion, but the enduring legacy of a school that taught us to dream, to achieve, and to never forget our roots."
       }
     },
+    ideaBox: {
+      title: "Idea Box",
+      subtitle: "Share Your Creative Ideas",
+      description: "Have a brilliant idea for our reunion? Share it here and let's make it happen together!",
+      placeholder: "Share your idea...",
+      submitButton: "Submit Idea",
+      emptyState: "No ideas shared yet. Be the first to contribute!",
+      nameLabel: "Your Name (Optional)",
+      namePlaceholder: "Enter your name"
+    },
+    mediaGallery: {
+      title: "Media Gallery",
+      subtitle: "Memories in Pictures",
+      description: "A collection of photos and videos from our reunion and shared memories.",
+      comingSoon: "Coming Soon!",
+      uploadInfo: "Photo upload functionality will be available during and after the reunion event."
+    },
     footer: {
-      copyright: `© ${currentYear} আড্ডাবাজি Hub. All rights reserved.`,
+      copyright: `© ${currentYear} ADDABAJI Center. All rights reserved.`,
       closing: "Looking forward to celebrating with you!"
     }
   },
@@ -379,6 +396,23 @@ export const content = {
         title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - যেখানে স্বপ্ন ডানা মেলে",
         description: "আমাদের প্রিয় উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ শিক্ষার উৎকর্ষতা এবং সাংস্কৃতিক সমৃদ্ধির এক অনন্য নিদর্শন। কয়েক দশক ধরে এই প্রতিষ্ঠান অসংখ্য জীবন গড়েছে, কেবল একাডেমিক পারদর্শিতাই নয়, সততা, সৃজনশীলতা এবং সামাজিক দায়বদ্ধতার মূল্যবোধও শিখিয়েছে। এই ক্লাসরুম আর করিডোর থেকেই বেরিয়ে এসেছেন ইঞ্জিনিয়ার, ডাক্তার, শিক্ষক, শিল্পী এবং দূরদর্শী ব্যক্তিত্বরা যারা বিশ্বজুড়ে নিজেদের ছাপ রেখেছেন। আজ আমাদের আড্ডাবাজিতে মিলিত হয়ে আমরা কেবল পুনর্মিলনই উদযাপন করছি না, বরং সেই স্কুলের চিরন্তন উত্তরাধিকার উদযাপন করছি যা আমাদের স্বপ্ন দেখতে, সফল হতে এবং নিজেদের শেকড় কখনো না ভুলতে শিখিয়েছে।"
       }
+    },
+    ideaBox: {
+      title: "আইডিয়া বক্স",
+      subtitle: "আপনার সৃজনশীল ভাবনা শেয়ার করুন",
+      description: "আমাদের আড্ডাবাজির জন্য কোনো দুর্দান্ত আইডিয়া আছে? এখানে শেয়ার করুন এবং একসাথে বাস্তবায়ন করি!",
+      placeholder: "আপনার আইডিয়া শেয়ার করুন...",
+      submitButton: "আইডিয়া জমা দিন",
+      emptyState: "এখনো কোনো আইডিয়া শেয়ার হয়নি। প্রথম হয়ে অবদান রাখুন!",
+      nameLabel: "আপনার নাম (ঐচ্ছিক)",
+      namePlaceholder: "আপনার নাম লিখুন"
+    },
+    mediaGallery: {
+      title: "মিডিয়া গ্যালারি",
+      subtitle: "ছবিতে স্মৃতি",
+      description: "আমাদের আড্ডাবাজি এবং ভাগ করা স্মৃতির ছবি ও ভিডিওর সংগ্রহ।",
+      comingSoon: "শীঘ্রই আসছে!",
+      uploadInfo: "আড্ডাবাজির সময় এবং পরে ছবি আপলোডের সুবিধা পাওয়া যাবে।"
     },
     footer: {
       copyright: `© ${currentYear} ADDABAJI কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
