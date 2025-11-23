@@ -40,37 +40,43 @@ export function MenuSection({ lang }: MenuSectionProps) {
       </div>
       <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 relative z-10">
         <Card className="shadow-xl rounded-lg bg-white/90 backdrop-blur-md relative">
-          {/* Pradip's face in top corners - elliptical */}
-          <div className="absolute -top-3 -left-3 w-14 h-18 rounded-full overflow-hidden border-3 border-orange-200 shadow-lg z-20 transform rotate-12">
+          {/* Pradip's face in top corners - larger and more visible */}
+          <div className="absolute -top-4 -left-4 w-20 h-24 rounded-full overflow-hidden border-4 border-orange-300 shadow-xl z-20 transform rotate-12 bg-white">
             <Image 
               src="/reunion-hub/images/pradip-dey.jpg" 
               alt="Menu Scientist - Pradip" 
-              fill
-              className="object-cover scale-110"
+              width={80}
+              height={96}
+              className="object-cover w-full h-full"
               unoptimized
             />
           </div>
-          <div className="absolute -top-3 -right-3 w-14 h-18 rounded-full overflow-hidden border-3 border-orange-200 shadow-lg z-20 transform -rotate-12">
+          <div className="absolute -top-4 -right-4 w-20 h-24 rounded-full overflow-hidden border-4 border-orange-300 shadow-xl z-20 transform -rotate-12 bg-white">
             <Image 
               src="/reunion-hub/images/pradip-dey.jpg" 
               alt="Menu Scientist - Pradip" 
-              fill
-              className="object-cover scale-110"
+              width={80}
+              height={96}
+              className="object-cover w-full h-full"
               unoptimized
             />
           </div>
-          {/* Center Pradip with chef hat emoji */}
-          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-center">
-            <div className="w-12 h-15 rounded-full overflow-hidden border-3 border-yellow-300 shadow-lg bg-white">
+          {/* Center Pradip with chef hat emoji - larger */}
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-center">
+            <div className="w-16 h-20 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl bg-white">
               <Image 
                 src="/reunion-hub/images/pradip-dey.jpg" 
                 alt="Chef Pradip" 
-                fill
-                className="object-cover"
+                width={64}
+                height={80}
+                className="object-cover w-full h-full"
                 unoptimized
               />
             </div>
-            <span className="absolute -top-2 -right-1 text-2xl">👨‍🍳</span>
+            <span className="absolute -top-3 -right-2 text-3xl drop-shadow-lg">👨‍🍳</span>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-bold shadow-lg">
+              Menu Scientist
+            </div>
           </div>
           <CardHeader className="text-center p-8 pt-12">
             <div className="mx-auto w-fit mb-4 text-primary">
