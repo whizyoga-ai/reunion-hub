@@ -161,7 +161,7 @@ export default function AlumniSpotlight({ language }: AlumniSpotlightProps) {
                       {language === 'bn' ? 'বিশেষ অর্জন' : 'Key Achievement'}
                     </span>
                   </div>
-                  <p className={`text-sm font-medium ${colors.text}`}>
+                  <p className="text-sm font-medium text-white">
                     {achievement.achievement}
                   </p>
                 </div>
