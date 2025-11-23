@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Search, Users, Calendar, Phone, Mail, Briefcase, Heart, Star, Sparkles } from 'lucide-react'
 import { content } from '@/lib/content'
 
@@ -51,10 +51,7 @@ const getPersonAvatar = (name: string, type: 'real' | 'character'): string => {
       'হাঁদা ভোঁদা': '😸🙃',
       'বাঁটুল দ্য গ্রেট': '👑',
       'ঘনাদা': '🧔‍♂️',
-      'গোপাল ভাঁড়': '🎭',
-      // Legacy characters from old data
-      'হিজিবিজবিজ': '🤪',
-      'হুঁকো মুখো হ্যাংলা': '💨'
+      'গোপাল ভাঁড়': '🎭'
     }
     return characterAvatars[name] || '🎭'
   } else {
@@ -74,7 +71,6 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
   const [allPeople, setAllPeople] = useState<PersonData[]>([])
   const [selectedPerson, setSelectedPerson] = useState<PersonData | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const t = content[language]
 
@@ -181,8 +177,146 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
 
   const handlePersonClick = (person: PersonData) => {
     setSelectedPerson(person)
-    setIsDialogOpen(true)
   }
+
+  const PersonCard = ({ person }: { person: PersonData }) => (
+    <Card 
+      className={`cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg ${
+        person.type === 'real' ? 'border-blue-200 bg-blue-50' : 'border-purple-200 bg-purple-50'
+      }`}
+      onClick={() => handlePersonClick(person)}
+    >
+      <CardContent className="p-4 text-center">
+        <div className="text-4xl mb-2">
+          {getPersonAvatar(person.name, person.type)}
+        </div>
+        <h3 className="font-semibold text-sm mb-1 truncate" title={person.name}>
+          {person.name}
+        </h3>
+        <Badge 
+          variant="secondary" 
+          className={`text-xs mb-2 ${
+            person.type === 'real' 
+              ? 'bg-blue-100 text-blue-800' 
+              : 'bg-purple-100 text-purple-800'
+          }`}
+        >
+          {person.type === 'real' ? (
+            <><Star className="w-3 h-3 mr-1" /> Real</>
+          ) : (
+            <><Sparkles className="w-3 h-3 mr-1" /> Character</>
+          )}
+        </Badge>
+        <p className="text-xs text-gray-600 truncate" title={person.profession}>
+          {person.profession}
+        </p>
+      </CardContent>
+    </Card>
+  )
+
+  const PersonDetails = ({ person }: { person: PersonData }) => (
+    <Card className="h-full">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3">
+          <span className="text-4xl">
+            {getPersonAvatar(person.name, person.type)}
+          </span>
+          <div>
+            <h2 className="text-xl font-bold">{person.name}</h2>
+            <Badge 
+              variant="secondary"
+              className={person.type === 'real' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}
+            >
+              {person.type === 'real' ? 'Real Participant' : 'Fun Character'}
+            </Badge>
+          </div>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium">Email:</span>
+              </div>
+              <p className="text-sm text-gray-700 ml-6">{person.email}</p>
+              
+              <div className="flex items-center gap-2">
+                <Briefcase className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium">Profession:</span>
+              </div>
+              <p className="text-sm text-gray-700 ml-6">{person.profession}</p>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Heart className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium">Fun Fact:</span>
+              </div>
+              <p className="text-sm text-gray-700 ml-6">{person.funFact}</p>
+              
+              {person.timestamp && (
+                <>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-gray-500" />
+                    <span className="text-sm font-medium">Joined:</span>
+                  </div>
+                  <p className="text-sm text-gray-700 ml-6">
+                    {person.timestamp.toLocaleDateString()}
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+          
+          {person.message && (
+            <div className="border-t pt-4">
+              <h4 className="font-medium mb-2">Message:</h4>
+              <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                {person.message}
+              </p>
+            </div>
+          )}
+
+          {/* Extended data for saved registrations */}
+          {person.presentAddress && (
+            <div className="border-t pt-4 space-y-3">
+              <h4 className="font-medium">Additional Details:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                {person.mobile && (
+                  <div>
+                    <span className="flex items-center gap-2 font-medium">
+                      <Phone className="w-4 h-4" /> Mobile:
+                    </span>
+                    <p className="ml-6 text-gray-700">{person.mobile}</p>
+                  </div>
+                )}
+                {person.bloodGroup && (
+                  <div>
+                    <span className="font-medium">Blood Group:</span>
+                    <p className="ml-6 text-gray-700">{person.bloodGroup}</p>
+                  </div>
+                )}
+                {person.organization && (
+                  <div>
+                    <span className="font-medium">Organization:</span>
+                    <p className="ml-6 text-gray-700">{person.organization}</p>
+                  </div>
+                )}
+                {person.maritalStatus && (
+                  <div>
+                    <span className="font-medium">Marital Status:</span>
+                    <p className="ml-6 text-gray-700">{person.maritalStatus}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  )
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
@@ -209,193 +343,105 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
         </div>
       </div>
 
-      <ScrollArea className="h-[600px] w-full">
-        <div className="space-y-6">
-          {/* Real Participants Section */}
-          {realPeople.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-blue-700">
-                <Star className="w-5 h-5" />
-                {language === 'en' ? `Real Participants (${realPeople.length})` : `প্রকৃত অংশগ্রহণকারী (${realPeople.length})`}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                {realPeople.map(person => (
-                  <Card 
-                    key={person.id}
-                    className="cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg border-blue-200 bg-blue-50"
-                    onClick={() => handlePersonClick(person)}
-                  >
-                    <CardContent className="p-4 text-center">
-                      <div className="text-4xl mb-2">
-                        {getPersonAvatar(person.name, person.type)}
-                      </div>
-                      <h3 className="font-semibold text-sm mb-1 truncate" title={person.name}>
-                        {person.name}
-                      </h3>
-                      <Badge variant="secondary" className="text-xs mb-2 bg-blue-100 text-blue-800">
-                        <Star className="w-3 h-3 mr-1" /> Real
-                      </Badge>
-                      <p className="text-xs text-gray-600 truncate" title={person.profession}>
-                        {person.profession}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          )}
+      <Tabs defaultValue="all" className="w-full">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="all" className="flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            {language === 'en' ? 'All' : 'সব'} ({filteredPeople.length})
+          </TabsTrigger>
+          <TabsTrigger value="real" className="flex items-center gap-2">
+            <Star className="w-4 h-4" />
+            {language === 'en' ? 'Real' : 'প্রকৃত'} ({realPeople.length})
+          </TabsTrigger>
+          <TabsTrigger value="characters" className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4" />
+            {language === 'en' ? 'Characters' : 'চরিত্র'} ({characters.length})
+          </TabsTrigger>
+          <TabsTrigger value="details" className="flex items-center gap-2" disabled={!selectedPerson}>
+            <Heart className="w-4 h-4" />
+            {language === 'en' ? 'Details' : 'বিবরণ'}
+          </TabsTrigger>
+        </TabsList>
 
-          {/* Characters Section */}
-          {characters.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-purple-700">
-                <Sparkles className="w-5 h-5" />
-                {language === 'en' ? `Fun Characters (${characters.length})` : `মজার চরিত্র (${characters.length})`}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                {characters.map(person => (
-                  <Card 
-                    key={person.id}
-                    className="cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg border-purple-200 bg-purple-50"
-                    onClick={() => handlePersonClick(person)}
-                  >
-                    <CardContent className="p-4 text-center">
-                      <div className="text-4xl mb-2">
-                        {getPersonAvatar(person.name, person.type)}
-                      </div>
-                      <h3 className="font-semibold text-sm mb-1 truncate" title={person.name}>
-                        {person.name}
-                      </h3>
-                      <Badge variant="secondary" className="text-xs mb-2 bg-purple-100 text-purple-800">
-                        <Sparkles className="w-3 h-3 mr-1" /> Character
-                      </Badge>
-                      <p className="text-xs text-gray-600 truncate" title={person.profession}>
-                        {person.profession}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {filteredPeople.length === 0 && (
-            <div className="text-center py-12 text-gray-500">
-              <Users className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <p className="text-lg">{language === 'en' ? 'No participants found' : 'কোন অংশগ্রহণকারী পাওয়া যায়নি'}</p>
-              <p className="text-sm">{language === 'en' ? 'Try adjusting your search terms' : 'অনুসন্ধানের শব্দ পরিবর্তন করে দেখুন'}</p>
-            </div>
-          )}
-        </div>
-      </ScrollArea>
-
-      {/* Detail Modal */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-3">
-              <span className="text-4xl">
-                {selectedPerson && getPersonAvatar(selectedPerson.name, selectedPerson.type)}
-              </span>
-              <div>
-                <h2 className="text-xl font-bold">{selectedPerson?.name}</h2>
-                <Badge 
-                  variant="secondary"
-                  className={selectedPerson?.type === 'real' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}
-                >
-                  {selectedPerson?.type === 'real' ? 'Real Participant' : 'Fun Character'}
-                </Badge>
-              </div>
-            </DialogTitle>
-          </DialogHeader>
-          
-          <ScrollArea className="max-h-[60vh] pr-4">
-            {selectedPerson && (
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm font-medium">Email:</span>
-                    </div>
-                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.email}</p>
-                    
-                    <div className="flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm font-medium">Profession:</span>
-                    </div>
-                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.profession}</p>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <Heart className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm font-medium">Fun Fact:</span>
-                    </div>
-                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.funFact}</p>
-                    
-                    {selectedPerson.timestamp && (
-                      <>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-gray-500" />
-                          <span className="text-sm font-medium">Joined:</span>
-                        </div>
-                        <p className="text-sm text-gray-700 ml-6">
-                          {selectedPerson.timestamp.toLocaleDateString()}
-                        </p>
-                      </>
-                    )}
+        <TabsContent value="all" className="mt-6">
+          <ScrollArea className="h-[600px] w-full">
+            <div className="space-y-6">
+              {/* Real Participants Section */}
+              {realPeople.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-blue-700">
+                    <Star className="w-5 h-5" />
+                    {language === 'en' ? `Real Participants (${realPeople.length})` : `প্রকৃত অংশগ্রহণকারী (${realPeople.length})`}
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+                    {realPeople.map(person => <PersonCard key={person.id} person={person} />)}
                   </div>
                 </div>
-                
-                {selectedPerson.message && (
-                  <div className="border-t pt-4">
-                    <h4 className="font-medium mb-2">Message:</h4>
-                    <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
-                      {selectedPerson.message}
-                    </p>
-                  </div>
-                )}
+              )}
 
-                {/* Extended data for saved registrations */}
-                {selectedPerson.presentAddress && (
-                  <div className="border-t pt-4 space-y-3">
-                    <h4 className="font-medium">Additional Details:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                      {selectedPerson.mobile && (
-                        <div>
-                          <span className="flex items-center gap-2 font-medium">
-                            <Phone className="w-4 h-4" /> Mobile:
-                          </span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.mobile}</p>
-                        </div>
-                      )}
-                      {selectedPerson.bloodGroup && (
-                        <div>
-                          <span className="font-medium">Blood Group:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.bloodGroup}</p>
-                        </div>
-                      )}
-                      {selectedPerson.organization && (
-                        <div>
-                          <span className="font-medium">Organization:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.organization}</p>
-                        </div>
-                      )}
-                      {selectedPerson.maritalStatus && (
-                        <div>
-                          <span className="font-medium">Marital Status:</span>
-                          <p className="ml-6 text-gray-700">{selectedPerson.maritalStatus}</p>
-                        </div>
-                      )}
-                    </div>
+              {/* Characters Section */}
+              {characters.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 text-purple-700">
+                    <Sparkles className="w-5 h-5" />
+                    {language === 'en' ? `Fun Characters (${characters.length})` : `মজার চরিত্র (${characters.length})`}
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+                    {characters.map(person => <PersonCard key={person.id} person={person} />)}
                   </div>
-                )}
+                </div>
+              )}
+
+              {filteredPeople.length === 0 && (
+                <div className="text-center py-12 text-gray-500">
+                  <Users className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                  <p className="text-lg">{language === 'en' ? 'No participants found' : 'কোন অংশগ্রহণকারী পাওয়া যায়নি'}</p>
+                  <p className="text-sm">{language === 'en' ? 'Try adjusting your search terms' : 'অনুসন্ধানের শব্দ পরিবর্তন করে দেখুন'}</p>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+        </TabsContent>
+
+        <TabsContent value="real" className="mt-6">
+          <ScrollArea className="h-[600px] w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+              {realPeople.map(person => <PersonCard key={person.id} person={person} />)}
+            </div>
+            {realPeople.length === 0 && (
+              <div className="text-center py-12 text-gray-500">
+                <Star className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                <p className="text-lg">{language === 'en' ? 'No real participants found' : 'কোন প্রকৃত অংশগ্রহণকারী পাওয়া যায়নি'}</p>
               </div>
             )}
           </ScrollArea>
-        </DialogContent>
-      </Dialog>
+        </TabsContent>
+
+        <TabsContent value="characters" className="mt-6">
+          <ScrollArea className="h-[600px] w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+              {characters.map(person => <PersonCard key={person.id} person={person} />)}
+            </div>
+            {characters.length === 0 && (
+              <div className="text-center py-12 text-gray-500">
+                <Sparkles className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                <p className="text-lg">{language === 'en' ? 'No characters found' : 'কোন চরিত্র পাওয়া যায়নি'}</p>
+              </div>
+            )}
+          </ScrollArea>
+        </TabsContent>
+
+        <TabsContent value="details" className="mt-6">
+          {selectedPerson ? (
+            <PersonDetails person={selectedPerson} />
+          ) : (
+            <div className="text-center py-12 text-gray-500">
+              <Heart className="w-16 h-16 mx-auto mb-4 opacity-50" />
+              <p className="text-lg">{language === 'en' ? 'Select a person to view details' : 'বিস্তারিত দেখতে কোন ব্যক্তি নির্বাচন করুন'}</p>
+            </div>
+          )}
+        </TabsContent>
+      </Tabs>
     </div>
   )
 }
