@@ -32,25 +32,29 @@ export default function HomePage() {
       icon: Calendar,
       title: lang === 'en' ? 'Date' : 'তারিখ',
       value: lang === 'en' ? 'Dec 6, 2025' : '৬ ডিসেম্বর ২০২৫',
-      color: 'text-blue-600'
+      color: 'text-blue-600',
+      href: '#details'
     },
     {
       icon: Clock,
       title: lang === 'en' ? 'Time' : 'সময়',
       value: lang === 'en' ? '9 AM - 9 PM' : '৯টা - ৯টা',
-      color: 'text-green-600'
+      color: 'text-green-600',
+      href: '#program'
     },
     {
       icon: MapPin,
       title: lang === 'en' ? 'Venue' : 'স্থান',
       value: lang === 'en' ? 'Bhorer Alo Hall' : 'ভোরের আলো হল',
-      color: 'text-red-600'
+      color: 'text-red-600',
+      href: '#details'
     },
     {
       icon: Users,
       title: lang === 'en' ? 'Confirmed' : 'নিশ্চিত',
       value: '25+',
-      color: 'text-purple-600'
+      color: 'text-purple-600',
+      href: '#attendees'
     }
   ];
 
@@ -59,7 +63,7 @@ export default function HomePage() {
       {/* Enhanced Header */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
         <div className="container flex h-20 max-w-screen-2xl items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
+          <a href="#hero" className="flex items-center gap-3 hover:opacity-80 transition-opacity cursor-pointer">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
               <GraduationCap className="w-7 h-7 text-white" />
             </div>
@@ -67,7 +71,7 @@ export default function HomePage() {
               <h1 className="text-xl font-bold text-gray-900">{c.nav.title}</h1>
               <p className="text-sm text-gray-500">{lang === 'en' ? 'Uttarpara Amarendra Vidyapith' : 'উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ'}</p>
             </div>
-          </div>
+          </a>
           <div className="flex items-center gap-4">
             <Button onClick={toggleLanguage} variant="outline" size="sm" className="font-semibold">
               {c.nav.translate}
@@ -78,7 +82,7 @@ export default function HomePage() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 overflow-hidden">
+        <section id="hero" className="relative py-20 md:py-32 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 overflow-hidden">
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-semibold bg-white/20 text-white border-white/30">
@@ -102,13 +106,15 @@ export default function HomePage() {
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {highlights.map((item, index) => (
-                <Card key={index} className="bg-white/90 backdrop-blur shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <CardContent className="p-6 text-center">
-                    <item.icon className={`w-8 h-8 mx-auto mb-3 ${item.color}`} />
-                    <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                    <p className={`font-bold text-lg ${item.color}`}>{item.value}</p>
-                  </CardContent>
-                </Card>
+                <a key={index} href={item.href} className="block">
+                  <Card className="bg-white/90 backdrop-blur shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                    <CardContent className="p-6 text-center">
+                      <item.icon className={`w-8 h-8 mx-auto mb-3 ${item.color}`} />
+                      <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
+                      <p className={`font-bold text-lg ${item.color}`}>{item.value}</p>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
           </div>
@@ -118,7 +124,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {/* Event Details Panel */}
-            <Card className="lg:col-span-2 shadow-xl border-0 bg-white/95">
+            <Card id="details" className="lg:col-span-2 shadow-xl border-0 bg-white/95">
               <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                 <CardTitle className="flex items-center gap-2 text-2xl">
                   <Heart className="w-6 h-6" />
@@ -180,17 +186,17 @@ export default function HomePage() {
 
           {/* Simplified Sections */}
           <div className="space-y-8">
-            <Card className="shadow-xl border-0 bg-white/95">
+            <Card id="attendees" className="shadow-xl border-0 bg-white/95">
               <ConfirmedAttendees lang={lang} />
             </Card>
 
             {/* Program Schedule */}
-            <Card className="shadow-xl border-0 bg-gradient-to-br from-amber-50 to-orange-50">
+            <Card id="program" className="shadow-xl border-0 bg-gradient-to-br from-amber-50 to-orange-50">
               <ProgramSchedule lang={lang} />
             </Card>
 
             {/* Dr. Pradip's Fun Menu */}
-            <Card className="shadow-xl border-0 bg-gradient-to-br from-emerald-50 to-green-50">
+            <Card id="menu" className="shadow-xl border-0 bg-gradient-to-br from-emerald-50 to-green-50">
               <MenuSection lang={lang} />
             </Card>
 
