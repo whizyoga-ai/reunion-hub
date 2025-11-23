@@ -24,6 +24,18 @@ export function ProgramSchedule({ lang }: ProgramScheduleProps) {
             <CardDescription className="mt-2 text-muted-foreground font-body">
               {c.description}
             </CardDescription>
+            <div className="mt-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <span className="text-xl">🍷</span>
+                <h4 className="text-base font-bold text-red-800">
+                  {lang === 'en' ? 'IMPORTANT POLICY' : 'গুরুত্বপূর্ণ নীতি'}
+                </h4>
+                <span className="text-xl">🍷</span>
+              </div>
+              <p className="text-red-800 font-bold text-center">
+                {lang === 'en' ? '**Alcohol will not be opened before 6PM**' : '**সন্ধ্যা ৬টার আগে মদ পরিবেশন করা হবে না**'}
+              </p>
+            </div>
           </CardHeader>
           <CardContent className="p-8 pt-0">
             <div className="relative pl-6 before:absolute before:left-6 before:top-0 before:h-full before:w-px before:bg-border">

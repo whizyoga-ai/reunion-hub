@@ -105,7 +105,21 @@ export default function HomePage() {
             <p className="mt-6 max-w-3xl mx-auto text-xl text-blue-100 leading-relaxed">
               {c.hero.subtitle}
             </p>
-            <div className="mt-10">
+            <div className="mt-8 mb-6 max-w-md mx-auto">
+              <div className="bg-red-900/20 border-2 border-red-400 rounded-lg p-4 backdrop-blur-sm">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <span className="text-2xl">🚫🍷</span>
+                  <h4 className="text-white font-bold">
+                    {lang === 'en' ? 'IMPORTANT NOTICE' : 'গুরুত্বপূর্ণ ঘোষণা'}
+                  </h4>
+                  <span className="text-2xl">🍷🚫</span>
+                </div>
+                <p className="text-white font-bold text-center text-lg">
+                  {lang === 'en' ? 'Alcohol will not be opened before 6PM' : 'সন্ধ্যা ৬টার আগে মদ পরিবেশন করা হবে না'}
+                </p>
+              </div>
+            </div>
+            <div className="mt-6">
               <RegistrationModal lang={lang} />
             </div>
           </div>

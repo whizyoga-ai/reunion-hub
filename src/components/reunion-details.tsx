@@ -47,11 +47,14 @@ export function ReunionDetails({ lang }: ReunionDetailsProps) {
                 <p className="text-muted-foreground font-body">{c.venue}</p>
               </div>
             </div>
-            {c.alcoholPolicy && (
-              <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
-                <p className="text-orange-800 font-semibold text-center" dangerouslySetInnerHTML={{ __html: c.alcoholPolicy }} />
+            <div className="mt-6 p-4 bg-red-50 border-2 border-red-200 rounded-lg">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <span className="text-2xl">🚫</span>
+                <h4 className="text-lg font-bold text-red-800">Important Notice</h4>
+                <span className="text-2xl">🚫</span>
               </div>
-            )}
+              <p className="text-red-800 font-bold text-center text-lg" dangerouslySetInnerHTML={{ __html: (c as any).alcoholPolicy || "**Alcohol will not be opened before 6PM**" }} />
+            </div>
           </CardContent>
         </Card>
       </div>
