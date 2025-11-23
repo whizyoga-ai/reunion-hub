@@ -30,7 +30,8 @@ export const content = {
       timeLabel: "Time", 
       time: "9:00 AM - 9:00 PM",
       venueLabel: "Venue",
-      venue: "Bhorer Alo Community Hall, Uttarpara, West Bengal, India"
+      venue: "Bhorer Alo Community Hall, Uttarpara, West Bengal, India",
+      alcoholPolicy: "**Alcohol will not be opened before 6PM**"
     },
     programSchedule: {
       title: "Program Schedule",
@@ -46,7 +47,7 @@ export const content = {
         { time: "4:30-5:00 PM", title: "Tea/Coffee", description: "A short break for tea and coffee." },
         { time: "5:00-6:00 PM", title: "Performance / Karaoke / Jokes etc.", description: "The fun continues with more performances and entertainment." },
         { time: "6:00-6:30 PM", title: "Evening Snacks", description: "Light snacks to keep the energy levels high." },
-        { time: "6:30-8:30 PM", title: "Party", description: "Let's celebrate our reunion with music and dance." },
+        { time: "6:30-8:30 PM", title: "Party", description: "Let's celebrate our reunion with music and dance. **Alcohol will not be opened before 6PM**" },
         { time: "8:30-9:30 PM", title: "Dinner", description: "End the day with a grand dinner and fond farewells." }
       ]
     },
@@ -206,7 +207,8 @@ export const content = {
       timeLabel: "সময়",
       time: "সকাল ৯:০০ - রাত ৯:০০",
       venueLabel: "স্থান",
-      venue: "ভোরের আলো কমিউনিটি হল, উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত"
+      venue: "ভোরের আলো কমিউনিটি হল, উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত",
+      alcoholPolicy: "**সন্ধ্যা ৬টার আগে মদ পরিবেশন করা হবে না**"
     },
     programSchedule: {
       title: "অনুষ্ঠানসূচী",
@@ -222,7 +224,7 @@ export const content = {
         { time: "বিকেল ৪:৩০-৫:০০", title: "চা/কফি", description: "চা এবং কফির জন্য একটি সংক্ষিপ্ত বিরতি।" },
         { time: "বিকেল ৫:০০-৬:০০", title: "পারফরম্যান্স / কারাওকে / জোকস ইত্যাদি", description: "মজা আরও পারফরম্যান্স এবং বিনোদনের সাথে অব্যাহত থাকে।" },
         { time: "সন্ধ্যা ৬:০০-৬:৩০", title: "সান্ধ্যকালীন জলখাবার", description: "শক্তির মাত্রা উচ্চ রাখতে হালকা খাবার।" },
-        { time: "সন্ধ্যা ৬:৩০-৮:৩০", title: "পার্টি", description: "আসুন সঙ্গীত এবং নৃত্যের সাথে আমাদের পুনর্মিলন উদযাপন করি।" },
+        { time: "সন্ধ্যা ৬:৩০-৮:৩০", title: "পার্টি", description: "আসুন সঙ্গীত এবং নৃত্যের সাথে আমাদের পুনর্মিলন উদযাপন করি। **সন্ধ্যা ৬টার আগে মদ পরিবেশন করা হবে না**" },
         { time: "রাত ৮:৩০-৯:৩০", title: "রাতের খাবার", description: "একটি মহান ডিনার এবং স্নেহপূর্ণ বিদায়ের সাথে দিনটি শেষ করুন।" }
       ]
     },

@@ -47,6 +47,11 @@ export function ReunionDetails({ lang }: ReunionDetailsProps) {
                 <p className="text-muted-foreground font-body">{c.venue}</p>
               </div>
             </div>
+            {c.alcoholPolicy && (
+              <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                <p className="text-orange-800 font-semibold text-center" dangerouslySetInnerHTML={{ __html: c.alcoholPolicy }} />
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

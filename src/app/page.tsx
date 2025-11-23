@@ -86,11 +86,12 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
           <div className="absolute inset-0 z-0">
             <Image 
-              src="/images/amarendra1.jpg" 
+              src="/reunion-hub/images/amarendra1.jpg" 
               alt="Uttarpara Amarendra Vidyapith School" 
               fill
               className="object-cover opacity-15 mix-blend-overlay"
               priority
+              unoptimized
             />
           </div>
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -98,7 +99,7 @@ export default function HomePage() {
               <Star className="w-4 h-4 mr-2" />
                 {lang === 'en' ? 'Grand ADDABAJI 2025' : 'মহা আড্ডাবাজি ২০২৫'}
             </Badge>
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl mb-6">
+            <h1 className={`text-4xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl mb-6 ${lang === 'bn' ? 'leading-tight' : 'leading-none'}`}>
               {c.hero.title}
             </h1>
             <p className="mt-6 max-w-3xl mx-auto text-xl text-blue-100 leading-relaxed">

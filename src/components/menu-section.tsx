@@ -31,10 +31,11 @@ export function MenuSection({ lang }: MenuSectionProps) {
     <section id="menu" className="py-16 sm:py-24 bg-muted/50 relative">
       <div className="absolute inset-0 opacity-5">
         <Image 
-          src="/images/pradip-dey.jpg" 
+          src="/reunion-hub/images/pradip-dey.jpg" 
           alt="Menu Scientist" 
           fill
           className="object-cover grayscale"
+          unoptimized
         />
       </div>
       <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 relative z-10">
