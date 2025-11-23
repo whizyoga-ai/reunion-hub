@@ -74,15 +74,35 @@ export const content = {
         description: "Shh! The menu is a delicious secret. Come hungry, leave happy! 🍴✨
         breakfast: {
             title: "BREAKFAST",
+                items: [
+        "Life is uncertain. Eat dessert first... but wait, this is breakfast! 🤔",
+        "সকালে খেয়ে দিন ভালো হয়, কিন্তু কী খাবেন? এটাই সারপ্রাইজ! 😄",
+        "Breakfast: Because adulting is hard without coffee... or is it tea? ☕"
+      ]
             
         lunch: {
             title: "LUNCH",
+                items: [
+        "Point #1: Food is ready. Point #2: You're hungry. Conclusion: Reunion logic! 🍽️",
+        "দুপুরের খাবার মানে বন্ধুদের সাথে গল্প... খাবার পরেও আসবে! 😂",
+        "Surprise Menu: Where every bite is an adventure and every dish a mystery! 🍲"
+      ]
             
         evening: {
             title: "EVENING SNACKS",
+                items: [
+        "Tea time: When reunions get real and stories get spicy! ☕😏",
+        "চা-পান আর আড্ডা - স্কুলের দিন ফিরে এলো! 🍵😄",
+        "Snack attack incoming! Batteries need recharging for more nostalgia! 🥤"
+      ]
             
         dinner: {
             title: "DINNER",
+                items: [
+        "Dinner is served! Or is it? The suspense is delicious! 🍽️😋",
+        "রাতের খাবারে বন্ধুত্ব গাঢ়় হয়, পেট ভরে আর মন খুশিতে! 🍛❤️",
+        "Grand finale feast! End the day with full bellies and fuller hearts! 🎉"
+      ]
             ]
         }
     },
