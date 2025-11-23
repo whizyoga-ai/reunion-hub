@@ -48,9 +48,9 @@ jobs:
       - name: Add deployment metadata
         run: |
           # Extract the Next.js build ID from the output directory
-          NEXTJS_BUILD_ID=$(ls -1 ./out/_next/ | grep -E '^[0-9]+-' | head -n 1)
+          NEXTJS_BUILD_ID=$(ls -1 ./out/_next/ | grep -E '^[0-9]+-[a-z0-9]+$' | head -n 1)
           if [ -z "$NEXTJS_BUILD_ID" ]; then
-            echo "Warning: Could not extract Next.js build ID, using timestamp instead"
+            echo "Warning: Could not extract Next.js build ID from ./out/_next/ directory, using timestamp fallback. This may indicate a build issue."
             NEXTJS_BUILD_ID="$(date +%s)-unknown"
           fi
           echo "Next.js Build ID: ${NEXTJS_BUILD_ID}" > ./out/BUILD_INFO.txt
