@@ -8,7 +8,9 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Search, Users, Calendar, Phone, Mail, Briefcase, Heart, Star, Sparkles } from 'lucide-react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Textarea } from '@/components/ui/textarea'
+import { Search, Users, Calendar, Phone, Mail, Briefcase, Heart, Star, Sparkles, Edit, Camera, Save, X } from 'lucide-react'
 import { content } from '@/lib/content'
 
 interface PersonData {
@@ -71,6 +73,10 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
   const [allPeople, setAllPeople] = useState<PersonData[]>([])
   const [selectedPerson, setSelectedPerson] = useState<PersonData | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
+  const [editedDescription, setEditedDescription] = useState('')
+  const [profileImage, setProfileImage] = useState<string | null>(null)
 
   const t = content[language]
 
@@ -177,6 +183,53 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
 
   const handlePersonClick = (person: PersonData) => {
     setSelectedPerson(person)
+    setIsDialogOpen(true)
+    setIsEditing(false)
+    
+    // Load saved description and image for real participants
+    if (person.type === 'real') {
+      const savedData = localStorage.getItem(`participant-${person.id}`)
+      if (savedData) {
+        const parsed = JSON.parse(savedData)
+        setEditedDescription(parsed.description || person.funFact || '')
+        setProfileImage(parsed.image || null)
+      } else {
+        setEditedDescription(person.funFact || '')
+        setProfileImage(null)
+      }
+    }
+  }
+
+  const handleSaveEdit = () => {
+    if (selectedPerson && selectedPerson.type === 'real') {
+      const updatedData = {
+        description: editedDescription,
+        image: profileImage
+      }
+      localStorage.setItem(`participant-${selectedPerson.id}`, JSON.stringify(updatedData))
+      
+      // Update the person's funFact in the current state
+      setAllPeople(prev => prev.map(person => 
+        person.id === selectedPerson.id 
+          ? { ...person, funFact: editedDescription }
+          : person
+      ))
+      
+      setSelectedPerson(prev => prev ? { ...prev, funFact: editedDescription } : null)
+      setIsEditing(false)
+    }
+  }
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const result = e.target?.result as string
+        setProfileImage(result)
+      }
+      reader.readAsDataURL(file)
+    }
   }
 
   const PersonCard = ({ person }: { person: PersonData }) => (
@@ -214,109 +267,7 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
     </Card>
   )
 
-  const PersonDetails = ({ person }: { person: PersonData }) => (
-    <Card className="h-full">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-3">
-          <span className="text-4xl">
-            {getPersonAvatar(person.name, person.type)}
-          </span>
-          <div>
-            <h2 className="text-xl font-bold">{person.name}</h2>
-            <Badge 
-              variant="secondary"
-              className={person.type === 'real' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}
-            >
-              {person.type === 'real' ? 'Real Participant' : 'Fun Character'}
-            </Badge>
-          </div>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium">Email:</span>
-              </div>
-              <p className="text-sm text-gray-700 ml-6">{person.email}</p>
-              
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium">Profession:</span>
-              </div>
-              <p className="text-sm text-gray-700 ml-6">{person.profession}</p>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium">Fun Fact:</span>
-              </div>
-              <p className="text-sm text-gray-700 ml-6">{person.funFact}</p>
-              
-              {person.timestamp && (
-                <>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-gray-500" />
-                    <span className="text-sm font-medium">Joined:</span>
-                  </div>
-                  <p className="text-sm text-gray-700 ml-6">
-                    {person.timestamp.toLocaleDateString()}
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
-          
-          {person.message && (
-            <div className="border-t pt-4">
-              <h4 className="font-medium mb-2">Message:</h4>
-              <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
-                {person.message}
-              </p>
-            </div>
-          )}
 
-          {/* Extended data for saved registrations */}
-          {person.presentAddress && (
-            <div className="border-t pt-4 space-y-3">
-              <h4 className="font-medium">Additional Details:</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                {person.mobile && (
-                  <div>
-                    <span className="flex items-center gap-2 font-medium">
-                      <Phone className="w-4 h-4" /> Mobile:
-                    </span>
-                    <p className="ml-6 text-gray-700">{person.mobile}</p>
-                  </div>
-                )}
-                {person.bloodGroup && (
-                  <div>
-                    <span className="font-medium">Blood Group:</span>
-                    <p className="ml-6 text-gray-700">{person.bloodGroup}</p>
-                  </div>
-                )}
-                {person.organization && (
-                  <div>
-                    <span className="font-medium">Organization:</span>
-                    <p className="ml-6 text-gray-700">{person.organization}</p>
-                  </div>
-                )}
-                {person.maritalStatus && (
-                  <div>
-                    <span className="font-medium">Marital Status:</span>
-                    <p className="ml-6 text-gray-700">{person.maritalStatus}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
-  )
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
@@ -344,7 +295,7 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
       </div>
 
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="all" className="flex items-center gap-2">
             <Users className="w-4 h-4" />
             {language === 'en' ? 'All' : 'সব'} ({filteredPeople.length})
@@ -356,10 +307,6 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
           <TabsTrigger value="characters" className="flex items-center gap-2">
             <Sparkles className="w-4 h-4" />
             {language === 'en' ? 'Characters' : 'চরিত্র'} ({characters.length})
-          </TabsTrigger>
-          <TabsTrigger value="details" className="flex items-center gap-2" disabled={!selectedPerson}>
-            <Heart className="w-4 h-4" />
-            {language === 'en' ? 'Details' : 'বিবরণ'}
           </TabsTrigger>
         </TabsList>
 
@@ -431,17 +378,169 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
           </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="details" className="mt-6">
-          {selectedPerson ? (
-            <PersonDetails person={selectedPerson} />
-          ) : (
-            <div className="text-center py-12 text-gray-500">
-              <Heart className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <p className="text-lg">{language === 'en' ? 'Select a person to view details' : 'বিস্তারিত দেখতে কোন ব্যক্তি নির্বাচন করুন'}</p>
-            </div>
-          )}
-        </TabsContent>
       </Tabs>
+
+      {/* Details Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-3xl max-h-[85vh] overflow-hidden">
+          <DialogHeader>
+            <DialogTitle className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  {selectedPerson?.type === 'real' && profileImage ? (
+                    <img 
+                      src={profileImage} 
+                      alt={selectedPerson.name}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+                    />
+                  ) : (
+                    <span className="text-4xl">
+                      {selectedPerson && getPersonAvatar(selectedPerson.name, selectedPerson.type)}
+                    </span>
+                  )}
+                  {selectedPerson?.type === 'real' && (
+                    <label className="absolute -bottom-1 -right-1 bg-blue-500 text-white rounded-full p-1 cursor-pointer hover:bg-blue-600 transition-colors">
+                      <Camera className="w-3 h-3" />
+                      <input 
+                        type="file" 
+                        accept="image/*" 
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
+                    </label>
+                  )}
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold">{selectedPerson?.name}</h2>
+                  <Badge 
+                    variant="secondary"
+                    className={selectedPerson?.type === 'real' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}
+                  >
+                    {selectedPerson?.type === 'real' ? 'Real Participant' : 'Fun Character'}
+                  </Badge>
+                </div>
+              </div>
+              {selectedPerson?.type === 'real' && (
+                <div className="flex gap-2">
+                  {isEditing ? (
+                    <>
+                      <Button size="sm" onClick={handleSaveEdit} className="bg-green-600 hover:bg-green-700">
+                        <Save className="w-4 h-4 mr-1" /> Save
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={() => setIsEditing(false)}>
+                        <X className="w-4 h-4 mr-1" /> Cancel
+                      </Button>
+                    </>
+                  ) : (
+                    <Button size="sm" onClick={() => setIsEditing(true)} variant="outline">
+                      <Edit className="w-4 h-4 mr-1" /> Edit
+                    </Button>
+                  )}
+                </div>
+              )}
+            </DialogTitle>
+          </DialogHeader>
+          
+          <ScrollArea className="max-h-[60vh] pr-4">
+            {selectedPerson && (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-gray-500" />
+                      <span className="text-sm font-medium">Email:</span>
+                    </div>
+                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.email}</p>
+                    
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="w-4 h-4 text-gray-500" />
+                      <span className="text-sm font-medium">Profession:</span>
+                    </div>
+                    <p className="text-sm text-gray-700 ml-6">{selectedPerson.profession}</p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <Heart className="w-4 h-4 text-gray-500" />
+                      <span className="text-sm font-medium">
+                        {selectedPerson.type === 'real' ? 'About Me:' : 'Fun Fact:'}
+                      </span>
+                    </div>
+                    {selectedPerson.type === 'real' && isEditing ? (
+                      <Textarea 
+                        value={editedDescription}
+                        onChange={(e) => setEditedDescription(e.target.value)}
+                        placeholder="Tell us about yourself..."
+                        className="ml-6 min-h-[80px]"
+                      />
+                    ) : (
+                      <p className="text-sm text-gray-700 ml-6">
+                        {selectedPerson.type === 'real' ? (editedDescription || selectedPerson.funFact) : selectedPerson.funFact}
+                      </p>
+                    )}
+                    
+                    {selectedPerson.timestamp && (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-gray-500" />
+                          <span className="text-sm font-medium">Joined:</span>
+                        </div>
+                        <p className="text-sm text-gray-700 ml-6">
+                          {selectedPerson.timestamp.toLocaleDateString()}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
+                
+                {selectedPerson.message && (
+                  <div className="border-t pt-4">
+                    <h4 className="font-medium mb-2">Message:</h4>
+                    <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
+                      {selectedPerson.message}
+                    </p>
+                  </div>
+                )}
+
+                {/* Extended data for saved registrations */}
+                {selectedPerson.presentAddress && (
+                  <div className="border-t pt-4 space-y-3">
+                    <h4 className="font-medium">Additional Details:</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                      {selectedPerson.mobile && (
+                        <div>
+                          <span className="flex items-center gap-2 font-medium">
+                            <Phone className="w-4 h-4" /> Mobile:
+                          </span>
+                          <p className="ml-6 text-gray-700">{selectedPerson.mobile}</p>
+                        </div>
+                      )}
+                      {selectedPerson.bloodGroup && (
+                        <div>
+                          <span className="font-medium">Blood Group:</span>
+                          <p className="ml-6 text-gray-700">{selectedPerson.bloodGroup}</p>
+                        </div>
+                      )}
+                      {selectedPerson.organization && (
+                        <div>
+                          <span className="font-medium">Organization:</span>
+                          <p className="ml-6 text-gray-700">{selectedPerson.organization}</p>
+                        </div>
+                      )}
+                      {selectedPerson.maritalStatus && (
+                        <div>
+                          <span className="font-medium">Marital Status:</span>
+                          <p className="ml-6 text-gray-700">{selectedPerson.maritalStatus}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </ScrollArea>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
