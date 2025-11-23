@@ -214,7 +214,7 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
         name: 'পাগলা দাশু',
         presentAddress: 'উল্টো বাড়ি, পাগলা গলি, এলোমেলো পাড়া ৫৫',
         permanentAddress: 'চিরপাগলের পাগলখানা',
-        mobile: '৫৫৫৫৫৫৫৫৫৫',
+        mobile: '৫৫৫৫৫৫৫৫৫',
         email: 'pagla@dashu.mad',
         bloodGroup: 'পাগলামি+',
         profession: 'সার্টিফাইড পাগল',
