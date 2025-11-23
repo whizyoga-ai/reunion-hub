@@ -142,49 +142,210 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
     const realParticipants = ["Tanmoy", "Basab", "Ratul", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata", "Sudipta", "Shoban", "Arun", "Srikanta", "Amal", "Samir Mondal", "Subrata", "Sujay", "Samar", "Uttam", "Chiranjib", "Siddhartha", "Anirban", "Mridul", "Swarup", "Sanjay Banik", "Somnath"]
     
     const professions = ['Software Engineer', 'Doctor', 'Teacher', 'Entrepreneur', 'Artist', 'Manager', 'Consultant', 'Designer', 'Writer', 'Scientist', 'Engineer', 'Analyst', 'Director', 'Coordinator', 'Specialist']
-    const funFacts = [
-      'Still remembers all school songs!', 'Makes the best fish curry', 'Can solve any math problem',
-      'Expert at cricket commentary', 'Collects vintage coins', 'Speaks 5 languages fluently',
-      'Never misses a morning walk', 'Writes poetry in spare time', 'Champion at carrom board',
-      'Grows organic vegetables', 'Teaches kids for free', 'Runs a book club',
-      'Expert tabla player', 'Makes amazing sweets', 'Volunteers at animal shelter',
-      'Photography enthusiast', 'Marathon runner', 'Chess master', 'Cooking expert', 'Travel blogger'
+    const organizations = ['Tech Corp', 'City Hospital', 'Modern School', 'StartUp Inc', 'Creative Studio', 'Global Solutions', 'Innovation Labs', 'Design House', 'Publishing Co', 'Research Institute', 'Engineering Firm', 'Data Analytics', 'Management Solutions', 'Education Center', 'Healthcare Systems']
+    const jobNatures = ['Full-time', 'Part-time', 'Consultant', 'Freelancer', 'Self-employed', 'Remote', 'Contract', 'Permanent', 'Hybrid', 'Project-based']
+    const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+    const maritalStatuses = ['Single', 'Married', 'Divorced', 'Widowed', 'In a relationship', 'It\'s complicated']
+    const testosteroneLevels = ['High', 'Medium', 'Low', 'Variable', 'Moderate', 'Optimal', 'Enhanced', 'Natural']
+    
+    const presentAddresses = [
+      'Flat 4B, Rose Garden Apartment, Salt Lake, Kolkata 700064',
+      '23/1A, Park Street Area, Kolkata 700016', 
+      'House 142, Sector-V, New Town, Kolkata 700156',
+      '56 Shakespeare Sarani, Park Circus, Kolkata 700017',
+      '89B Rashbehari Avenue, Gariahat, Kolkata 700029',
+      '12/3 Ballygunge Place, Kolkata 700019',
+      '45 Camac Street, Park Street, Kolkata 700016',
+      '78A Hindustan Road, Tollygunge, Kolkata 700033',
+      'Plot 234, New Alipore, Kolkata 700053',
+      '16/7 Lansdowne Road, Bhowanipore, Kolkata 700020'
+    ]
+    
+    const permanentAddresses = [
+      'Village Duttapukur, P.O. Barasat, North 24 Parganas 700124',
+      'Uttarpara Municipality, Hooghly 712258', 
+      '45 Station Road, Howrah 711101',
+      'Madhyamgram, North 24 Parganas 700129',
+      'Bhatpara Municipality, North 24 Parganas 743123',
+      'Rishra, Hooghly 712248',
+      'Serampore, Hooghly 712201',
+      'Naihati, North 24 Parganas 743165',
+      'Chinsurah, Hooghly 712101',
+      'Chandannagar, Hooghly 712136'
+    ]
+    
+    const funRemarks = [
+      'Still can\'t believe we\'re all grown up! 😄',
+      'Remember our chemistry lab disasters? Good times! 🧪',
+      'Looking forward to recreating our school cricket matches ⚾',
+      'Hope someone brings the old group photos 📸',
+      'Can\'t wait to hear everyone\'s success stories 🌟',
+      'Wondering if the canteen uncle still remembers us 🍽️',
+      'Ready for some serious আড্ডাবাজি sessions! 💬',
+      'Bringing my guitar for the evening songs 🎸',
+      'Hope we can visit our old classroom together 🏫',
+      'Still have my old school diary with everyone\'s autographs! 📖'
     ]
     
     return realParticipants.map((name, index) => ({
       id: `real-${index + 1}`,
       name,
       email: `${name.toLowerCase().replace(' ', '.')}@gmail.com`,
+      mobile: `+91 ${9000000000 + Math.floor(Math.random() * 999999999)}`,
       type: 'real' as const,
       profession: professions[index % professions.length],
-      funFact: funFacts[index % funFacts.length],
+      jobNature: jobNatures[index % jobNatures.length],
+      organization: organizations[index % organizations.length],
+      presentAddress: presentAddresses[index % presentAddresses.length],
+      permanentAddress: permanentAddresses[index % permanentAddresses.length],
+      bloodGroup: bloodGroups[index % bloodGroups.length],
+      maritalStatus: maritalStatuses[index % maritalStatuses.length],
+      girlfriends: Math.floor(Math.random() * 5),
+      wardsOfficial: Math.floor(Math.random() * 4),
+      wardsUnofficial: Math.floor(Math.random() * 2),
+      testosterone: testosteroneLevels[index % testosteroneLevels.length],
+      remarks: funRemarks[index % funRemarks.length],
+      funFact: `Still remembers ${index % 3 === 0 ? 'all school songs' : index % 3 === 1 ? 'teacher\'s funny habits' : 'lunch box sharing days'}!`,
       message: `Excited to meet everyone after so many years! Looking forward to our আড্ডাবাজি.`,
-      timestamp: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+      timestamp: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
+      submittedAt: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString()
     }))
   }
 
   const getCharacterData = (): PersonData[] => {
     const characters = [
-      { name: 'টেনিদা', message: 'আমি আড্ডার রাজা! সবাইকে নিয়ে ভালো আড্ডা দেব।', profession: 'Professional Storyteller' },
-      { name: 'ক্যাবলা', message: 'টেনিদার সাথে আসব। অনেক মজার গল্প আছে।', profession: 'Comedy Specialist' },
-      { name: 'হাবুল সেন', message: 'নতুন গান শোনাব সবাইকে।', profession: 'Musician & Singer' },
-      { name: 'প্যালারাম', message: 'বই নিয়ে আসব পড়ার জন্য।', profession: 'Bookworm & Scholar' },
-      { name: 'নন্টে ফন্টে', message: 'দুজনে মিলে অনেক মজা করব।', profession: 'Mischief Coordinators' },
-      { name: 'হাঁদা ভোঁদা', message: 'নতুন দুষ্টুমি শিখেছি।', profession: 'Fun & Games Expert' },
-      { name: 'বাঁটুল দ্য গ্রেট', message: 'আমার সাহসিকতার গল্প শোনাব।', profession: 'Adventure Specialist' },  
-      { name: 'ঘনাদা', message: 'অবিশ্বাস্য সব সত্যি গল্প আছে।', profession: 'Master Storyteller' },
-      { name: 'গোপাল ভাঁড়', message: 'নতুন হাসির গল্প নিয়ে আসছি।', profession: 'Court Jester' }
+      { 
+        name: 'টেনিদা', 
+        message: 'আমি আড্ডার রাজা! সবাইকে নিয়ে ভালো আড্ডা দেব।', 
+        profession: 'Professional Storyteller',
+        organization: 'Potoldanga Adda Club',
+        jobNature: 'Full-time',
+        address: 'Potoldanga Lane, Kolkata',
+        bloodGroup: 'B+',
+        marital: 'Single',
+        testosterone: 'Maximum',
+        remarks: 'আড্ডার রাজা হিসেবে সবার সাথে দেখা করতে চাই!'
+      },
+      { 
+        name: 'ক্যাবলা', 
+        message: 'টেনিদার সাথে আসব। অনেক মজার গল্প আছে।', 
+        profession: 'Comedy Specialist',
+        organization: 'Laugh Factory',
+        jobNature: 'Part-time',
+        address: 'Comedy Street, Kolkata',
+        bloodGroup: 'O+',
+        marital: 'Single',
+        testosterone: 'Moderate',
+        remarks: 'হাসি-খুশির মাধ্যমে সবাইকে আনন্দ দেব!'
+      },
+      { 
+        name: 'হাবুল সেন', 
+        message: 'নতুন গান শোনাব সবাইকে।', 
+        profession: 'Musician & Singer',
+        organization: 'Melody Studios',
+        jobNature: 'Freelancer',
+        address: 'Music Para, Kolkata',
+        bloodGroup: 'A+',
+        marital: 'In a relationship',
+        testosterone: 'Harmonious',
+        remarks: 'গান গেয়ে সবার মন ভালো করে দেব!'
+      },
+      { 
+        name: 'প্যালারাম', 
+        message: 'বই নিয়ে আসব পড়ার জন্য।', 
+        profession: 'Bookworm & Scholar',
+        organization: 'Central Library',
+        jobNature: 'Full-time',
+        address: 'Book Colony, Kolkata',
+        bloodGroup: 'AB+',
+        marital: 'Single',
+        testosterone: 'Intellectual',
+        remarks: 'বই পড়ে জ্ঞানের আলোচনা করব সবার সাথে!'
+      },
+      { 
+        name: 'নন্টে ফন্টে', 
+        message: 'দুজনে মিলে অনেক মজা করব।', 
+        profession: 'Mischief Coordinators',
+        organization: 'Fun & Games Ltd',
+        jobNature: 'Partnership',
+        address: 'Twin Tower, Mischief Street',
+        bloodGroup: 'A+/B+',
+        marital: 'Best Friends Forever',
+        testosterone: 'Double Power',
+        remarks: 'দুজনে মিলে সবাইকে হাসাবো!'
+      },
+      { 
+        name: 'হাঁদা ভোঁদা', 
+        message: 'নতুন দুষ্টুমি শিখেছি।', 
+        profession: 'Fun & Games Expert',
+        organization: 'Playful Paradise',
+        jobNature: 'Permanent Fun',
+        address: 'Hasir Goli, Kolkata',
+        bloodGroup: 'O-',
+        marital: 'Happily Single',
+        testosterone: 'Playful',
+        remarks: 'নতুন খেলা আর মজার কথা নিয়ে আসছি!'
+      },
+      { 
+        name: 'বাঁটুল দ্য গ্রেট', 
+        message: 'আমার সাহসিকতার গল্প শোনাব।', 
+        profession: 'Adventure Specialist',
+        organization: 'Hero Adventures Inc',
+        jobNature: 'Superhero',
+        address: 'Victory Lane, Heroville',
+        bloodGroup: 'AB-',
+        marital: 'Married to Adventure',
+        testosterone: 'Heroic Level',
+        remarks: 'সাহসিকতার গল্প বলে সবাইকে অনুপ্রেরণা দেব!'
+      },
+      { 
+        name: 'ঘনাদা', 
+        message: 'অবিশ্বাস্য সব সত্যি গল্প আছে।', 
+        profession: 'Master Storyteller',
+        organization: 'Tales & Adventures Co',
+        jobNature: 'Consultant',
+        address: 'Story Palace, Kolkata',
+        bloodGroup: 'B-',
+        marital: 'Mysteriously Single',
+        testosterone: 'Legendary',
+        remarks: 'এমন সব গল্প আছে যা শুনলে মাথা ঘুরবে!'
+      },
+      { 
+        name: 'গোপাল ভাঁড়', 
+        message: 'নতুন হাসির গল্প নিয়ে আসছি।', 
+        profession: 'Court Jester',
+        organization: 'Royal Comedy Court',
+        jobNature: 'Royal Appointment',
+        address: 'Hasir Mahal, Bengal Court',
+        bloodGroup: 'A-',
+        marital: 'Happily Witty',
+        testosterone: 'Humor Enhanced',
+        remarks: 'রাজা মহারাজার সামনে যেমন হাসাতাম, তেমনি সবাইকে হাসাবো!'
+      }
     ]
     
     return characters.map((char, index) => ({
       id: `char-${index + 1}`,  
       name: char.name,
-      email: `${char.name.replace(/\s+/g, '').toLowerCase()}@addabaji.com`,
+      email: `${char.name.replace(/[\s+্য়িুূেৈোৌংঃঁটেনিদাক্যাবলহসপরমনফগভড়াউল]/g, '').toLowerCase()}@addabaji.com`,
+      mobile: `+91 ${8000000000 + Math.floor(Math.random() * 999999999)}`,
       type: 'character' as const,
       profession: char.profession,
-      funFact: 'Famous Bengali comic character',
+      jobNature: char.jobNature,
+      organization: char.organization,
+      presentAddress: char.address,
+      permanentAddress: char.address,
+      bloodGroup: char.bloodGroup,
+      maritalStatus: char.marital,
+      girlfriends: index % 3, // Comic characters have funny girlfriend counts
+      wardsOfficial: Math.floor(index / 3),
+      wardsUnofficial: index % 2,
+      testosterone: char.testosterone,
+      remarks: char.remarks,
+      funFact: 'Famous Bengali comic character from literature',
       message: char.message,
-      timestamp: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000)
+      timestamp: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000),
+      submittedAt: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString()
     }))
   }
 
@@ -684,9 +845,133 @@ export default function RegistrationViewer({ language }: RegistrationViewerProps
                   </div>
                 )}
 
-                {/* Extended data for registration form submissions */}
+                {/* Complete Registration Details */}
                 {(selectedPerson.presentAddress || selectedPerson.bloodGroup || selectedPerson.jobNature || selectedPerson.maritalStatus || selectedPerson.girlfriends !== undefined || selectedPerson.wardsOfficial !== undefined || selectedPerson.testosterone) && (
-                  <div className="border-t pt-4 space-y-4">
+                  <div className="border-t pt-4 space-y-6">
+                    <h4 className="font-semibold text-lg flex items-center gap-2">
+                      📋 {language === 'en' ? 'Complete Registration Details' : 'সম্পূর্ণ নিবন্ধন বিবরণ'}
+                    </h4>
+                    
+                    {/* Contact & Address Information */}
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h5 className="font-medium mb-3 text-blue-800">📍 {language === 'en' ? 'Contact & Address' : 'যোগাযোগ ও ঠিকানা'}</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        {selectedPerson.mobile && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Mobile:' : 'মোবাইল:'}</span>
+                            <p className="text-gray-800">{selectedPerson.mobile}</p>
+                          </div>
+                        )}
+                        {selectedPerson.email && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Email:' : 'ইমেইল:'}</span>
+                            <p className="text-gray-800">{selectedPerson.email}</p>
+                          </div>
+                        )}
+                        {selectedPerson.presentAddress && (
+                          <div className="md:col-span-2">
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Present Address:' : 'বর্তমান ঠিকানা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.presentAddress}</p>
+                          </div>
+                        )}
+                        {selectedPerson.permanentAddress && (
+                          <div className="md:col-span-2">
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Permanent Address:' : 'স্থায়ী ঠিকানা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.permanentAddress}</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Professional Information */}
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <h5 className="font-medium mb-3 text-green-800">💼 {language === 'en' ? 'Professional Details' : 'পেশাগত বিবরণ'}</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        {selectedPerson.profession && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Profession:' : 'পেশা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.profession}</p>
+                          </div>
+                        )}
+                        {selectedPerson.jobNature && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Job Nature:' : 'কাজের ধরণ:'}</span>
+                            <p className="text-gray-800">{selectedPerson.jobNature}</p>
+                          </div>
+                        )}
+                        {selectedPerson.organization && (
+                          <div className="md:col-span-2">
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Organization:' : 'প্রতিষ্ঠানের নাম:'}</span>
+                            <p className="text-gray-800">{selectedPerson.organization}</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Personal Information */}
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <h5 className="font-medium mb-3 text-purple-800">🏥 {language === 'en' ? 'Personal Details' : 'ব্যক্তিগত বিবরণ'}</h5>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                        {selectedPerson.bloodGroup && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Blood Group:' : 'রক্তের গ্রুপ:'}</span>
+                            <p className="text-gray-800">{selectedPerson.bloodGroup}</p>
+                          </div>
+                        )}
+                        {selectedPerson.maritalStatus && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Marital Status:' : 'বৈবাহিক অবস্থা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.maritalStatus}</p>
+                          </div>
+                        )}
+                        {selectedPerson.testosterone && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Testosterone Level:' : 'টেস্টোস্টেরনের মাত্রা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.testosterone}</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Fun Statistics */}
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <h5 className="font-medium mb-3 text-yellow-800">😄 {language === 'en' ? 'Fun Statistics (Just for Laughs!)' : 'মজার পরিসংখ্যান (শুধু হাসির জন্য!)'}</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        {selectedPerson.girlfriends !== undefined && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Girlfriends:' : 'গার্লফ্রেন্ডের সংখ্যা:'}</span>
+                            <p className="text-gray-800">{selectedPerson.girlfriends} 😉</p>
+                          </div>
+                        )}
+                        {selectedPerson.wardsOfficial !== undefined && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Official Wards:' : 'সন্তান (অফিসিয়াল):'}</span>
+                            <p className="text-gray-800">{selectedPerson.wardsOfficial} 👶</p>
+                          </div>
+                        )}
+                        {selectedPerson.wardsUnofficial !== undefined && (
+                          <div>
+                            <span className="font-medium text-gray-600">{language === 'en' ? 'Unofficial Wards:' : 'সন্তান (অনানুষ্ঠানিক):'}</span>
+                            <p className="text-gray-800">{selectedPerson.wardsUnofficial} 🤫</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Additional Notes */}
+                    {selectedPerson.remarks && (
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h5 className="font-medium mb-2 text-gray-800">💭 {language === 'en' ? 'Additional Notes:' : 'অতিরিক্ত মন্তব্য:'}</h5>
+                        <p className="text-sm text-gray-700">{selectedPerson.remarks}</p>
+                      </div>
+                    )}
+                    
+                    {/* Registration Timestamp */}
+                    {selectedPerson.submittedAt && (
+                      <div className="text-xs text-gray-500 border-t pt-2">
+                        {language === 'en' ? 'Registered on:' : 'নিবন্ধিত হয়েছে:'} {new Date(selectedPerson.submittedAt).toLocaleString()}
+                      </div>
+                    )}
                     <h4 className="font-medium text-lg">Registration Details:</h4>
                     
                     {/* Contact & Address Info */}
