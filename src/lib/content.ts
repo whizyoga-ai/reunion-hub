@@ -135,7 +135,7 @@ export const content = {
         {
           id: "faq-2",
           question: "Can I bring a guest to the ADDABAJI?",
-          answer: "Due to venue constraints and planning, registration is primarily for alumni. If you wish to bring a guest, please contact the organizers in advance to check for availability."
+          answer: "Due to venue constraints and planning, registration is primarily for alumni. If you wish to bring a guest, please contact the core committee in advance to check for availability."
         },
         {
           id: "faq-3",
@@ -159,18 +159,18 @@ export const content = {
       addSuccessToastDescription: "has been added to the list.",
       names: ["Tanmoy", "Basab", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata"]
     },
-    organizers: {
-      title: "Organizing Team",
-      description: "Meet the dedicated team making this আড্ডাবাজি possible",
+    coreCommittee: {
+      title: "Core Committee",
+      description: "Meet the dedicated core committee making this আড্ডাবাজি possible",
       teamLead: {
         name: "Pradip Dey",
         role: "Team Lead & Menu Scientist",
-        description: "Leading the organizing committee and curating our special agricultural menu experience"
+        description: "Leading the core committee and curating our special agricultural menu experience"
       },
       coreTeam: {
-        title: "Core Team Members",
+        title: "Core Committee Members",
         members: ["Yogabrata", "Pradip", "Ratul", "Supratim", "Tanmoy"],
-        description: "The dedicated core team working together to make this আড্ডাবাজি memorable for everyone"
+        description: "The dedicated core committee working together to make this আড্ডাবাজি memorable for everyone"
       }
     },
     footer: {
@@ -344,18 +344,18 @@ export const content = {
       addSuccessToastDescription: "তালিকায় যোগ করা হয়েছে।",
       names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক"]
     },
-    organizers: {
-      title: "আয়োজক দল",
-      description: "যারা এই ADDABAJI সম্ভব করে তুলেছেন তাদের সাথে পরিচয়",
+    coreCommittee: {
+      title: "মূল কমিটি",
+      description: "যারা এই আড্ডাবাজি সম্ভব করে তুলেছেন সেই মূল কমিটির সাথে পরিচয়",
       teamLead: {
         name: "প্রদীপ দে",
         role: "দলনেতা ও মেনু বিজ্ঞানী", 
-        description: "আয়োজক কমিটির নেতৃত্ব দিচ্ছেন এবং আমাদের বিশেষ কৃষি মেনুর অভিজ্ঞতা তৈরি করছেন"
+        description: "মূল কমিটির নেতৃত্ব দিচ্ছেন এবং আমাদের বিশেষ কৃষি মেনুর অভিজ্ঞতা তৈরি করছেন"
       },
       coreTeam: {
-        title: "মূল দলের সদস্যরা",
+        title: "মূল কমিটির সদস্যরা",
         members: ["যোগব্রত", "প্রদীপ", "রাতুল", "সুপ্রতিম", "তন্ময়"],
-        description: "নিবেদিতপ্রাণ মূল দল যারা একসাথে কাজ করে এই ADDABAJI সবার জন্য স্মরণীয় করে তুলতে চায়"
+        description: "নিবেদিতপ্রাণ মূল কমিটি যারা একসাথে কাজ করে এই আড্ডাবাজি সবার জন্য স্মরণীয় করে তুলতে চায়"
       }
     },
     footer: {
