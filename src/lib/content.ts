@@ -169,7 +169,7 @@ export const content = {
       },
       coreTeam: {
         title: "Core Committee Members",
-        members: ["Yogabrata", "Pradip", "Ratul", "Supratim", "Tanmoy"],
+        members: ["Yogabrata", "Pradip", "Ratul", "Supratim", "Tanmoy", "Shovan"],
         description: "The dedicated core committee working together to make this আড্ডাবাজি memorable for everyone"
       }
     },
@@ -442,7 +442,7 @@ export const content = {
       },
       coreTeam: {
         title: "মূল কমিটির সদস্যরা",
-        members: ["যোগব্রত", "প্রদিপ", "রাতুল", "সুপ্রতিম", "তন্ময়"],
+        members: ["যোগব্রত", "প্রদিপ", "রাতুল", "সুপ্রতিম", "তন্ময়", "শোভন"],
         description: "নিবেদিতপ্রাণ মূল কমিটি যারা একসাথে কাজ করে এই আড্ডাবাজি সবার জন্য স্মরণীয় করে তুলতে চায়"
       }
     },
