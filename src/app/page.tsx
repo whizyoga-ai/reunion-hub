@@ -16,6 +16,7 @@ import { content } from '@/lib/content';
 import { Button } from '@/components/ui/button';
 import { RegistrationModal } from '@/components/registration-modal';
 import { Chatbox } from '@/components/chatbox';
+import { HeritageSection } from '@/components/heritage-section';
 import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star } from 'lucide-react';
 
 export default function HomePage() {
@@ -317,6 +318,9 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Heritage Section */}
+      <HeritageSection lang={lang} />
 
       {/* Chatbox Component */}
       <Chatbox lang={lang} />

@@ -173,6 +173,17 @@ export const content = {
         description: "The dedicated core committee working together to make this আড্ডাবাজি memorable for everyone"
       }
     },
+    heritage: {
+      title: "Our Heritage",
+      uttarpara: {
+        title: "Uttarpara - The Historic Town",
+        description: "Nestled on the banks of the sacred Hooghly River in West Bengal, Uttarpara holds the distinction of being only the second town in Bengal to voluntarily adopt the Municipal Act of 1850. Founded through the vision of Babu Joykrishna Mukherjee in 1853, this progressive town has been a beacon of education, culture, and heritage for over 170 years. With the Ganges flowing majestically to the east and rich cultural traditions spanning generations, Uttarpara continues to nurture brilliant minds and preserve Bengal's golden heritage."
+      },
+      school: {
+        title: "Uttarpara Amarendra Vidyapith - Where Dreams Take Flight",
+        description: "Our beloved Uttarpara Amarendra Vidyapith stands as a testament to educational excellence and cultural richness. For decades, this institution has shaped countless lives, fostering not just academic brilliance but also the values of integrity, creativity, and social responsibility. From these very classrooms and corridors emerged engineers, doctors, teachers, artists, and visionaries who have made their mark across the globe. Today, as we gather for our আড্ডাবাজি, we celebrate not just our reunion, but the enduring legacy of a school that taught us to dream, to achieve, and to never forget our roots."
+      }
+    },
     footer: {
       copyright: `© ${currentYear} আড্ডাবাজি Hub. All rights reserved.`,
       closing: "Looking forward to celebrating with you!"
@@ -356,6 +367,17 @@ export const content = {
         title: "মূল কমিটির সদস্যরা",
         members: ["যোগব্রত", "প্রদীপ", "রাতুল", "সুপ্রতিম", "তন্ময়"],
         description: "নিবেদিতপ্রাণ মূল কমিটি যারা একসাথে কাজ করে এই আড্ডাবাজি সবার জন্য স্মরণীয় করে তুলতে চায়"
+      }
+    },
+    heritage: {
+      title: "আমাদের ঐতিহ্য",
+      uttarpara: {
+        title: "উত্তরপাড়া - ঐতিহাসিক শহর",
+        description: "পবিত্র হুগলী নদীর তীরে অবস্থিত পশ্চিমবঙ্গের উত্তরপাড়া ১৮৫০ সালের মিউনিসিপাল অ্যাক্ট স্বেচ্ছায় গ্রহণকারী বাংলার দ্বিতীয় শহর হিসেবে বিশেষ মর্যাদার অধিকারী। ১৮৫৩ সালে বাবু জয়কৃষ্ণ মুখোপাধ্যায়ের দূরদর্শী চিন্তাভাবনার মাধ্যমে প্রতিষ্ঠিত এই প্রগতিশীল শহর ১৭০ বছরেরও বেশি সময় ধরে শিক্ষা, সংস্কৃতি ও ঐতিহ্যের আলোকবর্তিকা হয়ে আছে। পূর্বে গঙ্গার মাহাত্মপূর্ণ স্রোত এবং বংশপরম্পরায় সমৃদ্ধ সাংস্কৃতিক ঐতিহ্য নিয়ে উত্তরপাড়া আজও মেধাবী মানুষ গড়ে তুলতে এবং বাংলার সোনালি ঐতিহ্য রক্ষায় নিবেদিত।"
+      },
+      school: {
+        title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - যেখানে স্বপ্ন ডানা মেলে",
+        description: "আমাদের প্রিয় উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ শিক্ষার উৎকর্ষতা এবং সাংস্কৃতিক সমৃদ্ধির এক অনন্য নিদর্শন। কয়েক দশক ধরে এই প্রতিষ্ঠান অসংখ্য জীবন গড়েছে, কেবল একাডেমিক পারদর্শিতাই নয়, সততা, সৃজনশীলতা এবং সামাজিক দায়বদ্ধতার মূল্যবোধও শিখিয়েছে। এই ক্লাসরুম আর করিডোর থেকেই বেরিয়ে এসেছেন ইঞ্জিনিয়ার, ডাক্তার, শিক্ষক, শিল্পী এবং দূরদর্শী ব্যক্তিত্বরা যারা বিশ্বজুড়ে নিজেদের ছাপ রেখেছেন। আজ আমাদের আড্ডাবাজিতে মিলিত হয়ে আমরা কেবল পুনর্মিলনই উদযাপন করছি না, বরং সেই স্কুলের চিরন্তন উত্তরাধিকার উদযাপন করছি যা আমাদের স্বপ্ন দেখতে, সফল হতে এবং নিজেদের শেকড় কখনো না ভুলতে শিখিয়েছে।"
       }
     },
     footer: {
