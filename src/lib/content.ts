@@ -157,7 +157,7 @@ export const content = {
       addButton: "Add",
       addSuccessToastTitle: "Name Added!",
       addSuccessToastDescription: "has been added to the list.",
-      names: ["Tanmoy", "Basab", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata"]
+      names: ["Tanmoy", "Basab", "Ratul", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata", "Sudipta", "Shoban", "Arun", "Srikanta", "Amal", "Samir Mondal", "Subrata", "Sujay", "Samar", "Uttam", "Chiranjib", "Siddhartha", "Anirban", "Mridul", "Swarup", "Sanjay Banik", "Somnath"]
     },
     coreCommittee: {
       title: "Core Committee",
@@ -353,7 +353,7 @@ export const content = {
       addButton: "যোগ করুন",
       addSuccessToastTitle: "নাম যোগ করা হয়েছে!",
       addSuccessToastDescription: "তালিকায় যোগ করা হয়েছে।",
-      names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক"]
+      names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক", "সোমনাথ"]
     },
     coreCommittee: {
       title: "মূল কমিটি",
