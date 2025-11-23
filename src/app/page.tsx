@@ -2,6 +2,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { ReunionDetails } from "@/components/reunion-details";
 import { ConfirmedAttendees } from "@/components/confirmed-attendees";
 import { IcebreakerTool } from "@/components/icebreaker-tool";
@@ -11,7 +12,6 @@ import { ProgramSchedule } from "@/components/program-schedule";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Image from 'next/image';
 import { content } from '@/lib/content';
 import { Button } from '@/components/ui/button';
 import { RegistrationModal } from '@/components/registration-modal';
@@ -84,10 +84,19 @@ export default function HomePage() {
         {/* Hero Section */}
         <section id="hero" className="relative py-20 md:py-32 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 overflow-hidden">
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/amarendra1.jpg" 
+              alt="Uttarpara Amarendra Vidyapith School" 
+              fill
+              className="object-cover opacity-15 mix-blend-overlay"
+              priority
+            />
+          </div>
           <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-semibold bg-white/20 text-white border-white/30">
               <Star className="w-4 h-4 mr-2" />
-                {lang === 'en' ? 'Grand ADDABAJI 2025' : 'মহা ADDABAJI ২০২৫'}
+                {lang === 'en' ? 'Grand ADDABAJI 2025' : 'মহা আড্ডাবাজি ২০২৫'}
             </Badge>
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl mb-6">
               {c.hero.title}

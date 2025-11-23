@@ -158,18 +158,32 @@ export const content = {
       addSuccessToastDescription: "has been added to the list.",
       names: ["Tanmoy", "Basab", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata"]
     },
+    organizers: {
+      title: "Organizing Team",
+      description: "Meet the dedicated team making this আড্ডাবাজি possible",
+      teamLead: {
+        name: "Pradip Dey",
+        role: "Team Lead & Menu Scientist",
+        description: "Leading the organizing committee and curating our special agricultural menu experience"
+      },
+      coreTeam: {
+        title: "Core Team Members",
+        members: ["Yogabrata", "Pradip", "Ratul", "Supratim", "Tanmoy"],
+        description: "The dedicated core team working together to make this আড্ডাবাজি memorable for everyone"
+      }
+    },
     footer: {
-      copyright: `© ${currentYear} ADDABAJI Hub. All rights reserved.`,
+      copyright: `© ${currentYear} আড্ডাবাজি Hub. All rights reserved.`,
       closing: "Looking forward to celebrating with you!"
     }
   },
   bn: {
     meta: {
-      title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - ADDABAJI হাব",
-      description: "ADDABAJI-তে যোগ দিন"
+      title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - আড্ডাবাজি হাব",
+      description: "আড্ডাবাজি-তে যোগ দিন"
     },
     nav: {
-      title: "ADDABAJI কেন্দ্র",
+      title: "আড্ডাবাজি কেন্দ্র",
       register: "নিবন্ধন",
       details: "বিবরণ",
       program: "অনুসূচী", 
@@ -181,12 +195,12 @@ export const content = {
     },
     hero: {
       title: "স্বাগতম, উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের প্রাক্তনী!",
-      subtitle: "১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার সংযোগ স্থাপন করুন। আসুন স্মৃতিচারণ করি এবং আমাদের মহান স্কুল ADDABAJI-তে নতুন স্মৃতি তৈরি করি।",
+      subtitle: "১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার সংযোগ স্থাপন করুন। আসুন স্মৃতিচারণ করি এবং আমাদের মহান স্কুল আড্ডাবাজি-তে নতুন স্মৃতি তৈরি করি।",
       imageAlt: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ স্কুল ভবন"
     },
     reunionDetails: {
       cardTitle: "আপনাকে আমন্ত্রণ জানানো হচ্ছে!",
-      eventName: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা ADDABAJI (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
+      eventName: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা আড্ডাবাজি (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
       dateLabel: "তারিখ",
       date: "শনিবার, ৬ই ডিসেম্বর, ২০২৫",
       timeLabel: "সময়",
@@ -213,7 +227,7 @@ export const content = {
       ]
     },
     registrationForm: {
-      title: "ADDABAJI-র জন্য নিবন্ধন করুন",
+      title: "আড্ডাবাজি-র জন্য নিবন্ধন করুন",
       description: "আপনার উপস্থিতি নিশ্চিত করতে নীচের ফর্মটি পূরণ করুন। কিছু ক্ষেত্র শুধু মজার জন্য!",
       nameLabel: "নাম",
       presentAddressLabel: "বর্তমান ঠিকানা",
@@ -294,12 +308,12 @@ export const content = {
     },
     faq: {
       title: "সচরাচর জিজ্ঞাসিত প্রশ্ন",
-      description: "ADDABAJI সম্পর্কিত সাধারণ প্রশ্নের উত্তর খুঁজুন।",
+      description: "আড্ডাবাজি সম্পর্কিত সাধারণ প্রশ্নের উত্তর খুঁজুন।",
       faqs: [
         {
           id: "faq-1",
-          question: "ADDABAJI-র জন্য পোশাক বিধি কী?",
-          answer: "পোশাক বিধি হলো স্মার্ট ক্যাজুয়াল। আনন্দ এবং ADDABAJI-র একটি দিনের জন্য আরামদায়ক এবং স্টাইলিশভাবে পোশাক পরতে দ্বিধা করবেন না!"
+          question: "আড্ডাবাজি-র জন্য পোশাক বিধি কী?",
+          answer: "পোশাক বিধি হলো স্মার্ট ক্যাজুয়াল। আনন্দ এবং আড্ডাবাজি-র একটি দিনের জন্য আরামদায়ক এবং স্টাইলিশভাবে পোশাক পরতে দ্বিধা করবেন না!"
         },
         {
           id: "faq-2",
@@ -328,9 +342,23 @@ export const content = {
       addSuccessToastDescription: "তালিকায় যোগ করা হয়েছে।",
       names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক"]
     },
+    organizers: {
+      title: "আয়োজক দল",
+      description: "যারা এই ADDABAJI সম্ভব করে তুলেছেন তাদের সাথে পরিচয়",
+      teamLead: {
+        name: "প্রদীপ দে",
+        role: "দলনেতা ও মেনু বিজ্ঞানী", 
+        description: "আয়োজক কমিটির নেতৃত্ব দিচ্ছেন এবং আমাদের বিশেষ কৃষি মেনুর অভিজ্ঞতা তৈরি করছেন"
+      },
+      coreTeam: {
+        title: "মূল দলের সদস্যরা",
+        members: ["যোগব্রত", "প্রদীপ", "রাতুল", "সুপ্রতিম", "তন্ময়"],
+        description: "নিবেদিতপ্রাণ মূল দল যারা একসাথে কাজ করে এই ADDABAJI সবার জন্য স্মরণীয় করে তুলতে চায়"
+      }
+    },
     footer: {
       copyright: `© ${currentYear} ADDABAJI কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
       closing: "তোমাদের সাথে উদযাপন করার জন্য উন্মুখ!"
     }
-  }
+  },
 };

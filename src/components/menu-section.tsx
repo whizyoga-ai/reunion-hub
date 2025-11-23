@@ -3,6 +3,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Utensils } from "lucide-react";
+import Image from 'next/image';
 import { content } from '@/lib/content';
 
 interface MenuSectionProps {
@@ -27,9 +28,17 @@ export function MenuSection({ lang }: MenuSectionProps) {
   const c = content[lang].menuSection;
 
   return (
-    <section id="menu" className="py-16 sm:py-24 bg-muted/50">
-      <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        <Card className="shadow-xl rounded-lg">
+    <section id="menu" className="py-16 sm:py-24 bg-muted/50 relative">
+      <div className="absolute inset-0 opacity-5">
+        <Image 
+          src="/images/pradip-dey.jpg" 
+          alt="Menu Scientist" 
+          fill
+          className="object-cover grayscale"
+        />
+      </div>
+      <div className="container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <Card className="shadow-xl rounded-lg bg-white/95 backdrop-blur-sm">
           <CardHeader className="text-center p-8">
             <div className="mx-auto w-fit mb-4 text-primary">
               <Utensils size={40} strokeWidth={1.5} />
