@@ -3,11 +3,11 @@ const currentYear = new Date().getFullYear();
 export const content = {
   en: {
     meta: {
-      title: "Uttarpara Amarendra Vidyapith - Reunion Hub (1988 & 1990 Batches)",
-      description: "Join the reunion for the 1988 Madhyamik & 1990 HS batches of Uttarpara Amarendra Vidyapith."
+      title: "Uttarpara Amarendra Vidyapith - ADDABAJI Hub (1988 & 1990 Batches)",
+      description: "Join the ADDABAJI for the 1988 Madhyamik & 1990 HS batches of Uttarpara Amarendra Vidyapith."
     },
     nav: {
-      title: "Reunion Hub",
+      title: "ADDABAJI Hub",
       register: "Register",
       details: "Details", 
       program: "Program",
@@ -19,12 +19,12 @@ export const content = {
     },
     hero: {
       title: "Welcome, Alumni of Uttarpara Amarendra Vidyapith!",
-      subtitle: "Reconnect with friends from the 1988 Madhyamik and 1990 HS batches. Let's reminisce and make new memories at our grand school reunion.",
+      subtitle: "Reconnect with friends from the 1988 Madhyamik and 1990 HS batches. Let's reminisce and make new memories at our grand school ADDABAJI.",
       imageAlt: "Uttarpara Amarendra Vidyapith school building"
     },
     reunionDetails: {
       cardTitle: "You're Invited!",
-      eventName: "Uttarpara Amarendra Vidyapith - Grand Reunion (1988 Madhyamik & 1990 HS)",
+      eventName: "Uttarpara Amarendra Vidyapith - Grand ADDABAJI (1988 Madhyamik & 1990 HS)",
       dateLabel: "Date",
       date: "Saturday, 6th December, 2025",
       timeLabel: "Time", 
@@ -51,7 +51,7 @@ export const content = {
       ]
     },
     registrationForm: {
-      title: "Register for the Reunion",
+      title: "Register for the ADDABAJI",
       description: "Fill out the form below to confirm your attendance. Some fields are just for fun!",
       nameLabel: "Name",
       presentAddressLabel: "Present Address",
@@ -124,16 +124,16 @@ export const content = {
     },
     faq: {
       title: "Frequently Asked Questions",
-      description: "Find answers to common questions about the reunion.",
+      description: "Find answers to common questions about the ADDABAJI.",
       faqs: [
         {
           id: "faq-1",
-          question: "What is the dress code for the reunion?",
+          question: "What is the dress code for the ADDABAJI?",
           answer: "The dress code is smart casual. Feel free to dress comfortably and stylishly for a day of fun and reconnection!"
         },
         {
           id: "faq-2",
-          question: "Can I bring a guest to the reunion?",
+          question: "Can I bring a guest to the ADDABAJI?",
           answer: "Due to venue constraints and planning, registration is primarily for alumni. If you wish to bring a guest, please contact the organizers in advance to check for availability."
         },
         {
@@ -159,17 +159,17 @@ export const content = {
       names: ["Tanmoy", "Basab", "Sekharjit", "Supratim", "Chandan", "Biswaranjan", "Pradip", "Yogabrata"]
     },
     footer: {
-      copyright: `© ${currentYear} Reunion Hub. All rights reserved.`,
+      copyright: `© ${currentYear} ADDABAJI Hub. All rights reserved.`,
       closing: "Looking forward to celebrating with you!"
     }
   },
   bn: {
     meta: {
-      title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - পুনর্মিলন হাব",
-      description: "পুনর্মিলনে যোগ দিন"
+      title: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - ADDABAJI হাব",
+      description: "ADDABAJI-তে যোগ দিন"
     },
     nav: {
-      title: "পুনর্মিলন কেন্দ্র",
+      title: "ADDABAJI কেন্দ্র",
       register: "নিবন্ধন",
       details: "বিবরণ",
       program: "অনুসূচী", 
@@ -181,12 +181,12 @@ export const content = {
     },
     hero: {
       title: "স্বাগতম, উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের প্রাক্তনী!",
-      subtitle: "১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার সংযোগ স্থাপন করুন। আসুন স্মৃতিচারণ করি এবং আমাদের মহান স্কুল পুনর্মিলনে নতুন স্মৃতি তৈরি করি।",
+      subtitle: "১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার সংযোগ স্থাপন করুন। আসুন স্মৃতিচারণ করি এবং আমাদের মহান স্কুল ADDABAJI-তে নতুন স্মৃতি তৈরি করি।",
       imageAlt: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ স্কুল ভবন"
     },
     reunionDetails: {
       cardTitle: "আপনাকে আমন্ত্রণ জানানো হচ্ছে!",
-      eventName: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা পুনর্মিলন (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
+      eventName: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ - মহা ADDABAJI (১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক)",
       dateLabel: "তারিখ",
       date: "শনিবার, ৬ই ডিসেম্বর, ২০২৫",
       timeLabel: "সময়",
@@ -213,7 +213,7 @@ export const content = {
       ]
     },
     registrationForm: {
-      title: "পুনর্মিলনের জন্য নিবন্ধন করুন",
+      title: "ADDABAJI-র জন্য নিবন্ধন করুন",
       description: "আপনার উপস্থিতি নিশ্চিত করতে নীচের ফর্মটি পূরণ করুন। কিছু ক্ষেত্র শুধু মজার জন্য!",
       nameLabel: "নাম",
       presentAddressLabel: "বর্তমান ঠিকানা",
@@ -294,17 +294,17 @@ export const content = {
     },
     faq: {
       title: "সচরাচর জিজ্ঞাসিত প্রশ্ন",
-      description: "পুনর্মিলন সম্পর্কিত সাধারণ প্রশ্নের উত্তর খুঁজুন।",
+      description: "ADDABAJI সম্পর্কিত সাধারণ প্রশ্নের উত্তর খুঁজুন।",
       faqs: [
         {
           id: "faq-1",
-          question: "পুনর্মিলনের জন্য পোশাক বিধি কী?",
-          answer: "পোশাক বিধি হলো স্মার্ট ক্যাজুয়াল। আনন্দ এবং পুনর্মিলনের একটি দিনের জন্য আরামদায়ক এবং স্টাইলিশভাবে পোশাক পরতে দ্বিধা করবেন না!"
+          question: "ADDABAJI-র জন্য পোশাক বিধি কী?",
+          answer: "পোশাক বিধি হলো স্মার্ট ক্যাজুয়াল। আনন্দ এবং ADDABAJI-র একটি দিনের জন্য আরামদায়ক এবং স্টাইলিশভাবে পোশাক পরতে দ্বিধা করবেন না!"
         },
         {
           id: "faq-2",
-          question: "আমি কি পুনর্মিলনীতে অতিথি আনতে পারি?",
-          answer: "স্থানের সীমাবদ্ধতা এবং পরিকল্পনার কারণে, নিবন্ধন প্রাথমিকভাবে প্রাক্তন ছাত্রছাত্রীদের জন্য। আপনি যদি একজন অতিথি আনতে চান, অনুগ্রহ করে উপলব্ধতা পরীক্ষা করতে আগাম সংগঠকদের সাথে যোগাযোগ করুন।"
+          question: "আমি কি ADDABAJI-তে অতিথি আনতে পারি?",
+          answer: "স্থানের সীমাবদ্ধতা এবং পরিকল্পনার কারণে, নিবন্ধন প্রাথমিকভাবে প্রাক্তনীদের জন্য। আপনি যদি একজন অতিথি আনতে চান, অনুগ্রহ করে উপলব্ধতা পরীক্ষা করতে আগাম সংগঠকদের সাথে যোগাযোগ করুন।"
         },
         {
           id: "faq-3",
@@ -329,7 +329,7 @@ export const content = {
       names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক"]
     },
     footer: {
-      copyright: `© ${currentYear} পুনর্মিলন কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
+      copyright: `© ${currentYear} ADDABAJI কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
       closing: "তোমাদের সাথে উদযাপন করার জন্য উন্মুখ!"
     }
   }

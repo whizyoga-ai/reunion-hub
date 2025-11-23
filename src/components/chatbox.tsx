@@ -28,8 +28,8 @@ export function Chatbox({ lang }: ChatboxProps) {
     venue: {
       keywords: ['venue', 'location', 'where', 'কোথায়', 'স্থান', 'ঠিকানা'],
       response: lang === 'en' 
-        ? "📍 The reunion will be held at Bhorer Alo Community Hall, Uttarpara, West Bengal, India. It's easily accessible and has good parking facilities."
-        : "📍 পুনর্মিলনী অনুষ্ঠিত হবে ভোরের আলো কমিউনিটি হল, উত্তরপাড়া, পশ্চিমবঙ্গ, ভারতে। এটি সহজেই পৌঁছানো যায় এবং ভাল পার্কিং সুবিধা রয়েছে।"
+        ? "📍 The ADDABAJI will be held at Bhorer Alo Community Hall, Uttarpara, West Bengal, India. It's easily accessible and has good parking facilities."
+        : "📍 ADDABAJI অনুষ্ঠিত হবে ভোরের আলো কমিউনিটি হল, উত্তরপাড়া, পশ্চিমবঙ্গ, ভারতে। এটি সহজেই পৌঁছানো যায় এবং ভাল পার্কিং সুবিধা রয়েছে।"
     },
     attendees: {
       keywords: ['who', 'attendees', 'coming', 'list', 'কে', 'কারা', 'আসছে', 'তালিকা'],
@@ -40,8 +40,8 @@ export function Chatbox({ lang }: ChatboxProps) {
     time: {
       keywords: ['time', 'when', 'schedule', 'কখন', 'সময়', 'সূচি'],
       response: lang === 'en'
-        ? "🕘 The reunion is on Saturday, December 6th, 2025, from 9:00 AM to 9:00 PM. Full day of activities including breakfast, lunch, performances, and dinner!"
-        : "🕘 পুনর্মিলন শনিবার, ৬ই ডিসেম্বর, ২০২৫, সকাল ৯:০০ থেকে রাত ৯:০০ পর্যন্ত। সারাদিনের কার্যকলাপ যার মধ্যে রয়েছে প্রাতঃরাশ, দুপুরের খাবার, পারফরম্যান্স এবং রাতের খাবার!"
+        ? "🕘 The ADDABAJI is on Saturday, December 6th, 2025, from 9:00 AM to 9:00 PM. Full day of activities including breakfast, lunch, performances, and dinner!"
+        : "🕘 ADDABAJI শনিবার, ৬ই ডিসেম্বর, ২০২৫, সকাল ৯:০০ থেকে রাত ৯:০০ পর্যন্ত। সারাদিনের কার্যকলাপ যার মধ্যে রয়েছে প্রাতঃরাশ, দুপুরের খাবার, পারফরম্যান্স এবং রাতের খাবার!"
     },
     contact: {
       keywords: ['contact', 'phone', 'organizer', 'যোগাযোগ', 'ফোন', 'সংগঠক'],
@@ -73,8 +73,8 @@ export function Chatbox({ lang }: ChatboxProps) {
     }
     
     return lang === 'en'
-      ? "I'm here to help with information about the Uttarpara Amarendra Vidyapith reunion! Ask me about the venue, attendees, timing, food, or contact details."
-      : "আমি উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের পুনর্মিলন সম্পর্কে তথ্য দিতে এখানে আছি! আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা যোগাযোগের বিবরণ সম্পর্কে জিজ্ঞাসা করুন।";
+      ? "I'm here to help with information about the Uttarpara Amarendra Vidyapith ADDABAJI! Ask me about the venue, attendees, timing, food, or contact details."
+      : "আমি উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের ADDABAJI সম্পর্কে তথ্য দিতে এখানে আছি! আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা যোগাযোগের বিবরণ সম্পর্কে জিজ্ঞাসা করুন।";
   };
 
   const handleSendMessage = () => {
@@ -110,8 +110,8 @@ export function Chatbox({ lang }: ChatboxProps) {
         id: 0,
         type: 'bot',
         content: lang === 'en'
-          ? "👋 Welcome! I'm here to help with reunion information. Ask me about venue, attendees, timing, food, or anything else!"
-          : "👋 স্বাগতম! আমি পুনর্মিলনের তথ্য দিতে এখানে আছি। আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা অন্য কিছু সম্পর্কে জিজ্ঞাসা করুন!",
+          ? "👋 Welcome! I'm here to help with ADDABAJI information. Ask me about venue, attendees, timing, food, or anything else!"
+          : "👋 স্বাগতম! আমি ADDABAJI-র তথ্য দিতে এখানে আছি। আমাকে স্থান, উপস্থিতি, সময়, খাবার, বা অন্য কিছু সম্পর্কে জিজ্ঞাসা করুন!",
         timestamp: new Date()
       };
       setMessages([welcomeMessage]);
@@ -139,7 +139,7 @@ export function Chatbox({ lang }: ChatboxProps) {
           <CardTitle className="flex items-center justify-between text-lg">
             <div className="flex items-center gap-2">
               <Bot className="h-5 w-5 text-blue-600" />
-              <span>{lang === 'en' ? 'Reunion Assistant' : 'পুনর্মিলন সহায়ক'}</span>
+              <span>{lang === 'en' ? 'ADDABAJI Assistant' : 'ADDABAJI সহায়ক'}</span>
             </div>
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(false)}>
               ✕
@@ -176,7 +176,7 @@ export function Chatbox({ lang }: ChatboxProps) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder={lang === 'en' ? 'Ask about the reunion...' : 'পুনর্মিলন সম্পর্কে জিজ্ঞাসা করুন...'}
+                placeholder={lang === 'en' ? 'Ask about the ADDABAJI...' : 'ADDABAJI সম্পর্কে জিজ্ঞাসা করুন...'}
                 className="flex-1"
               />
               <Button onClick={handleSendMessage} size="sm" className="bg-blue-600 hover:bg-blue-700">
