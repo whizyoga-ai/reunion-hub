@@ -28,7 +28,7 @@ export const content = {
       dateLabel: "Date",
       date: "Saturday, 6th December, 2025",
       timeLabel: "Time", 
-      time: "10:00 AM - 9:00 PM",
+      time: "9:00 AM - 9:00 PM",
       venueLabel: "Venue",
       venue: "Bhorer Alo Community Hall, Uttarpara, West Bengal, India"
     },
@@ -144,7 +144,7 @@ export const content = {
         {
           id: "faq-4",
           question: "Will food and beverages be provided?",
-          answer: "Yes! A variety of delicious food and refreshing beverages will be provided throughout the event from 10 AM to 9 PM. We will have options to cater to different tastes."
+          answer: "Yes! A variety of delicious food and refreshing beverages will be provided throughout the event from 9 AM to 9 PM. We will have options to cater to different tastes."
         }
       ]
     },
@@ -180,7 +180,7 @@ export const content = {
       translate: "English"
     },
     hero: {
-      title: "স্বাগতম, উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের প্রাক্তন ছাত্র-ছাত্রীরা!",
+      title: "স্বাগতম, উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠের প্রাক্তনী!",
       subtitle: "১৯৮৮ মাধ্যমিক ও ১৯৯০ উচ্চ মাধ্যমিক ব্যাচের বন্ধুদের সাথে আবার সংযোগ স্থাপন করুন। আসুন স্মৃতিচারণ করি এবং আমাদের মহান স্কুল পুনর্মিলনে নতুন স্মৃতি তৈরি করি।",
       imageAlt: "উত্তরপাড়া অমরেন্দ্র বিদ্যাপীঠ স্কুল ভবন"
     },
@@ -190,7 +190,7 @@ export const content = {
       dateLabel: "তারিখ",
       date: "শনিবার, ৬ই ডিসেম্বর, ২০২৫",
       timeLabel: "সময়",
-      time: "সকাল ১০:০০ - রাত ৯:০০",
+      time: "সকাল ৯:০০ - রাত ৯:০০",
       venueLabel: "স্থান",
       venue: "ভোরের আলো কমিউনিটি হল, উত্তরপাড়া, পশ্চিমবঙ্গ, ভারত"
     },
@@ -305,7 +305,7 @@ export const content = {
         {
           id: "faq-4",
           question: "খাবার ও পানীয় কি সরবরাহ করা হবে?",
-          answer: "হ্যাঁ! সকাল ১০টা থেকে রাত ৯টা পর্যন্ত অনুষ্ঠান জুড়ে বিভিন্ন ধরনের সুস্বাদু খাবার এবং সতেজ পানীয় সরবরাহ করা হবে। আমাদের বিভিন্ন স্বাদের জন্য বিকল্প থাকবে।"
+          answer: "হ্যাঁ! সকাল ৯টা থেকে রাত ৯টা পর্যন্ত অনুষ্ঠান জুড়ে বিভিন্ন ধরনের সুস্বাদু খাবার এবং সতেজ পানীয় সরবরাহ করা হবে। আমাদের বিভিন্ন স্বাদের জন্য বিকল্প থাকবে।"
         }
       ]
     },
@@ -317,7 +317,7 @@ export const content = {
       addButton: "যোগ করুন",
       addSuccessToastTitle: "নাম যোগ করা হয়েছে!",
       addSuccessToastDescription: "তালিকায় যোগ করা হয়েছে।",
-      names: ["তন্ময়", "বাসব", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত"]
+      names: ["তন্ময়", "বাসব", "রাতুল", "শেখরজিৎ", "সুপ্রতিম", "চন্দন", "বিশ্বরঞ্জন", "প্রদীপ", "যোগব্রত", "সুদীপ্ত", "শোভন", "অরুণ", "শ্রীকান্ত", "অমল", "সমীর মন্ডল", "সুব্রত", "সুজয়", "সমর", "উত্তম", "চিরঞ্জীব", "সিদ্ধার্থ", "অনির্বাণ", "মৃদুল", "স্বরূপ", "সঞ্জয় বণিক"]
     },
     footer: {
       copyright: `© ${currentYear} পুনর্মিলন কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,
