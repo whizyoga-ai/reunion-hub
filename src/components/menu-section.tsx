@@ -74,7 +74,7 @@ export function MenuSection({ lang }: MenuSectionProps) {
               />
             </div>
             <span className="absolute -top-3 -right-2 text-3xl drop-shadow-lg">👨‍🍳</span>
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-bold shadow-lg">
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-sm px-3 py-1 rounded-full font-bold shadow-lg">
               Menu Scientist
             </div>
           </div>
