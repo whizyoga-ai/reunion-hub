@@ -201,6 +201,66 @@ export const content = {
       comingSoon: "Coming Soon!",
       uploadInfo: "Photo upload functionality will be available during and after the reunion event."
     },
+    alumniSpotlight: {
+      title: "Alumni Spotlight",
+      subtitle: "Where Our Classmates Shine Today",
+      description: "Celebrating the incredible journeys and achievements of our beloved batch mates around the world.",
+      viewProfile: "View Profile",
+      visitWebsite: "Visit Website",
+      achievements: [
+        {
+          name: "Ratul",
+          profession: "Content Creator & YouTuber",
+          company: "WINDMILL Channel",
+          description: "Creating engaging content and building a community through innovative video storytelling.",
+          website: "https://www.youtube.com/@WINDMILL-w9g",
+          icon: "youtube",
+          color: "red",
+          achievement: "Growing YouTube presence with creative content"
+        },
+        {
+          name: "Shovan",
+          profession: "Healthcare Administrator",
+          company: "MS Hospital & Educational Trust",
+          description: "Leading healthcare initiatives and making quality medical care accessible to communities.",
+          website: "https://www.mshet.org.in/",
+          icon: "hospital",
+          color: "blue",
+          achievement: "Transforming healthcare accessibility"
+        },
+        {
+          name: "Chandan Goswami",
+          profession: "Cinematographer & Faculty",
+          company: "SRFTI & Film Industry",
+          description: "Capturing stories through the lens and nurturing the next generation of filmmakers.",
+          website: "https://www.imdb.com/name/nm1209824/",
+          website2: "https://srfti.ac.in/faculty/chandan-goswami/",
+          icon: "camera",
+          color: "purple",
+          achievement: "Award-winning cinematography & film education"
+        },
+        {
+          name: "Dr. Sudipta Kar",
+          profession: "Dental Surgeon",
+          company: "Private Practice, Kotrung",
+          description: "Providing exceptional dental care and bringing smiles to countless patients.",
+          website: "https://www.justdial.com/Hooghly/Dr-Sudipta-Kar-Kotrung/9999PXX33-XX33-220704234220-K1H2_BZDET",
+          icon: "tooth",
+          color: "green",
+          achievement: "Excellence in dental healthcare"
+        },
+        {
+          name: "Dr. Anirban Mukherjee",
+          profession: "Professor & Researcher",
+          company: "RCCIIT",
+          description: "Advancing knowledge through research and inspiring students in engineering excellence.",
+          website: "https://sites.google.com/view/anirbanmukherjeercciit/home",
+          icon: "graduation",
+          color: "indigo",
+          achievement: "Leading research & academic excellence"
+        }
+      ]
+    },
     footer: {
       copyright: `© ${currentYear} ADDABAJI Center. All rights reserved.`,
       closing: "Looking forward to celebrating with you!"
@@ -413,6 +473,66 @@ export const content = {
       description: "আমাদের আড্ডাবাজি এবং ভাগ করা স্মৃতির ছবি ও ভিডিওর সংগ্রহ।",
       comingSoon: "শীঘ্রই আসছে!",
       uploadInfo: "আড্ডাবাজির সময় এবং পরে ছবি আপলোডের সুবিধা পাওয়া যাবে।"
+    },
+    alumniSpotlight: {
+      title: "প্রাক্তনীদের কৃতিত্ব",
+      subtitle: "আজ আমাদের সহপাঠীরা যেখানে উজ্জ্বল",
+      description: "বিশ্বজুড়ে আমাদের প্রিয় ব্যাচমেটদের অবিশ্বাস্য যাত্রা এবং অর্জন উদযাপন।",
+      viewProfile: "প্রোফাইল দেখুন",
+      visitWebsite: "ওয়েবসাইট ভিজিট করুন",
+      achievements: [
+        {
+          name: "রাতুল",
+          profession: "কন্টেন্ট ক্রিয়েটর ও ইউটিউবার",
+          company: "উইন্ডমিল চ্যানেল",
+          description: "উদ্ভাবনী ভিডিও গল্প বলার মাধ্যমে আকর্ষণীয় কন্টেন্ট তৈরি এবং কমিউনিটি গড়ে তোলা।",
+          website: "https://www.youtube.com/@WINDMILL-w9g",
+          icon: "youtube",
+          color: "red",
+          achievement: "সৃজনশীল কন্টেন্টের মাধ্যমে ইউটিউব উপস্থিতি বৃদ্ধি"
+        },
+        {
+          name: "শোভন",
+          profession: "স্বাস্থ্যসেবা প্রশাসক",
+          company: "এমএস হাসপাতাল ও শিক্ষা ট্রাস্ট",
+          description: "স্বাস্থ্যসেবা উদ্যোগের নেতৃত্ব এবং সম্প্রদায়ের জন্য মানসম্পন্ন চিকিৎসা সেবা সহজলভ্য করা।",
+          website: "https://www.mshet.org.in/",
+          icon: "hospital",
+          color: "blue",
+          achievement: "স্বাস্থ্যসেবার সহজলভ্যতা রূপান্তর"
+        },
+        {
+          name: "চন্দন গোস্বামী",
+          profession: "চলচ্চিত্রগ্রাহক ও অধ্যাপক",
+          company: "SRFTI ও চলচ্চিত্র ইন্ডাস্ট্রি",
+          description: "লেন্সের মাধ্যমে গল্প ক্যাপচার এবং পরবর্তী প্রজন্মের চলচ্চিত্রকারদের লালন।",
+          website: "https://www.imdb.com/name/nm1209824/",
+          website2: "https://srfti.ac.in/faculty/chandan-goswami/",
+          icon: "camera",
+          color: "purple",
+          achievement: "পুরস্কারপ্রাপ্ত চলচ্চিত্রগ্রহণ ও চলচ্চিত্র শিক্ষা"
+        },
+        {
+          name: "ডাঃ সুদীপ্ত কর",
+          profession: "দন্ত চিকিৎসক",
+          company: "প্রাইভেট প্র্যাকটিস, কোতরং",
+          description: "ব্যতিক্রমী দাঁতের যত্ন প্রদান এবং অগণিত রোগীর মুখে হাসি ফোটানো।",
+          website: "https://www.justdial.com/Hooghly/Dr-Sudipta-Kar-Kotrung/9999PXX33-XX33-220704234220-K1H2_BZDET",
+          icon: "tooth",
+          color: "green",
+          achievement: "দন্ত স্বাস্থ্যসেবায় উৎকর্ষতা"
+        },
+        {
+          name: "ডাঃ অনির্বাণ মুখার্জী",
+          profession: "অধ্যাপক ও গবেষক",
+          company: "RCCIIT",
+          description: "গবেষণার মাধ্যমে জ্ঞান অগ্রসর করা এবং ইঞ্জিনিয়ারিং শ্রেষ্ঠত্বে ছাত্রদের অনুপ্রেরণা।",
+          website: "https://sites.google.com/view/anirbanmukherjeercciit/home",
+          icon: "graduation",
+          color: "indigo",
+          achievement: "শীর্ষস্থানীয় গবেষণা ও একাডেমিক শ্রেষ্ঠত্ব"
+        }
+      ]
     },
     footer: {
       copyright: `© ${currentYear} ADDABAJI কেন্দ্র। সর্বস্বত্ব সংরক্ষিত।`,

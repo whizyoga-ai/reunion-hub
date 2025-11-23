@@ -19,7 +19,8 @@ import { Chatbox } from '@/components/chatbox';
 import { HeritageSection } from '@/components/heritage-section';
 import IdeaBox from '@/components/idea-box';
 import MediaGallery from '@/components/media-gallery';
-import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star, Lightbulb, Images } from 'lucide-react';
+import AlumniSpotlight from '@/components/alumni-spotlight';
+import { GraduationCap, MapPin, Calendar, Clock, Users, Utensils, Music, Heart, Star, Lightbulb, Images, Award } from 'lucide-react';
 
 export default function HomePage() {
   const [lang, setLang] = React.useState<'en' | 'bn'>('bn');
@@ -65,6 +66,13 @@ export default function HomePage() {
       value: lang === 'en' ? 'Media Gallery' : 'মিডিয়া গ্যালারি',
       color: 'text-purple-600',
       href: '#gallery'
+    },
+    {
+      icon: Award,
+      title: lang === 'en' ? 'Alumni' : 'প্রাক্তনী',
+      value: lang === 'en' ? 'Success Stories' : 'সাফল্যের গল্প',
+      color: 'text-orange-600',
+      href: '#alumni'
     },
     {
       icon: Users,
@@ -337,6 +345,11 @@ export default function HomePage() {
 
       {/* Heritage Section */}
       <HeritageSection lang={lang} />
+      
+      {/* Alumni Spotlight Section */}
+      <section id="alumni" className="py-16 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+        <AlumniSpotlight language={lang} />
+      </section>
       
       {/* Idea Box Section */}
       <section id="ideas" className="py-16 bg-gradient-to-br from-amber-50 to-orange-50">
