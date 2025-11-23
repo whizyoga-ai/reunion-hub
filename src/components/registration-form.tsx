@@ -11,6 +11,8 @@ import { useState } from 'react';
 import { content } from '@/lib/content';
 import { useToast } from "@/hooks/use-toast";
 
+// Force refresh - Build: 2025-11-23
+
 interface RegistrationFormProps {
   lang: 'en' | 'bn';
 }
