@@ -114,7 +114,7 @@ export function RegistrationForm({ lang }: RegistrationFormProps) {
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
               {/* Profile Photo Upload */}
               <div className="space-y-2 md:col-span-2 flex flex-col items-center">
-                <Label className="text-center">Profile Photo</Label>
+                <Label className="text-center">{c.profilePhotoLabel}</Label>
                 <div className="relative">
                   {profileImage ? (
                     <img 

@@ -69,6 +69,7 @@ export const content = {
       wardsUnofficialLabel: "No. of ward (unofficial)",
       testosteroneLabel: "Level of testosterone",
       remarksLabel: "Remarks",
+      profilePhotoLabel: "Profile Photo",
       submitButton: "Register Now"
     },
     menuSection: {
@@ -334,6 +335,7 @@ export const content = {
       wardsUnofficialLabel: "সন্তানের সংখ্যা (অনানুষ্ঠানিক)",
       testosteroneLabel: "টেস্টোস্টেরনের মাত্রা",
       remarksLabel: "মন্তব্য",
+      profilePhotoLabel: "প্রোফাইল ছবি",
       submitButton: "এখন নিবন্ধন করুন"
     },
     menuSection: {
