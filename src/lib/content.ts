@@ -74,7 +74,7 @@ export const content = {
         description: "Shh! The menu is a delicious secret. Come hungry, leave happy! 🍴✨
         breakfast: {
             title: "BREAKFAST",
-                items: [
+               "What\'s Cooking? 🤔 It\'s a Surprise!",
         "Life is uncertain. Eat dessert first... but wait, this is breakfast! 🤔",
         "সকালে খেয়ে দিন ভালো হয়, কিন্তু কী খাবেন? এটাই সারপ্রাইজ! 😄",
         "Breakfast: Because adulting is hard without coffee... or is it tea? ☕"
